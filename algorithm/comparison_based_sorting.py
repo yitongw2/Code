@@ -1,4 +1,4 @@
-import random
+// Comparison-based sorting
 
 def insertionSort(lis):
 	for i in range(len(lis)):
@@ -10,6 +10,7 @@ def insertionSort(lis):
 				lis[j]=temp
 				k=j		
 
+				
 def selectionSort(lis):
 	for x in reversed(range(len(lis))):
 		ma=x
@@ -20,6 +21,7 @@ def selectionSort(lis):
 		lis[ma]=lis[x]
 		lis[x]=temp
 
+		
 def treeSort(lis):
 	"not in-place"
 	return lis
@@ -28,9 +30,10 @@ def heapSort(lis):
 	"not in-place"
 	return lis
 
+
 def quickSort(lis,low,high):
 	if high-low<1:
-		pass
+		return
 	else:
 		pivot=lis[high]
 		i=0
@@ -77,7 +80,7 @@ def mergeSort(lis):  # how many recursive calls = 1+2+4+...+n
 				pass
 		#----------------merge-----------------
 		return emp
-
+"""
 def bucketSort(lis):
 	if len(lis)<2:
 		return lis
@@ -97,11 +100,7 @@ def bucketSort(lis):
 	return result
 		
 	
-		
 	
-			
-
-'''
 
 if __name__=="__main__":
 	for y in range(100):
