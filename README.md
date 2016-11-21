@@ -1,5 +1,5 @@
 # Code
-A library of some interesting algorithms, data structure implementation or just random stuff learnt in/out of school
+A library of some interesting algorithms, data structure implementations or just random stuff learnt in/out of school
 
 # Algorithm 
 
