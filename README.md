@@ -3,6 +3,12 @@ A library of some interesting algorithms, data structure implementation or just 
 
 # Algorithm 
 
+* Comparison-based sorting
+  - Priority-queue sort
+    * idea: to push all elements into a priority queue ranked by their keys and pop from the priority queue.
+    * implementation determines the time complexity as well as memory usage
+    
+   
 
 # Data structure
 
