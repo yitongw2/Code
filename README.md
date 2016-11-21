@@ -15,7 +15,7 @@ A library of some interesting algorithms, data structure implementation or just 
   - example. l = [2, 1, 5, 4, 9], tartget = 9
              expected output [2, 3]
   
-  Solution 1 :
+  Solution 1:
   
     1, use a hash table to hash all values in the array
     
@@ -37,5 +37,6 @@ A library of some interesting algorithms, data structure implementation or just 
     
     O(n) for hash table (depending on implmentation)
     
+    Code: https://github.com/yitongw2/Code/blob/master/solutions/twoSum.java
                   
                       
