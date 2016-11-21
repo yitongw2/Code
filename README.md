@@ -15,8 +15,27 @@ A library of some interesting algorithms, data structure implementation or just 
   - example. l = [2, 1, 5, 4, 9], tartget = 9
              expected output [2, 3]
   
-  Solution 1 (in Java):
+  Solution 1 :
+  
     1, use a hash table to hash all values in the array
+    
     2, looping through the array from 0 to length of the array-1
+    
     3, for each loop, find the target-array[i] in hash table
+    
     4, if found during the loop, return the pair; otherwise, such pair doesn't exist.
+    
+    Time complexity: 
+    
+    O(n) for putting n elements in to hash table
+    
+    O(n) at most for looping the array, each lookUp operation takes O(1) time.
+    
+    total = O(n) 
+    
+    Memory usage: 
+    
+    O(n) for hash table (depending on implmentation)
+    
+                  
+                      
