@@ -4,6 +4,14 @@ class Heap:
 		self.heapify(array, 1)
 	
 	def heapify(self, arr, index):
+		"""
+			heapify: turn an array into a heap
+			base case: extrnal nodes in the tree (in array, index > length of the array) 
+			recursive case: split tree into left subtree and right subtree and rotate the tree if necessary
+			time complexity: O(n) (for all n elements in the array)
+						+
+					 O(n) (at most O(n) rotations)
+		"""
 		if index>len(arr):
 			return
 		else:
