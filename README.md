@@ -92,8 +92,7 @@ A library of some interesting algorithms, data structure implementations or just
 
 * Matrix determinant
   - given a n x n matrix, calculate its determinant 
-  - for 2 x 2 matrix, [a, b]  simply calculate a*d-b*c
-                      [c, d]
+  - for 2 x 2 matrix, [[a, b], [c, d]]  simply calculate a*d-b*c
   - for n x n matrix, use cofactors and mirrors of the matrix to break it down to the sum of cofactor * det(submatrix)
   - more details on how to obtain the determinant for n x n matrix (n>2): https://people.richland.edu/james/lecture/m116/matrices/determinant.html
   - assume that each row of the given matrix is in the same size
