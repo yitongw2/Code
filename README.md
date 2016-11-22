@@ -3,10 +3,43 @@ A library of some interesting algorithms, data structure implementations or just
 
 # Algorithm 
 
-* Comparison-based sorting
-  - Priority-queue sort
+* Comparison-based sort 
+  * Priority-queue sort
     * idea: to push all elements into a priority queue ranked by their keys and pop from the priority queue.
+    * pseudo code: 
+      
+      Given a collection C of n items to be sorted and a priority queue Q,
+      
+          for i <-- 0 to n do
+      
+              Q.insert(C[i])
+        
+          for i <-- 0 to n do
+      
+              C[i] <-- Q.removeMin()
+        
     * implementation determines the time complexity as well as memory usage
+ 
+ 
+    Insertion sort
+    - given a collection of n items A to be sorted
+    - implement priority queue as a sorted list 
+    - removeMin() takes O(1) time
+    - insert() takes O(n) time
+    - time complexity:
+      worst case: O(n^2)
+      best case: O(n) (already sorted)
+    - can be implemented as in-place sorting by keeping the sorted region at the start of the collection and
+      gradually expands toward the unsorted area until the whole list is sorted
+    - Python code: https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py
+    
+    Selection sort 
+    - given a collection of n items A to be sorted
+    - implement priority queue as a unsorted list
+    - insert() takes O(1)
+    
+    
+      
     
    
 
