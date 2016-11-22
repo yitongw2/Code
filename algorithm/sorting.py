@@ -80,7 +80,7 @@ def mergeSort(lis):  # how many recursive calls = 1+2+4+...+n
 				pass
 		#----------------merge-----------------
 		return emp
-"""
+
 def bucketSort(lis):
 	if len(lis)<2:
 		return lis
@@ -99,4 +99,3 @@ def bucketSort(lis):
 		inde+=1	
 	return result
 		
-'''
