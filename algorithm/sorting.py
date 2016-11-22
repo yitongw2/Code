@@ -99,13 +99,4 @@ def bucketSort(lis):
 		inde+=1	
 	return result
 		
-	
-	
-
-if __name__=="__main__":
-	for y in range(100):
-		test_lis=[random.randint(0,100) for x in range(50)]
-		sl=sorted(test_lis)
-		quickSort(test_lis,0,len(test_lis)-1)
-		print (sl==test_lis)
 '''
