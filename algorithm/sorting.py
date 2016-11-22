@@ -81,6 +81,8 @@ def mergeSort(lis):  # how many recursive calls = 1+2+4+...+n
 		#----------------merge-----------------
 		return emp
 
+	
+# integer sorting
 def bucketSort(lis):
 	if len(lis)<2:
 		return lis
