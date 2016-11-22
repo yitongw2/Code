@@ -1,6 +1,10 @@
 
 
 def extractSubMatrix(matrix, col):
+	"""
+	extract a sub matrix both row and column reduced by one.
+	column to be ignore is specified as col
+	"""
 	subMatrix=[]
 	for i in range(1, len(matrix)):
 		subMatrix.append([matrix[i][j] for j in range(len(matrix[i]))\
@@ -13,6 +17,7 @@ def extractSubMatrix(matrix, col):
 def getDeterminants(matrix):
 	"""
 	recursive algorithm to calculate the determinant of a matix.
+	assume that matrix rows are all in the same size
 	base case: 2X2 matrix 
 		   e.g.  [a, b] -->
 			 [c, d] --> formula = a*d-b*c

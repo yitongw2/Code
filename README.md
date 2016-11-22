@@ -84,5 +84,22 @@ A library of some interesting algorithms, data structure implementations or just
     O(n) for hash table (depending on implmentation)
     
     Code: https://github.com/yitongw2/Code/blob/master/solutions/twoSum.java
-                  
-                      
+              
+              
+              
+              
+ 
+
+* Matrix determinant
+  - given a n x n matrix, calculate its determinant 
+  - for 2 x 2 matrix, [[a, b], [c, d]]  simply calculate a*d-b*c
+  - for n x n matrix, use cofactors and mirrors of the matrix to break it down to the sum of cofactor * det(submatrix)
+  - more details on how to obtain the determinant for n x n matrix (n>2): https://people.richland.edu/james/lecture/m116/matrices/determinant.html
+  - assume that each row of the given matrix is in the same size
+  - recursive function {base case : 2x2 matrix}
+                       {recurrence : cofactor1*det(submatrix1)+...cofactork*det(submatrixk)}
+  - Code: https://github.com/yitongw2/Code/blob/master/algorithm/matrix_determinant.py
+  
+  
+  
+  
