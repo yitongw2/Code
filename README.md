@@ -27,7 +27,9 @@ A library of some interesting algorithms, data structure implementations or just
     - removeMin() takes O(1) time
     - insert() takes O(n) time
     - time complexity:
+    
       worst case: O(n^2)
+      
       best case: O(n) (already sorted)
     - can be implemented as in-place sorting by keeping the sorted region at the start of the collection and
       gradually expands toward the unsorted area until the whole list is sorted
@@ -36,7 +38,12 @@ A library of some interesting algorithms, data structure implementations or just
     Selection sort 
     - given a collection of n items A to be sorted
     - implement priority queue as a unsorted list
-    - insert() takes O(1)
+    - insert() takes O(1) (simply add the key to the end of list)
+    - removeMin() takes O(n) (loop through the while list for the minimum)
+    - time complexity: O(n^2) (sorted or not)
+    - can can implemented as in-place sorting by swapping the smallest key found so far with the key at the beginning
+    - Python code: https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py
+    
     
     
       
