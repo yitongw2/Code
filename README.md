@@ -27,10 +27,8 @@ A library of some interesting algorithms, data structure implementations or just
     - removeMin() takes O(1) time
     - insert() takes O(n) time
     - time complexity:
-    
-      worst case: O(n^2)
-      
-      best case: O(n) (already sorted)
+      * worst case: O(n^2)
+      * best case: O(n) (already sorted)
     - can be implemented as in-place sorting by keeping the sorted region at the start of the collection and
       gradually expands toward the unsorted area until the whole list is sorted
     - Python code: https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py
@@ -51,6 +49,21 @@ A library of some interesting algorithms, data structure implementations or just
    
 
 # Data structure
+
+* Heap (Min Heap)
+  - a binary tree data structure that satisifies the heap property
+  - heap-order proprty: the key of parent node should be less than (grater than if max heap)the key of any child node
+  - complete-binary property: each level of heap must be filled untill any elements can be inserted to next level
+  - height of heap = ceiling(log2(n+1))
+  - level numering(1-based index):
+    * parent node: i
+    * left node: 2*i
+    * right node: 2*i+1
+  - time coplexity:
+    * heapify(): O(2*n)
+    * insert(): O(logn)
+    * removeMin(): O(logn)
+  - Code: https://github.com/yitongw2/Code/blob/master/data_structure/heap.py
 
 
 # Interesting coding problems
