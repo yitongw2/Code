@@ -59,6 +59,10 @@ A library of some interesting algorithms, data structure implementations or just
     * parent node: i
     * left node: 2*i
     * right node: 2*i+1
+  - time coplexity:
+    * heapify(): O(2*n)
+    * insert(): O(logn)
+    * removeMin(): O(logn)
   - Code: https://github.com/yitongw2/Code/blob/master/data_structure/heap.py
 
 
