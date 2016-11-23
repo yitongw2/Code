@@ -1,4 +1,5 @@
-// Comparison-based sorting
+#Comparison-based sorting
+import heapq
 
 def insertionSort(lis):
 	for i in range(len(lis)):
@@ -28,7 +29,8 @@ def treeSort(lis):
 
 def heapSort(lis):
 	"not in-place"
-	return lis
+	heapq.heapify(lis)
+	return [heapq.heappop(lis) for x in range(len(lis))]
 
 
 def quickSort(lis,low,high):
@@ -101,3 +103,8 @@ def bucketSort(lis):
 		inde+=1	
 	return result
 		
+
+
+if __name__=="__main__":
+	l=[3,1,4,5,2,33,23,52,53,21]
+	print (heapSort(l))
