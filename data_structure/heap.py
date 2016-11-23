@@ -69,6 +69,10 @@ class Heap:
 			self.upward_rotate(arr, parent)	
 
 	def insert(self, key):
+		"""
+                insert an element to the heap.
+                perform an upward rotation if necessary
+                """
 		self.array.append(key)
 		self.upward_rotate(self.array, len(self.array))
 	
