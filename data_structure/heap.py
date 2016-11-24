@@ -1,6 +1,5 @@
 class Heap:
 	def __init__(self, array):
-		self.array=array
 		self.heapify(array, 1)
 	
 	def heapify(self, arr, index):
@@ -68,30 +67,30 @@ class Heap:
 			arr[index-1]=temp
 			self.upward_rotate(arr, parent)	
 
-	def insert(self, key):
+	def insert(self, array, key):
 		"""	
 		insert an element to the heap.
 		perform an upward rotation if necessary
 		"""
-		self.array.append(key)
-		self.upward_rotate(self.array, len(self.array))
+		array.append(key)
+		self.upward_rotate(array, len(array))
 	
-	def removeMin(self):
+	def removeMin(self, array):
 		"""
 		remove the smallest  element from the heap.
 		in the meantime, maintain the heap-order property after
 		the removal. 
 		"""
-		temp=self.array[0]
-		self.array[0]=self.array[len(self.array)-1]
-		self.array[len(self.array)-1]=temp
-		self.array.pop()
-		self.rotate(self.array, 1)		
+		temp=array[0]
+		array[0]=array[len(array)-1]
+		array[len(array)-1]=temp
+		array.pop()
+		self.rotate(array, 1)		
 
 if __name__=="__main__":
 	l=[3,2,13,23,1,33,4,6]
 	heap=Heap(l)
-	heap.insert(0)
+	heap.insert(l, 0)
 	print (l)
-	heap.removeMin()
+	heap.removeMin(l)
 	print (l)
