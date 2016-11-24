@@ -92,7 +92,6 @@ if __name__=="__main__":
 	l=[3,2,13,23,1,33,4,6]
 	heap=Heap(l)
 	heap.insert(0)
-	print (heap.array)
+	print (l)
 	heap.removeMin()
-	print (heap.array)
-		
+	print (l)
