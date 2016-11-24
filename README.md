@@ -4,7 +4,7 @@ A library of some interesting algorithms, data structure implementations or just
 # Algorithm 
 
 * Comparison-based sort 
-  * Priority-queue sort
+  * Priority-queue sort (concept)
     * idea: to push all elements into a priority queue ranked by their keys and pop from the priority queue.
     * pseudo code: 
       
@@ -21,8 +21,9 @@ A library of some interesting algorithms, data structure implementations or just
     * implementation determines the time complexity as well as memory usage
  
  
-    Insertion sort
+  * Insertion sort
     - given a collection of n items A to be sorted
+    - essentially, a priority-queue sort
     - implement priority queue as a sorted list 
     - removeMin() takes O(1) time
     - insert() takes O(n) time
@@ -33,15 +34,25 @@ A library of some interesting algorithms, data structure implementations or just
       gradually expands toward the unsorted area until the whole list is sorted
     - Python code: https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py
     
-    Selection sort 
+  * Selection sort 
     - given a collection of n items A to be sorted
-    - implement priority queue as a unsorted list
+    - essentially, a priority-queue sort
+    - implement priority queue as an unsorted list 
     - insert() takes O(1) (simply add the key to the end of list)
     - removeMin() takes O(n) (loop through the while list for the minimum)
     - time complexity: O(n^2) (sorted or not)
     - can can implemented as in-place sorting by swapping the smallest key found so far with the key at the beginning
     - Python code: https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py
+
+  * Heap sort
+    - given a collection of n items A to be sorted
+    - essentially, a priority-queue sort
+    - implement priority queue as a heap (details about heap is available in data structure section)
+    - time complexity: O(nlogn) (using heapify instead of insertion to construct heap boosts the process by a constant factor
+      but the o notation remains the same since the high order is nlogn)
+    - Python code: https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py
     
+  
     
     
       
