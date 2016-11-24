@@ -76,10 +76,23 @@ class Heap:
 		self.array.append(key)
 		self.upward_rotate(self.array, len(self.array))
 	
-	
+	def removeMin(self):
+		"""
+		remove the smallest  element from the heap.
+		in the meantime, maintain the heap-order property after
+		the removal. 
+		"""
+		temp=self.array[0]
+		self.array[0]=self.array[len(self.array)-1]
+		self.array[len(self.array)-1]=temp
+		self.array.pop()
+		self.rotate(self.array, 1)		
+
 if __name__=="__main__":
-	l=[3,2,13,0,23,1,33,4,6]
+	l=[3,2,13,23,1,33,4,6]
 	heap=Heap(l)
 	heap.insert(0)
+	print (heap.array)
+	heap.removeMin()
 	print (heap.array)
 		
