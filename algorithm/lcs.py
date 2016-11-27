@@ -1,61 +1,46 @@
-X = "skullandbones"
-Y = "lullabybabies"
 
-# initiallize a matrix
-matrix = []
-for i in range(len(X) + 1):
-	# matrix.append(list())
-	line = []
-	for j in range(len(Y) + 1):
-		line.append(None)
-	matrix.append(line)
-
-# first goal: find alternating sub-sequence of maximum length.
-#   L[i][j] = len of LCS(first i char of X, first j char of Y)
-# analysis:
-#   (a) If last two chars are equal  X[i-1] == Y[j-1],
-#   then it's always safe to use that character in the LCS
-#   so L[i, j] = L[i-1, j-1] + 1
-#   (b) If last two chars are not equal  X[i-1] != Y[j-1],
-#   then we have to delete either last char of X or last char of Y
-#   so L[i, j] = max( L[i-1, j], L[i, j-1] )
-
-# base case: L[0, j] = l[i, 0] = 0
-
-for i in range(len(X) + 1):
-	for j in range(len(Y) + 1):
-		if i == 0 or j == 0:
-			matrix[i][j] = 0
-		elif X[i - 1] == Y[j - 1]:
-			matrix[i][j] = matrix[i - 1][j - 1] + 1
-		else:
-			matrix[i][j] = max(matrix[i - 1][j], matrix[i][j - 1])
-
-print("result matrix: ")
-for i in range(len(matrix)):
-	print(matrix[i])
-
-
-print (len(X),"==", len(matrix))
-print (len(Y),"==", len(matrix[0]))
-# Final Goal: Find LCS by following arrows backwards from (len(X), len(Y)) to (0, 0)
-i = len(X)
-j = len(Y)
-LCS = []
-while i + j > 0 and i > 0 and j > 0:
-	if X[i - 1] == Y[j - 1]:  # diag arrow
-		LCS.append(X[i - 1])
-		i -= 1
-		j -= 1
+def lcs_recur(X, Y, i, j):
+	"""
+	recursive function for computting the longest common sequence of two strings.
+	recurrence: if i==0 or j==0: return ""
+		    else if X[i-1]==Y[j-1]: lcs_recur(X,Y,i-1,j-1)+X[i-1]
+		    otherwise: max(lcs_recur(X,Y,i-1,j), lcs_recur(X,Y,i,j-1))
+	"""	
+	if i==0 or j==0:
+		return ""
+	elif X[i-1]==Y[j-1]:
+		return lcs_recur(X, Y, i-1, j-1)+X[i-1]
 	else:
-		if matrix[i - 1][j] > matrix[i][j - 1]:
-			i -= 1
+		stringX=lcs_recur(X, Y, i-1, j)
+		stringY=lcs_recur(X, Y, i, j-1)
+		if len(stringX)>len(stringY):
+			return stringX
 		else:
-			j -= 1
+			return stringY
 
-LCS.reverse()
+def lcs(X,Y):
+	"""
+	dynamic programming 
+	"""
+	table=[]
+	for x in range(len(X)+1):
+		table.append([0 for y in range(len(Y)+1)])
+	for x in range(len(X)+1):
+		for y in range(len(Y)+1):
+			if x==0 or y==0:
+				table[x][y]==0
+			elif X[x-1]==Y[y-1]:
+				table[x][y]=1+table[x-1][y-1]
+			else:
+				table[x][y]=max(table[x-1][y], table[x][y-1])
+	return table	
+	
 
-print("longest common sub-sequence: \n", LCS)
-
-print("Time: O(len(X) + len(Y)")
+if __name__=="__main__":
+	X="dynamic"
+	Y="programming"
+	print(lcs_recur(X, Y, len(X), len(Y)))
+	for x in lcs(X,Y):
+		print (x)
+	
 
