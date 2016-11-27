@@ -80,14 +80,14 @@ A library of some interesting algorithms, data structure implementations or just
       - F(n)=F(n-1)+F(n-2), for n>=2
       - F(0)=F(1)=1, for n<1
   - memoization
-    * optimization technique that stores result of a particular recursive subproblem in a memory-based data structure (dict 
-      in Python, or hash table in general)
+    * optimization technique that stores the result of a particular recursive subproblem in a memory-based data structure           (dict in Python, or hash table in general)
     * once the result is stored in the data structure, it can be easily fetched.
     * using memoization saves the time from expensive recursive calls
     * e.g. memoization table used in finding Fibonacci number
             ![screen shot 2016-11-27 at 11 54 12 am](https://cloud.githubusercontent.com/assets/13974845/20651351/6eb49512-b498-11e6-8b1e-1756eb8df60e.png)
     * downside: can be complicated to fetch the trace
-  - Example of dynamic programming(longest common sequence issue):          https://github.com/yitongw2/Code/blob/master/algorithm/lcs.py
+  - Example of dynamic programming:
+    * longest common sequence: https://github.com/yitongw2/Code/blob/master/algorithm/lcs.py
                   
 
     
@@ -204,7 +204,7 @@ A library of some interesting algorithms, data structure implementations or just
   - for 2 x 2 matrix, [[a, b], [c, d]]  simply calculate a*d-b*c
   - for n x n matrix, use cofactors and mirrors of the matrix to break it down to the sum of cofactor * det(submatrix)
   - more details on how to obtain the determinant for n x n matrix (n>2): https://people.richland.edu/james/lecture/m116/matrices/determinant.html
-  - assume that each row of the given matrix is in the same size
+  - assume that each row of the given matrix is a square matrix
   - recursive function {base case : 2x2 matrix}
                        {recurrence : cofactor1*det(submatrix1)+...cofactork*det(submatrixk)}
   - Code: https://github.com/yitongw2/Code/blob/master/algorithm/matrix_determinant.py
