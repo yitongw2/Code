@@ -65,6 +65,28 @@ A library of some interesting algorithms, data structure implementations or just
   
   
 ## Dynamic Programming 
+  - idea: 
+    
+    1, solve a problem by breaking the problem into simple subproblems (recurrence)
+    
+    2, solve the subproblem and store it in a memory-based data structure (memoization)
+    
+  - recurrence 
+    * a recurrence forumla that describes how the value for a larger argument can be obtained by computing with values for
+      smaller arguments.
+    * base case: when the argument is small enough, it calculates the result rather than breaking it down to smaller 
+      subproblems
+    * e.g. recurrence for Fibonacci numbers
+      - F(n)=F(n-1)+F(n-2), for n>=2
+      - F(0)=F(1)=1, for n<1
+  - memoization
+    * optimization technique that stores result of a particular recursive subproblem in a memory-based data structure (dict 
+      in Python, or hash table in general)
+    * once the result is stored in the data structure, it can be easily fetched.
+    * using memoization saves the time from expensive recursive calls
+    * e.g. memoization table used in finding Fibonacci number
+      
+  - 
                   
                 
     
