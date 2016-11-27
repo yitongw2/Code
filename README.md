@@ -4,7 +4,7 @@ A library of some interesting algorithms, data structure implementations or just
 # Algorithm 
 
 
-* Graham Scan
+##  Graham Scan
   - Convex Hull
     - given a collection of (x, y) coordinate pairs (points), find the set of points that surround all points within the shape
       that they form so that any line segments between any two interior points stays inside the shape.
@@ -52,13 +52,25 @@ A library of some interesting algorithms, data structure implementations or just
                       stack.pop()
                     stack.push(C[i])
                 return stack 
+  - time complexity: O(n) for integer sorting/O(nlogn) for comparison-based sorting
+                     +
+                     O(n) times repetition
+                     *
+                     O(1) for push, pop...
+                     (since the nested while loop can at most pop n points at the end of day, it won't change the order of the 
+                     for loop)
+                     =
+                     O(n)/O(nlogn)
   - Code: https://github.com/yitongw2/Code/blob/master/algorithm/graham_scan.py 
+  
+  
+## Dynamic Programming 
                   
                 
     
     
     
-* Comparison-based sort 
+## Comparison-based sort 
   * Priority-queue sort (concept)
     * idea: to push all elements into a priority queue ranked by their keys and pop from the priority queue.
     * pseudo code: 
@@ -113,7 +125,7 @@ A library of some interesting algorithms, data structure implementations or just
 
 # Data structure
 
-* Heap (Min Heap)
+## Heap (Min Heap)
   - a binary tree data structure that satisifies the heap property
   - heap-order proprty: the key of parent node should be less than (grater than if max heap)the key of any child node
   - complete-binary property: each level of heap must be filled untill any elements can be inserted to next level
@@ -131,7 +143,7 @@ A library of some interesting algorithms, data structure implementations or just
 
 # Interesting coding problems
 
-* 2 sum
+## 2 sum
   - Given an array of integers, return indices of the two numbers such that they add up to a specific target.
   - assume only one matching pair in the array
   - example. l = [2, 1, 5, 4, 9], tartget = 9
