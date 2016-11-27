@@ -86,12 +86,10 @@ A library of some interesting algorithms, data structure implementations or just
     * using memoization saves the time from expensive recursive calls
     * e.g. memoization table used in finding Fibonacci number
             ![screen shot 2016-11-27 at 11 54 12 am](https://cloud.githubusercontent.com/assets/13974845/20651351/6eb49512-b498-11e6-8b1e-1756eb8df60e.png)
-    * downside: can be hard to fetch the trace
-  - 
+    * downside: can be complicated to fetch the trace
+  - Example of dynamic programming(longest common sequence issue):          https://github.com/yitongw2/Code/blob/master/algorithm/lcs.py
                   
-                
-    
-    
+
     
 ## Comparison-based sort 
   * Priority-queue sort (concept)
@@ -201,7 +199,7 @@ A library of some interesting algorithms, data structure implementations or just
               
  
 
-* Matrix determinant
+## Matrix determinant
   - given a n x n matrix, calculate its determinant 
   - for 2 x 2 matrix, [[a, b], [c, d]]  simply calculate a*d-b*c
   - for n x n matrix, use cofactors and mirrors of the matrix to break it down to the sum of cofactor * det(submatrix)
