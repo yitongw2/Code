@@ -8,7 +8,14 @@ A library of some interesting algorithms, data structure implementations or just
   - Convex Hull
     - given a collection of (x, y) coordinate pairs (points), find the set of points that surround all points within the shape
       that they form so that any line segments between any two interior points stays inside the shape.
+    - the following graph contains 16 uniquely located points and the bold line segments form the convex hull for these 16           points.
+      
+         ![screen shot 2016-11-27 at 1 37 02 pm](https://cloud.githubusercontent.com/assets/13974845/20652034/b0bdf184-b4a6-11e6-896b-658b84524238.png)
+
     - can be also visualized by taking the union of all triangles formed by any 3 points.
+    
+         ![screen shot 2016-11-27 at 1 43 57 pm](https://cloud.githubusercontent.com/assets/13974845/20652076/a5318c58-b4a7-11e6-8df2-72e4dd310e8d.png)
+      
   - Left turn? Right turn? Straight?
     - given 2 point p(x1, y1), q(x2, y2)
     - assume add another point r(x3, y3)
