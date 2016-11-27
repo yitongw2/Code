@@ -8,16 +8,23 @@ A library of some interesting algorithms, data structure implementations or just
   - Convex Hull
     - given a collection of (x, y) coordinate pairs (points), find the set of points that surround all points within the shape
       that they form so that any line segments between any two interior points stays inside the shape.
+    - the following graph contains 16 uniquely located points and the bold line segments form the convex hull for these 16           points.
+      
+         ![screen shot 2016-11-27 at 1 37 02 pm](https://cloud.githubusercontent.com/assets/13974845/20652034/b0bdf184-b4a6-11e6-896b-658b84524238.png)
+
     - can be also visualized by taking the union of all triangles formed by any 3 points.
+    
+         ![screen shot 2016-11-27 at 1 43 57 pm](https://cloud.githubusercontent.com/assets/13974845/20652076/a5318c58-b4a7-11e6-8df2-72e4dd310e8d.png)
+      
   - Left turn? Right turn? Straight?
     - given 2 point p(x1, y1), q(x2, y2)
     - assume add another point r(x3, y3)
     - connect point p and q, extend the line segment to a straight line 
-    - a left turn happens when the line segment q-r can be obtained by rotating the straight line counter-clockwisely
+    - a left turn happens when the line segment q-r can be obtained by rotating the straight line counter-clockwisely with 180       degree
         
         ![screen shot 2016-11-26 at 10 07 28 pm](https://cloud.githubusercontent.com/assets/13974845/20645980/d1f52cb4-b424-11e6-8812-00b7a3a6e1b4.png)
         
-    - a right turn happens when the line segment q-r can be obtained by rotating the straight line clockwisely
+    - a right turn happens when the line segment q-r can be obtained by rotating the straight line clockwisely with 180 degree
         
         ![screen shot 2016-11-26 at 9 57 20 pm](https://cloud.githubusercontent.com/assets/13974845/20645954/76f28b5a-b423-11e6-977c-8092be92ada9.png)
 
@@ -35,7 +42,8 @@ A library of some interesting algorithms, data structure implementations or just
        - if det(matrix)<0, then p-q-r turns right
        - if det(matrix)>0, then p-q-r turns left
   - Top half of convex hull
-    - easy to locate the upper half of the convex hull
+    - easy to locate the upper half of the convex hull by putting the point with larger y coordinate in front when sorting the
+      points.
     - can apply the algorithm that finds the upper half of the convex hull to the bottom half of the convex hull by 
       simply reversing the y coordinates of all points.
   - Pesudo code for top half of the convex hull:
@@ -52,15 +60,11 @@ A library of some interesting algorithms, data structure implementations or just
                       stack.pop()
                     stack.push(C[i])
                 return stack 
-  - time complexity: O(n) for integer sorting/O(nlogn) for comparison-based sorting
-                     +
-                     O(n) times repetition
-                     *
-                     O(1) for push, pop...
-                     (since the nested while loop can at most pop n points at the end of day, it won't change the order of the 
-                     for loop)
-                     =
-                     O(n)/O(nlogn)
+  - time complexity: 
+    - O(n) for integer sorting/O(nlogn) for comparison-based sorting
+    - O(n) times repetition * O(1) for push, pop...
+    - (since the nested while loop can at most pop n points at the end of day, it won't change the order of the for loop)
+    - in total: O(n)/O(nlogn)
   - Code: https://github.com/yitongw2/Code/blob/master/algorithm/graham_scan.py 
   
   
@@ -80,18 +84,16 @@ A library of some interesting algorithms, data structure implementations or just
       - F(n)=F(n-1)+F(n-2), for n>=2
       - F(0)=F(1)=1, for n<1
   - memoization
-    * optimization technique that stores result of a particular recursive subproblem in a memory-based data structure (dict 
-      in Python, or hash table in general)
+    * optimization technique that stores the result of a particular recursive subproblem in a memory-based data structure           (dict in Python, or hash table in general)
     * once the result is stored in the data structure, it can be easily fetched.
     * using memoization saves the time from expensive recursive calls
     * e.g. memoization table used in finding Fibonacci number
             ![screen shot 2016-11-27 at 11 54 12 am](https://cloud.githubusercontent.com/assets/13974845/20651351/6eb49512-b498-11e6-8b1e-1756eb8df60e.png)
-    * downside: can be hard to fetch the trace
-  - 
+    * downside: can be complicated to fetch the trace
+  - Example of dynamic programming:
+    * longest common sequence: https://github.com/yitongw2/Code/blob/master/algorithm/lcs.py
                   
-                
-    
-    
+
     
 ## Comparison-based sort 
   * Priority-queue sort (concept)
@@ -201,12 +203,12 @@ A library of some interesting algorithms, data structure implementations or just
               
  
 
-* Matrix determinant
+## Matrix determinant
   - given a n x n matrix, calculate its determinant 
   - for 2 x 2 matrix, [[a, b], [c, d]]  simply calculate a*d-b*c
   - for n x n matrix, use cofactors and mirrors of the matrix to break it down to the sum of cofactor * det(submatrix)
   - more details on how to obtain the determinant for n x n matrix (n>2): https://people.richland.edu/james/lecture/m116/matrices/determinant.html
-  - assume that each row of the given matrix is in the same size
+  - assume that each row of the given matrix is a square matrix
   - recursive function {base case : 2x2 matrix}
                        {recurrence : cofactor1*det(submatrix1)+...cofactork*det(submatrixk)}
   - Code: https://github.com/yitongw2/Code/blob/master/algorithm/matrix_determinant.py
