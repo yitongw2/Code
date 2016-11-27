@@ -21,9 +21,19 @@ A library of some interesting algorithms, data structure implementations or just
         
         ![screen shot 2016-11-26 at 9 57 20 pm](https://cloud.githubusercontent.com/assets/13974845/20645954/76f28b5a-b423-11e6-977c-8092be92ada9.png)
 
-    
-  
+    - more mechanical way to determine left/right turn: Matrix determinant
+    - assume a matrix below, p(x1, y1), q(x2, y2), r(x3, y3)
+      
+      [x1,  y1,  1]
+      
+      [x2,  y2,  1]
+       
+      [x3,  y3,  1]
 
+    - it turns out that the determinant of the matrix indicates the turning of p-q-r
+    - if det(matrix)=0, then p-q-r straight
+    - if det(matrix)<0, then p-q-r turns right
+    - if det(matrix)>0, then p-q-r turns left
     
     
 * Comparison-based sort 
