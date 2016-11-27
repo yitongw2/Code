@@ -91,7 +91,7 @@ A library of some interesting algorithms, data structure implementations or just
             ![screen shot 2016-11-27 at 11 54 12 am](https://cloud.githubusercontent.com/assets/13974845/20651351/6eb49512-b498-11e6-8b1e-1756eb8df60e.png)
     * downside: can be complicated to fetch the trace
   - Example of dynamic programming:
-    * longest common sequence problem (more details ![here](https://github.com/yitongw2/Code/blob/master/README.md#longest-common-sequence)): https://github.com/yitongw2/Code/blob/master/algorithm/lcs.py
+    * longest common sequence problem (more details [here](https://github.com/yitongw2/Code/blob/master/README.md#longest-common-sequence)): https://github.com/yitongw2/Code/blob/master/algorithm/lcs.py
                   
 
     
