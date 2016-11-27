@@ -5,7 +5,15 @@ A library of some interesting algorithms, data structure implementations or just
 
 
 * Graham Scan
-  * Convex Hull 
+  - Convex Hull
+    - given a collection of (x, y) coordinate pairs (points), find the set of points that surround all points within the shape
+      that they form so that any line segments between any two interior points stays inside the shape.
+    - can be also visualized by taking the union of all triangles formed by any 3 points.
+  - Left turn? Right turn? Straight?
+    - given 3 point p(x1, y1), q(x2, y2), r(x3, y3), 
+    -  
+  
+
     
     
 * Comparison-based sort 
@@ -80,10 +88,6 @@ A library of some interesting algorithms, data structure implementations or just
 
 
 # Interesting coding problems
-
-* Convex Hull
-  - given a collection of (x, y) coordinate pairs (points), find the convex hull of these points
-  
 
 * 2 sum
   - Given an array of integers, return indices of the two numbers such that they add up to a specific target.
