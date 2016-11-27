@@ -20,11 +20,11 @@ A library of some interesting algorithms, data structure implementations or just
     - given 2 point p(x1, y1), q(x2, y2)
     - assume add another point r(x3, y3)
     - connect point p and q, extend the line segment to a straight line 
-    - a left turn happens when the line segment q-r can be obtained by rotating the straight line counter-clockwisely
+    - a left turn happens when the line segment q-r can be obtained by rotating the straight line counter-clockwisely with 180       degree
         
         ![screen shot 2016-11-26 at 10 07 28 pm](https://cloud.githubusercontent.com/assets/13974845/20645980/d1f52cb4-b424-11e6-8812-00b7a3a6e1b4.png)
         
-    - a right turn happens when the line segment q-r can be obtained by rotating the straight line clockwisely
+    - a right turn happens when the line segment q-r can be obtained by rotating the straight line clockwisely with 180 degree
         
         ![screen shot 2016-11-26 at 9 57 20 pm](https://cloud.githubusercontent.com/assets/13974845/20645954/76f28b5a-b423-11e6-977c-8092be92ada9.png)
 
@@ -42,7 +42,8 @@ A library of some interesting algorithms, data structure implementations or just
        - if det(matrix)<0, then p-q-r turns right
        - if det(matrix)>0, then p-q-r turns left
   - Top half of convex hull
-    - easy to locate the upper half of the convex hull
+    - easy to locate the upper half of the convex hull by putting the point with larger y coordinate in front when sorting the
+      points.
     - can apply the algorithm that finds the upper half of the convex hull to the bottom half of the convex hull by 
       simply reversing the y coordinates of all points.
   - Pesudo code for top half of the convex hull:
@@ -59,15 +60,11 @@ A library of some interesting algorithms, data structure implementations or just
                       stack.pop()
                     stack.push(C[i])
                 return stack 
-  - time complexity: O(n) for integer sorting/O(nlogn) for comparison-based sorting
-                     +
-                     O(n) times repetition
-                     *
-                     O(1) for push, pop...
-                     (since the nested while loop can at most pop n points at the end of day, it won't change the order of the 
-                     for loop)
-                     =
-                     O(n)/O(nlogn)
+  - time complexity: 
+    - O(n) for integer sorting/O(nlogn) for comparison-based sorting
+    - O(n) times repetition * O(1) for push, pop...
+    - (since the nested while loop can at most pop n points at the end of day, it won't change the order of the for loop)
+    - in total: O(n)/O(nlogn)
   - Code: https://github.com/yitongw2/Code/blob/master/algorithm/graham_scan.py 
   
   
