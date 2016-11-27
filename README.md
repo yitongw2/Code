@@ -82,7 +82,7 @@ A library of some interesting algorithms, data structure implementations or just
       subproblems
     * e.g. recurrence for Fibonacci numbers
       - F(n)=F(n-1)+F(n-2), for n>=2
-      - F(0)=F(1)=1, for n<1
+      - F(0)=F(1)=1, otherwise
   - memoization
     * optimization technique that stores the result of a particular recursive subproblem in a memory-based data structure           (dict in Python, or hash table in general)
     * once the result is stored in the data structure, it can be easily fetched.
@@ -91,7 +91,7 @@ A library of some interesting algorithms, data structure implementations or just
             ![screen shot 2016-11-27 at 11 54 12 am](https://cloud.githubusercontent.com/assets/13974845/20651351/6eb49512-b498-11e6-8b1e-1756eb8df60e.png)
     * downside: can be complicated to fetch the trace
   - Example of dynamic programming:
-    * longest common sequence: https://github.com/yitongw2/Code/blob/master/algorithm/lcs.py
+    * longest common sequence problem (more details can be found in the section of Interesting coding problems):                     https://github.com/yitongw2/Code/blob/master/algorithm/lcs.py
                   
 
     
@@ -168,13 +168,51 @@ A library of some interesting algorithms, data structure implementations or just
 
 # Interesting coding problems
 
+## Longest common sequence
+  - given 2 string X and Y (in general, can be array of char, int or other. for this problem, assume they are string 
+    in Python), find a subsequence that appears in both of them (do not have to be consecutive) and it must be as long as         possible.
+  - Solution (dynamic programming):
+    * derive a recurrence
+      * let table[i][j] denote the number of common chars found between first i chars of X and first j chars of Y
+      * when the last char of X, Y match, can be sure that the last char is in the common sequence
+      * otherwise, either match first i chars of X with firt j-1 chars of Y or match first i-1 chars of X with first
+        j chars of Y. Since the common sequence should as long as possible, choose the case where there are more common
+        chars. 
+    * pesudo code:
+      
+                        initialize a 2D list L
+                        
+                        m <-- the length of X
+                        
+                        n <-- the length of Y
+                        
+                        for i <-- 0 to m do
+                          
+                          for j <-- 0 to n do
+                            
+                             if i = 0 or j = 0 then   // base case
+                                
+                                L[i][j]=0
+                             
+                             else if X[i-1] = Y[j-1] then
+                              
+                                L[i][j] <-- 1+L[i-1][j-1]
+                             
+                             else
+                                
+                                L[i][j] <-- max(L[i-1][j], L[i][j-1])
+                         
+                         track the trace in the table from bottom right corner and obtain the common sequence
+    * time complexity: O(n^2)
+                         
+                                
+
 ## 2 sum
-  - Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+  - given an array of integers, return indices of the two numbers such that they add up to a specific target.
   - assume only one matching pair in the array
   - example. l = [2, 1, 5, 4, 9], tartget = 9
              expected output [2, 3]
-  
-  Solution 1:
+  - Solution 1:
   
     1, use a hash table to hash all values in the array
     
@@ -182,21 +220,21 @@ A library of some interesting algorithms, data structure implementations or just
     
     3, for each loop, find the target-array[i] in hash table
     
-    4, if found during the loop, return the pair; otherwise, such pair doesn't exist.
+    4, if found during the loop, return the pair; otherwise, such pair does not exist.
     
-    Time complexity: 
+    * Time complexity: 
     
-    O(n) for putting n elements in to hash table
+      * O(n) for putting n elements in to hash table
     
-    O(n) at most for looping the array, each lookUp operation takes O(1) time.
+      * O(n) at most for looping the array, each lookUp operation takes O(1) time.
     
-    total = O(n) 
+      * total = O(n) 
     
-    Memory usage: 
+    * Memory usage: 
     
-    O(n) for hash table (depending on implmentation)
+      * O(n) for hash table (depending on implmentation)
     
-    Code: https://github.com/yitongw2/Code/blob/master/solutions/twoSum.java
+    * Code: https://github.com/yitongw2/Code/blob/master/solutions/twoSum.java
               
               
               
@@ -205,13 +243,15 @@ A library of some interesting algorithms, data structure implementations or just
 
 ## Matrix determinant
   - given a n x n matrix, calculate its determinant 
-  - for 2 x 2 matrix, [[a, b], [c, d]]  simply calculate a*d-b*c
-  - for n x n matrix, use cofactors and mirrors of the matrix to break it down to the sum of cofactor * det(submatrix)
-  - more details on how to obtain the determinant for n x n matrix (n>2): https://people.richland.edu/james/lecture/m116/matrices/determinant.html
-  - assume that each row of the given matrix is a square matrix
-  - recursive function {base case : 2x2 matrix}
-                       {recurrence : cofactor1*det(submatrix1)+...cofactork*det(submatrixk)}
-  - Code: https://github.com/yitongw2/Code/blob/master/algorithm/matrix_determinant.py
+  - Solution: 
+    - for 2 x 2 matrix, [[a, b], [c, d]]  simply calculate a*d-b*c
+    - for n x n matrix, use cofactors and mirrors of the matrix to break it down to the sum of cofactor * det(submatrix)
+    - more details on how to obtain the determinant for n x n matrix (n>2):
+      https://people.richland.edu/james/lecture/m116/matrices/determinant.html
+    - assume that each row of the given matrix is a square matrix
+    - recursive function {base case : 2x2 matrix}
+                         {recurrence : cofactor1*det(submatrix1)+...cofactork*det(submatrixk)}
+    - Code: https://github.com/yitongw2/Code/blob/master/algorithm/matrix_determinant.py
   
   
   
