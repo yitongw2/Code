@@ -3,7 +3,97 @@ A library of some interesting algorithms, data structure implementations or just
 
 # Algorithm 
 
-* Comparison-based sort 
+
+##  Graham Scan
+  - Convex Hull
+    - given a collection of (x, y) coordinate pairs (points), find the set of points that surround all points within the shape
+      that they form so that any line segments between any two interior points stays inside the shape.
+    - can be also visualized by taking the union of all triangles formed by any 3 points.
+  - Left turn? Right turn? Straight?
+    - given 2 point p(x1, y1), q(x2, y2)
+    - assume add another point r(x3, y3)
+    - connect point p and q, extend the line segment to a straight line 
+    - a left turn happens when the line segment q-r can be obtained by rotating the straight line counter-clockwisely
+        
+        ![screen shot 2016-11-26 at 10 07 28 pm](https://cloud.githubusercontent.com/assets/13974845/20645980/d1f52cb4-b424-11e6-8812-00b7a3a6e1b4.png)
+        
+    - a right turn happens when the line segment q-r can be obtained by rotating the straight line clockwisely
+        
+        ![screen shot 2016-11-26 at 9 57 20 pm](https://cloud.githubusercontent.com/assets/13974845/20645954/76f28b5a-b423-11e6-977c-8092be92ada9.png)
+
+    - more mechanical way to determine left/right turn: Matrix determinant
+    - assume a matrix below, p(x1, y1), q(x2, y2), r(x3, y3)
+      
+      [x1,  y1,  1]
+      
+      [x2,  y2,  1]
+       
+      [x3,  y3,  1]
+
+    - it turns out that the determinant of the matrix indicates the turning of p-q-r
+       - if det(matrix)=0, then p-q-r straight
+       - if det(matrix)<0, then p-q-r turns right
+       - if det(matrix)>0, then p-q-r turns left
+  - Top half of convex hull
+    - easy to locate the upper half of the convex hull
+    - can apply the algorithm that finds the upper half of the convex hull to the bottom half of the convex hull by 
+      simply reversing the y coordinates of all points.
+  - Pesudo code for top half of the convex hull:
+      
+      Given a collection of n points C, 
+      
+                sort C by their x coordinate (if tie occurs, choose the point with larger y coordinate before the other one)
+                initialize an empty stack
+                for i<--0 to n do
+                  if stack.size() < 2 then
+                    stack.push(C[i])
+                  else
+                    while (the last two points in stack and C[i] forms a left turn)
+                      stack.pop()
+                    stack.push(C[i])
+                return stack 
+  - time complexity: O(n) for integer sorting/O(nlogn) for comparison-based sorting
+                     +
+                     O(n) times repetition
+                     *
+                     O(1) for push, pop...
+                     (since the nested while loop can at most pop n points at the end of day, it won't change the order of the 
+                     for loop)
+                     =
+                     O(n)/O(nlogn)
+  - Code: https://github.com/yitongw2/Code/blob/master/algorithm/graham_scan.py 
+  
+  
+## Dynamic Programming 
+  - idea: 
+    
+    1, solve a problem by breaking the problem into simple subproblems (recurrence)
+    
+    2, solve the subproblem and store it in a memory-based data structure (memoization)
+    
+  - recurrence 
+    * a recurrence forumla that describes how the value for a larger argument can be obtained by computing with values for
+      smaller arguments.
+    * base case: when the argument is small enough, it calculates the result rather than breaking it down to smaller 
+      subproblems
+    * e.g. recurrence for Fibonacci numbers
+      - F(n)=F(n-1)+F(n-2), for n>=2
+      - F(0)=F(1)=1, for n<1
+  - memoization
+    * optimization technique that stores result of a particular recursive subproblem in a memory-based data structure (dict 
+      in Python, or hash table in general)
+    * once the result is stored in the data structure, it can be easily fetched.
+    * using memoization saves the time from expensive recursive calls
+    * e.g. memoization table used in finding Fibonacci number
+            ![screen shot 2016-11-27 at 11 54 12 am](https://cloud.githubusercontent.com/assets/13974845/20651351/6eb49512-b498-11e6-8b1e-1756eb8df60e.png)
+    * downside: can be hard to fetch the trace
+  - 
+                  
+                
+    
+    
+    
+## Comparison-based sort 
   * Priority-queue sort (concept)
     * idea: to push all elements into a priority queue ranked by their keys and pop from the priority queue.
     * pseudo code: 
@@ -52,16 +142,13 @@ A library of some interesting algorithms, data structure implementations or just
       but the o notation remains the same since the high order is nlogn)
     - Python code: https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py
     
-  
-    
-    
       
     
    
 
 # Data structure
 
-* Heap (Min Heap)
+## Heap (Min Heap)
   - a binary tree data structure that satisifies the heap property
   - heap-order proprty: the key of parent node should be less than (grater than if max heap)the key of any child node
   - complete-binary property: each level of heap must be filled untill any elements can be inserted to next level
@@ -79,7 +166,7 @@ A library of some interesting algorithms, data structure implementations or just
 
 # Interesting coding problems
 
-* 2 sum
+## 2 sum
   - Given an array of integers, return indices of the two numbers such that they add up to a specific target.
   - assume only one matching pair in the array
   - example. l = [2, 1, 5, 4, 9], tartget = 9
