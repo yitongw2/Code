@@ -65,7 +65,7 @@ A library of some interesting algorithms, data structure implementations or just
     - O(n) times repetition * O(1) for push, pop...
     - (since the nested while loop can at most pop n points at the end of day, it won't change the order of the for loop)
     - in total: O(n)/O(nlogn)
-  - [Code](https://github.com/yitongw2/Code/blob/master/algorithm/graham_scan.py) 
+  - [Python Code](https://github.com/yitongw2/Code/blob/master/algorithm/graham_scan.py) 
   
   
 ## Dynamic Programming 
