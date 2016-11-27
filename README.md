@@ -31,9 +31,30 @@ A library of some interesting algorithms, data structure implementations or just
       [x3,  y3,  1]
 
     - it turns out that the determinant of the matrix indicates the turning of p-q-r
-    - if det(matrix)=0, then p-q-r straight
-    - if det(matrix)<0, then p-q-r turns right
-    - if det(matrix)>0, then p-q-r turns left
+       - if det(matrix)=0, then p-q-r straight
+       - if det(matrix)<0, then p-q-r turns right
+       - if det(matrix)>0, then p-q-r turns left
+  - Top half of convex hull
+    - easy to locate the upper half of the convex hull
+    - can apply the algorithm that finds the upper half of the convex hull to the bottom half of the convex hull by 
+      simply reversing the y coordinates of all points.
+  - Pesudo code for top half of the convex hull:
+      
+      Given a collection of n points C, 
+      
+                sort C by their x coordinate (if tie occurs, choose the point with larger y coordinate before the other one)
+                initialize an empty stack
+                for i<--0 to n do
+                  if stack.size() < 2 then
+                    stack.push(C[i])
+                  else
+                    while (the last two points in stack and C[i] forms a left turn)
+                      stack.pop()
+                    stack.push(C[i])
+                return stack 
+                  
+                
+    
     
     
 * Comparison-based sort 
