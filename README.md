@@ -3,6 +3,11 @@ A library of some interesting algorithms, data structure implementations or just
 
 # Algorithm 
 
+
+* Graham Scan
+  * Convex Hull 
+    
+    
 * Comparison-based sort 
   * Priority-queue sort (concept)
     * idea: to push all elements into a priority queue ranked by their keys and pop from the priority queue.
@@ -52,9 +57,6 @@ A library of some interesting algorithms, data structure implementations or just
       but the o notation remains the same since the high order is nlogn)
     - Python code: https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py
     
-  
-    
-    
       
     
    
@@ -78,6 +80,10 @@ A library of some interesting algorithms, data structure implementations or just
 
 
 # Interesting coding problems
+
+* Convex Hull
+  - given a collection of (x, y) coordinate pairs (points), find the convex hull of these points
+  
 
 * 2 sum
   - Given an array of integers, return indices of the two numbers such that they add up to a specific target.
