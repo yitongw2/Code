@@ -85,7 +85,8 @@ A library of some interesting algorithms, data structure implementations or just
     * once the result is stored in the data structure, it can be easily fetched.
     * using memoization saves the time from expensive recursive calls
     * e.g. memoization table used in finding Fibonacci number
-      
+            ![screen shot 2016-11-27 at 11 54 12 am](https://cloud.githubusercontent.com/assets/13974845/20651351/6eb49512-b498-11e6-8b1e-1756eb8df60e.png)
+    * downside: can be hard to fetch the trace
   - 
                   
                 
