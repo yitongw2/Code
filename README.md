@@ -10,8 +10,18 @@ A library of some interesting algorithms, data structure implementations or just
       that they form so that any line segments between any two interior points stays inside the shape.
     - can be also visualized by taking the union of all triangles formed by any 3 points.
   - Left turn? Right turn? Straight?
-    - given 3 point p(x1, y1), q(x2, y2), r(x3, y3), 
-    -  
+    - given 2 point p(x1, y1), q(x2, y2)
+    - assume add another point r(x3, y3)
+    - connect point p and q, extend the line segment to a straight line 
+    - a left turn happens when the line segment q-r can be obtained by rotating the straight line counter-clockwisely
+        
+        ![screen shot 2016-11-26 at 10 07 28 pm](https://cloud.githubusercontent.com/assets/13974845/20645980/d1f52cb4-b424-11e6-8812-00b7a3a6e1b4.png)
+        
+    - a right turn happens when the line segment q-r can be obtained by rotating the straight line clockwisely
+        
+        ![screen shot 2016-11-26 at 9 57 20 pm](https://cloud.githubusercontent.com/assets/13974845/20645954/76f28b5a-b423-11e6-977c-8092be92ada9.png)
+
+    
   
 
     
