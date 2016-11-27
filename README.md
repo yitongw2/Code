@@ -65,7 +65,7 @@ A library of some interesting algorithms, data structure implementations or just
     - O(n) times repetition * O(1) for push, pop...
     - (since the nested while loop can at most pop n points at the end of day, it won't change the order of the for loop)
     - in total: O(n)/O(nlogn)
-  - Code: https://github.com/yitongw2/Code/blob/master/algorithm/graham_scan.py 
+  - [Code](https://github.com/yitongw2/Code/blob/master/algorithm/graham_scan.py) 
   
   
 ## Dynamic Programming 
@@ -91,7 +91,7 @@ A library of some interesting algorithms, data structure implementations or just
             ![screen shot 2016-11-27 at 11 54 12 am](https://cloud.githubusercontent.com/assets/13974845/20651351/6eb49512-b498-11e6-8b1e-1756eb8df60e.png)
     * downside: can be complicated to fetch the trace
   - Example of dynamic programming:
-    * longest common sequence problem (more details [here](https://github.com/yitongw2/Code/blob/master/README.md#longest-common-sequence)): https://github.com/yitongw2/Code/blob/master/algorithm/lcs.py
+    * longest common sequence problem (more details [here](https://github.com/yitongw2/Code/blob/master/README.md#longest-common-sequence))
                   
 
     
@@ -124,7 +124,7 @@ A library of some interesting algorithms, data structure implementations or just
       * best case: O(n) (already sorted)
     - can be implemented as in-place sorting by keeping the sorted region at the start of the collection and
       gradually expands toward the unsorted area until the whole list is sorted
-    - Python code: https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py
+    - [Python code](https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py)
     
   * Selection sort 
     - given a collection of n items A to be sorted
@@ -134,7 +134,7 @@ A library of some interesting algorithms, data structure implementations or just
     - removeMin() takes O(n) (loop through the while list for the minimum)
     - time complexity: O(n^2) (sorted or not)
     - can can implemented as in-place sorting by swapping the smallest key found so far with the key at the beginning
-    - Python code: https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py
+    - [Python code](https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py)
 
   * Heap sort
     - given a collection of n items A to be sorted
@@ -142,7 +142,7 @@ A library of some interesting algorithms, data structure implementations or just
     - implement priority queue as a heap (details about heap is available in data structure section)
     - time complexity: O(nlogn) (using heapify instead of insertion to construct heap boosts the process by a constant factor
       but the o notation remains the same since the high order is nlogn)
-    - Python code: https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py
+    - [Python code](https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py)
     
       
     
@@ -163,7 +163,7 @@ A library of some interesting algorithms, data structure implementations or just
     * heapify(): O(2*n)
     * insert(): O(logn)
     * removeMin(): O(logn)
-  - Code: https://github.com/yitongw2/Code/blob/master/data_structure/heap.py
+  - [Code](https://github.com/yitongw2/Code/blob/master/data_structure/heap.py)
 
 
 # Interesting coding problems
@@ -204,6 +204,7 @@ A library of some interesting algorithms, data structure implementations or just
                          
                          track the trace in the table from bottom right corner and obtain the common sequence
     * time complexity: O(n^2)
+    * [Code](https://github.com/yitongw2/Code/blob/master/algorithm/lcs.py)
                          
                                 
 
@@ -234,7 +235,7 @@ A library of some interesting algorithms, data structure implementations or just
     
       * O(n) for hash table (depending on implmentation)
     
-    * Code: https://github.com/yitongw2/Code/blob/master/solutions/twoSum.java
+    * [Code](https://github.com/yitongw2/Code/blob/master/solutions/twoSum.java)
               
               
               
