@@ -174,6 +174,16 @@ A library of some interesting algorithms, data structure implementations or just
   - e.g. item B has size of 2 and value of 3, the result can include item B with size of 1 and value of 3/2.
   - Solution (greedy approach):
   
+      example table of 7 items
+      
+      ![screen shot 2016-11-28 at 1 25 49 pm](https://cloud.githubusercontent.com/assets/13974845/20686870/1750516c-b56f-11e6-9a1e-67b644d8a98d.png)
+    1. sort the items by their value per size (value/size)
+    2. loop through sorted items
+    3. if there is any remaining space, include all of the item or part of it to the solution depending on which one is
+       smaller and decrement the remaining space by the size included in the solution
+    4. otherwise, the knapsack is full, return the solution.
+    
+  
 
 ## Longest common sequence
   - given 2 string X and Y (in general, can be array of char, int or other. for this problem, assume they are string 
@@ -245,9 +255,7 @@ A library of some interesting algorithms, data structure implementations or just
     * [Code](https://github.com/yitongw2/Code/blob/master/solutions/twoSum.java)
               
               
-              
-              
- 
+
 
 ## Matrix determinant
   - given a n x n matrix, calculate its determinant 
