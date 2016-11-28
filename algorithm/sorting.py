@@ -1,5 +1,6 @@
 #Comparison-based sorting
 import heapq
+import Code.data_structure.heap
 
 def insertionSort(lis):
 	"""
