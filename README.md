@@ -182,6 +182,7 @@ A library of some interesting algorithms, data structure implementations or just
     3. if there is any remaining space, include all of the item or part of it to the solution depending on which one is
        smaller and decrement the remaining space by the size included in the solution
     4. otherwise, the knapsack is full, return the solution.
+  - [Code]
     
   
 
