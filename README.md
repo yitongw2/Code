@@ -168,6 +168,36 @@ A library of some interesting algorithms, data structure implementations or just
 
 # Interesting coding problems
 
+## 0-1 Knapsack problem
+  - Given a collection C of items each has a numeric size and a numberic value, a number L as the limit of total size, find a     combination of items that maximizes the total value and yet keep the total size under the limit L. 
+  - can each take all of the item or none of it into the combination
+  - idea: dynamic programming
+    * breaking the problem into subproblems
+    * if we include the ith item into the combination, then the subproblem is looking for the next item to be included with a 
+      a reduced total size.
+    * if we do not include the ith item into the combination, then the subproblem is looking for the next item to be included
+      with an unchanged size
+    * a table K containing solutions(values) to all subproblems, starting at i th item and with a size limit s
+    * recurrence formula:
+      - K[i][0]=0 / K[0][s]=0 (base case)
+      - K[i][s]=value(i)+K[i-1][s-size(i)] (include the ith item)
+      - K[i][s]=K[i-1][s] (do not include the ith item)
+    * how to choose the right item to include?
+      - choose the one that maximizes the value of the solution
+      - max(value(i)+K[i-1][s-size(i)], K[i-1][s])
+    * pesudo code:
+    
+                          init a 2D list table K
+                          for i <-- 0 to n do
+                            for s <-- 0 to L do
+                              if i = 0 or s = 0 then
+                                K[i][s]=0
+                              else
+                                K[i][s]=max(value(i)+K[i-1][s-size(i)], K[i-1][s])
+                           trace back to recover the combination of items
+                        
+  
+  
 ## Fractional Knapsack problem
   - Given a collection C of items each has a numeric size and a numberic value, a number L as the limit of total size, find a     combination of items that maximizes the total value and yet keep the total size under the limit L. 
   - can take part of an item (fractional) into the combination. 
