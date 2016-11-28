@@ -7,6 +7,13 @@ class Item:
 
 def fractional_knapsack(items, limit):
 	"""
+	greedy approach.
+	idea: select as much as the item with the largest value per size until the
+	      knapsack is filled up.
+	steps:
+	      1, sort the items by value per size
+	      2, loop through items and fill up as much as valuable item per size
+	      3, when limit is reached, done  
 	
 	"""
 	result=[]
