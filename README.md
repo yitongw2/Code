@@ -204,7 +204,7 @@ A library of some interesting algorithms, data structure implementations or just
                          
                          track the trace in the table from bottom right corner and obtain the common sequence
     * time complexity: O(n^2)
-    * [Code](https://github.com/yitongw2/Code/blob/master/algorithm/lcs.py)
+    * [Code](https://github.com/yitongw2/Code/blob/master/solutions/lcs.py)
                          
                                 
 
