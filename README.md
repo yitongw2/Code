@@ -168,6 +168,13 @@ A library of some interesting algorithms, data structure implementations or just
 
 # Interesting coding problems
 
+## Fractional Knapsack problem
+  - Given a collection C of items each has a numeric size and a numberic value, a number L as the limit of total size, find a     combination of items that maximizes the total value and yet keep the total size under the limit L. 
+  - can take part of an item (fractional) into the combination. 
+  - e.g. item B has size of 2 and value of 3, the result can include item B with size of 1 and value of 3/2.
+  - Solution (greedy approach):
+  
+
 ## Longest common sequence
   - given 2 string X and Y (in general, can be array of char, int or other. for this problem, assume they are string 
     in Python), find a subsequence that appears in both of them (do not have to be consecutive) and it must be as long as         possible.
