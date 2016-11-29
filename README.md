@@ -15,7 +15,7 @@ A library of some interesting algorithms, data structure implementations or just
     - [0-1 Knapsack problem](https://github.com/yitongw2/Code/blob/master/README.md#0-1-knapsack-problem)
     - [Fractional Knapsack problem](https://github.com/yitongw2/Code/blob/master/README.md#fractional-knapsack-problem)
     - [Longest common sequence](https://github.com/yitongw2/Code/blob/master/README.md#longest-common-sequence)
-    - [2 Sum problem](https://github.com/yitongw2/Code/blob/master/README.md#2sum)
+    - [2 Sum problem](https://github.com/yitongw2/Code/blob/master/README.md#2-sum)
     - [Matrix Determinant](https://github.com/yitongw2/Code/blob/master/README.md#matrix-determinant)
       
 
