@@ -10,13 +10,13 @@ A library of some interesting algorithms, data structure implementations or just
        * [Selection sort](https://github.com/yitongw2/Code/blob/master/README.md#selection-sort)
        * [Heap sort](https://github.com/yitongw2/Code/blob/master/README.md#heap-sort)
 - [Data Structure](https://github.com/yitongw2/Code/blob/master/README.md#data-structure)
-    - [Heap](https://github.com/yitongw2/Code/blob/master/README.md#heap-(min-heap))
+    - [Heap](https://github.com/yitongw2/Code/blob/master/README.md#heap-min-heap)
 - [Problems](https://github.com/yitongw2/Code/blob/master/README.md#interesting-coding-problems)
-    - [0-1 Knapsack problem]()
-    - [Fractional Knapsack problem]()
-    - [Longest common sequence]()
-    - [2 Sum problem]()
-    - [Matrix Determinant]()
+    - [0-1 Knapsack problem](https://github.com/yitongw2/Code/blob/master/README.md#0-1-knapsack-problem)
+    - [Fractional Knapsack problem](https://github.com/yitongw2/Code/blob/master/README.md#fractional-knapsack-problem)
+    - [Longest common sequence](https://github.com/yitongw2/Code/blob/master/README.md#longest-common-sequence)
+    - [2 Sum problem](https://github.com/yitongw2/Code/blob/master/README.md#2sum)
+    - [Matrix Determinant](https://github.com/yitongw2/Code/blob/master/README.md#matrix-determinant)
       
 
 # Algorithm 
