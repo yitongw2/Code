@@ -179,9 +179,9 @@ A library of some interesting algorithms, data structure implementations or just
       with an unchanged size
     * a table K containing solutions(values) to all subproblems, starting at i th item and with a size limit s
     * recurrence formula:
-      - K[i][0]=0 or K[0][s]=0 (base case)
-      - K[i][s]=value(i)+K[i-1][s-size(i)] (include the ith item)
-      - K[i][s]=K[i-1][s] (do not include the ith item)
+      - K[i][0]=0 or K[0][s]=0 (base case).
+      - K[i][s]=value(i) + K[i-1][s-size(i)](include the ith item).
+      - K[i][s]=K[i-1][s] (do not include the ith item).
     * how to choose the right item to include?
       - choose the one that maximizes the value of the solution
       - max(value(i)+K[i-1][s-size(i)], K[i-1][s])
