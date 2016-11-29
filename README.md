@@ -84,7 +84,7 @@ A library of some interesting algorithms, data structure implementations or just
       - F(n)=F(n-1)+F(n-2), for n>=2
       - F(0)=F(1)=1, otherwise
   - memoization
-    * optimization technique that stores the result of a particular recursive subproblem in a memory-based data structure           (dict in Python, or hash table in general)
+    * optimization technique that stores the result of a particular recursive subproblem in a memory-based data structure           (list or dict in Python, hash table in general)
     * once the result is stored in the data structure, it can be easily fetched.
     * using memoization saves the time from expensive recursive calls
     * e.g. memoization table used in finding Fibonacci number
