@@ -213,7 +213,7 @@ A library of some interesting algorithms, data structure implementations or just
                               else
                                 K[i][s]=max(value(i)+K[i-1][s-size(i)], K[i-1][s])
                            trace back to recover the combination of items
-     * [Code]()
+     * [Code](https://github.com/yitongw2/Code/blob/master/solutions/knapsack.py)
   
   
 ## Fractional Knapsack problem
