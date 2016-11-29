@@ -1,8 +1,25 @@
 # Code
 A library of some interesting algorithms, data structure implementations or just random stuff learnt in/out of school
 
-# Algorithm 
+## Index
+- [Algorithm]()
+    - [Graham Scan]()
+    - [Dynamic Programming]()
+    - [Comparison-based Sort]()
+       * [Insertion sort]()
+       * [Selection sort]()
+       * [Heap sort]()
+- [Data Structure]()
+    - [Heap]()
+- [Problems]()
+    - [0-1 Knapsack problem]()
+    - [Fractional Knapsack problem]()
+    - [Longest common sequence]()
+    - [2 Sum problem]()
+    - [Matrix Determinant]()
+      
 
+# Algorithm 
 
 ##  Graham Scan
   - Convex Hull
