@@ -3,8 +3,8 @@ A library of some interesting algorithms, data structure implementations or just
 
 ## Index
 - [Algorithm](https://github.com/yitongw2/Code/blob/master/README.md#algorithm)
-    - [Graham Scan](https://github.com/yitongw2/Code/blob/master/README.md#Graham Scan)
-    - [Dynamic Programming](https://github.com/yitongw2/Code/blob/master/README.md#Dynamic Programming)
+    - [Graham Scan](https://github.com/yitongw2/Code/blob/master/README.md##Graham Scan)
+    - [Dynamic Programming](https://github.com/yitongw2/Code/blob/master/README.md##Dynamic Programming)
     - [Comparison-based Sort](https://github.com/yitongw2/Code/blob/master/README.md#Comparison-based sort)
        * [Insertion sort]()
        * [Selection sort]()
