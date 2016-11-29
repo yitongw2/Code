@@ -2,10 +2,10 @@
 A library of some interesting algorithms, data structure implementations or just random stuff learnt in/out of school
 
 ## Index
-- [Algorithm]()
-    - [Graham Scan]()
-    - [Dynamic Programming]()
-    - [Comparison-based Sort]()
+- [Algorithm](https://github.com/yitongw2/Code/blob/master/README.md#algorithm)
+    - [Graham Scan](https://github.com/yitongw2/Code/blob/master/README.md#Graham Scan)
+    - [Dynamic Programming](https://github.com/yitongw2/Code/blob/master/README.md#Dynamic Programming)
+    - [Comparison-based Sort](https://github.com/yitongw2/Code/blob/master/README.md#Comparison-based sort)
        * [Insertion sort]()
        * [Selection sort]()
        * [Heap sort]()
@@ -130,36 +130,36 @@ A library of some interesting algorithms, data structure implementations or just
     * implementation determines the time complexity as well as memory usage
  
  
-  * Insertion sort
-    - given a collection of n items A to be sorted
-    - essentially, a priority-queue sort
-    - implement priority queue as a sorted list 
-    - removeMin() takes O(1) time
-    - insert() takes O(n) time
-    - time complexity:
-      * worst case: O(n^2)
-      * best case: O(n) (already sorted)
-    - can be implemented as in-place sorting by keeping the sorted region at the start of the collection and
-      gradually expands toward the unsorted area until the whole list is sorted
-    - [Python code](https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py)
+### Insertion sort
+  - given a collection of n items A to be sorted
+  - essentially, a priority-queue sort
+  - implement priority queue as a sorted list 
+  - removeMin() takes O(1) time
+  - insert() takes O(n) time
+  - time complexity:
+    * worst case: O(n^2)
+    * best case: O(n) (already sorted)
+  - can be implemented as in-place sorting by keeping the sorted region at the start of the collection and
+    gradually expands toward the unsorted area until the whole list is sorted
+  - [Python code](https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py)
     
-  * Selection sort 
-    - given a collection of n items A to be sorted
-    - essentially, a priority-queue sort
-    - implement priority queue as an unsorted list 
-    - insert() takes O(1) (simply add the key to the end of list)
-    - removeMin() takes O(n) (loop through the while list for the minimum)
-    - time complexity: O(n^2) (sorted or not)
-    - can can implemented as in-place sorting by swapping the smallest key found so far with the key at the beginning
-    - [Python code](https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py)
+### Selection sort 
+  - given a collection of n items A to be sorted
+  - essentially, a priority-queue sort
+  - implement priority queue as an unsorted list 
+  - insert() takes O(1) (simply add the key to the end of list)
+  - removeMin() takes O(n) (loop through the while list for the minimum)
+  - time complexity: O(n^2) (sorted or not)
+  - can can implemented as in-place sorting by swapping the smallest key found so far with the key at the beginning
+  - [Python code](https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py)
 
-  * Heap sort
-    - given a collection of n items A to be sorted
-    - essentially, a priority-queue sort
-    - implement priority queue as a heap (details about heap is available in data structure section)
-    - time complexity: O(nlogn) (using heapify instead of insertion to construct heap boosts the process by a constant factor
-      but the o notation remains the same since the high order is nlogn)
-    - [Python code](https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py)
+### Heap sort
+  - given a collection of n items A to be sorted
+  - essentially, a priority-queue sort
+  - implement priority queue as a heap (details about heap is available in data structure section)
+  - time complexity: O(nlogn) (using heapify instead of insertion to construct heap boosts the process by a constant factor
+    but the o notation remains the same since the high order is nlogn)
+  - [Python code](https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py)
     
       
     
