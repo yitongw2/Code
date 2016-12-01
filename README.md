@@ -11,6 +11,7 @@ A library of some interesting algorithms, data structure implementations or just
        * [Heap sort](https://github.com/yitongw2/Code/blob/master/README.md#heap-sort)
 - [Data Structure](https://github.com/yitongw2/Code/blob/master/README.md#data-structure)
     - [Heap](https://github.com/yitongw2/Code/blob/master/README.md#heap-min-heap)
+    - [Stack](https://github.com/yitongw2/Code/blob/master/README.md#stack)
 - [Problems](https://github.com/yitongw2/Code/blob/master/README.md#interesting-coding-problems)
     - [0-1 Knapsack problem](https://github.com/yitongw2/Code/blob/master/README.md#0-1-knapsack-problem)
     - [Fractional Knapsack problem](https://github.com/yitongw2/Code/blob/master/README.md#fractional-knapsack-problem)
@@ -183,6 +184,21 @@ A library of some interesting algorithms, data structure implementations or just
     * removeMin(): O(logn)
   - [Code](https://github.com/yitongw2/Code/blob/master/data_structure/heap.py)
 
+## Stack
+  - conceptual data structure that obeys the LIFO (Last In First Out) principle
+  - essentially, a collection of items where only one end of the collection can be accessed (added or removed)
+  - hence, stack should support: 
+    * push(item): add item to the end of the collection
+    * pop(): remove the item on the end of the collection (and usually return it)
+    * top(): return the item currently on the end of the collection
+    * size(): return the number of items in the stack
+  - can be implemented as array or linked list (implemented with Python list in the example)
+  - time complexity:
+    * push(): O(1)
+    * pop(): O(1)
+    * top(): O(1)
+    * size(): O(1)
+  - [Code](https://github.com/yitongw2/Code/blob/master/data_structure/stack.py)
 
 # Interesting coding problems
 
