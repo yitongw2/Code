@@ -182,8 +182,10 @@ A library of some interesting algorithms, data structure implementations or just
   - since the basic binary search tree is not self-balancing, the shape could grow into a linear structure (Professor             Alex Thronton calls it a degenerate tree) 
     * e.g. sequentially insert items of a sorted array {1,2,3,4,5} into a bst)
     
-    ![degenerate tree]()
+    ![screen shot 2016-12-02 at 2 22 08 pm](https://cloud.githubusercontent.com/assets/13974845/20852486/f5f41b64-b89a-11e6-845d-25e75d04361b.png)
     
+    * in extreme case like this, searching for a particular key could be as slow as O(n) 
+  - if the tree is perfectly balanced, 
   - supported functions:
     * insertion
     * removal
