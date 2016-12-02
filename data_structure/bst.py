@@ -52,6 +52,22 @@ class BSTree:
 				node.left=self._remove(val, node.left)
 				return node
 	
+	def search(self, val):
+		return self._search(val, self.root)!=None		
+
+	def _search(self, val, node):
+		if node==None:
+			return None
+		else:
+			if node.val==val:
+				return node
+			elif node.val<val:
+				return self._search(val, node.right)
+			else:
+				return self._search(val, node.left)
+
+
+
 	# private function
 	def _find_leftmost(self, node):
 		if node.left==None:
@@ -71,7 +87,6 @@ if __name__=="__main__":
 	t.insert(3)
 	t.remove(3)
 	t.print(t.root, 0)
-	"""
 	t.insert(6)
 	t.insert(2)
 	t.insert(1)
@@ -79,6 +94,8 @@ if __name__=="__main__":
 	t.insert(7)
 	t.print(t.root, 0)
 	print ()
+	print (t.search(7))
+	"""
 	print (t._find_leftmost(t.root.right).val)
 	print ()
 	t.remove(3)
