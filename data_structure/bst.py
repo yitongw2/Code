@@ -25,7 +25,7 @@ class BSTree:
 			return node	
 	
 	def remove(self, val):
-		self._remove(val, self.root)
+		self.root=self._remove(val, self.root)
 
 	def _remove(self, val, node):
 		if node==None:
@@ -41,8 +41,10 @@ class BSTree:
 					return node
 				elif node.left!=None:
 					return node.left
-				else:
+				elif node.right!=None:
 					return node.right
+				else:
+					return None
 			elif node.val<val:
 				node.right=self._remove(val, node.right)
 				return node
@@ -67,6 +69,9 @@ class BSTree:
 if __name__=="__main__":
 	t=BSTree()
 	t.insert(3)
+	t.remove(3)
+	t.print(t.root, 0)
+	"""
 	t.insert(6)
 	t.insert(2)
 	t.insert(1)
@@ -84,3 +89,4 @@ if __name__=="__main__":
 	print ()
 	t.remove(0)
 	t.print(t.root, 0)
+	"""
