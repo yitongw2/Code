@@ -66,8 +66,20 @@ class BSTree:
 			else:
 				return self._search(val, node.left)
 
+	def range_query(self, node, low, high, output):
+		if low>high or node==None:
+			return 
+		else:
+			if node.val>=low and node.val<=high:
+				output.append(node.val)
+				self.range_query(node.left, low, high, output)
+				self.range_query(node.right, low, high, output)
+			elif node.val>high:
+				self.range_auery(node.left, low, high, output)
+			else:
+				self.range_query(node.right, low, high, output)
 
-
+	
 	# private function
 	def _find_leftmost(self, node):
 		if node.left==None:
@@ -95,6 +107,9 @@ if __name__=="__main__":
 	t.print(t.root, 0)
 	print ()
 	print (t.search(7))
+	l=[]
+	t.range_query(t.root, 5,9, l) 
+	print (l)
 	"""
 	print (t._find_leftmost(t.root.right).val)
 	print ()
