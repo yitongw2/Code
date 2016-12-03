@@ -10,6 +10,7 @@ A library of some interesting algorithms, data structure implementations or just
        * [Selection sort](https://github.com/yitongw2/Code/blob/master/README.md#selection-sort)
        * [Heap sort](https://github.com/yitongw2/Code/blob/master/README.md#heap-sort)
 - [Data Structure](https://github.com/yitongw2/Code/blob/master/README.md#data-structure)
+    - [Binary Search Tree](https://github.com/yitongw2/Code/blob/master/README.md#binary-search-tree)
     - [Heap](https://github.com/yitongw2/Code/blob/master/README.md#heap-min-heap)
     - [Stack](https://github.com/yitongw2/Code/blob/master/README.md#stack)
 - [Problems](https://github.com/yitongw2/Code/blob/master/README.md#interesting-coding-problems)
@@ -169,10 +170,34 @@ A library of some interesting algorithms, data structure implementations or just
 
 # Data structure
 
+## Binary Search Tree
+  - a N-ary tree structure where N <= 2. 
+  - a search data structure where searching for a key in the collection should be
+    relatively fast (faster than simply linear searching for a key in a list)
+  - for each node n in the binary tree
+    * the key of n must be unique in the tree
+    * can either have 0 (leaf node), 1 or 2 children.  
+    * every node in n's left subtree must have keys smaller than n's key
+    * every node in n's right subtree must have keys larger than n's key
+  - the data structure only stores a pointer to the root node.
+  - since the basic binary search tree is not self-balancing, the shape could grow into a linear structure (Professor             Alex Thronton calls it a degenerate tree) 
+    * e.g. sequentially insert items of a sorted array {1,2,3,4,5} into a bst)
+    
+    ![screen shot 2016-12-02 at 2 22 08 pm](https://cloud.githubusercontent.com/assets/13974845/20852486/f5f41b64-b89a-11e6-845d-25e75d04361b.png)
+    
+    * in extreme case like this, searching for a particular key could be as slow as O(n) 
+  - if the tree is perfectly balanced, 
+  - supported functions:
+    * insertion
+    * removal
+    * search
+  - [Code](https://github.com/yitongw2/Code/blob/master/data_structure/bst.py)
+
 ## Heap (Min Heap)
-  - a binary tree data structure that satisifies the heap property
-  - heap-order proprty: the key of parent node should be less than (grater than if max heap)the key of any child node
-  - complete-binary property: each level of heap must be filled untill any elements can be inserted to next level
+  - a 2-ary tree data structure that satisifies the following properties:
+    * heap-order proprty: the key of parent node should be less than (grater than if max heap)the key of any child node
+    * complete-binary property: each level of heap must be filled untill any elements can be inserted to next level
+  - a specified search structure that is most efficient for retreieving the smallest/largest key in the collection of items.
   - height of heap = ceiling(log2(n+1))
   - level numering(1-based index):
     * parent node: i
