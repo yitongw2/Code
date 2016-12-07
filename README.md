@@ -11,6 +11,7 @@ A library of some interesting algorithms, data structure implementations or just
        * [Heap sort](https://github.com/yitongw2/Code/blob/master/README.md#heap-sort)
 - [Data Structure](https://github.com/yitongw2/Code/blob/master/README.md#data-structure)
     - [Binary Search Tree](https://github.com/yitongw2/Code/blob/master/README.md#binary-search-tree)
+    - [AVL Tree](https://github.com/yitongw2/Code/blob/master/README.md#avl-tree)
     - [Heap](https://github.com/yitongw2/Code/blob/master/README.md#heap-min-heap)
     - [Stack](https://github.com/yitongw2/Code/blob/master/README.md#stack)
 - [Problems](https://github.com/yitongw2/Code/blob/master/README.md#interesting-coding-problems)
@@ -193,6 +194,9 @@ A library of some interesting algorithms, data structure implementations or just
     * search
   - [Code](https://github.com/yitongw2/Code/blob/master/data_structure/bst.py)
 
+## AVL Tree
+  - [Code](https://github.com/yitongw2/Code/blob/master/data_structure/avl_tree.py)
+  
 ## Heap (Min Heap)
   - a 2-ary tree data structure that satisifies the following properties:
     * heap-order proprty: the key of parent node should be less than (grater than if max heap)the key of any child node
