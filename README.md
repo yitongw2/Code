@@ -274,7 +274,7 @@ A library of some interesting algorithms, data structure implementations or just
             
               intuitively, a tree with height h-1 can contain more nodes than a tree with height h-2. 
               therefore, M[k-1]>M[k-2]  ==> M[k-1]>=M[k-2]+1
-              obtain: M[k] >= 2*M[k-2]+1
+              obtain: M[k] >= 2*M[k-2]
                   ==> by induction, M[k] >= 2*(2*M[k-4])
                                     M[k] >= 2*(2*(2*M[k-6]))
                                     ...
