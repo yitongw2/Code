@@ -231,7 +231,6 @@ A library of some interesting algorithms, data structure implementations or just
     * near perfect ==> complete binary tree == a relaxed version of perfect binary tree
         - a complete binary tree is a tree where, at any level except the root level, the preceding level of the tree must
           be full. 
-        
   - [Code](https://github.com/yitongw2/Code/blob/master/data_structure/bst.py)
 
 ## AVL Tree
