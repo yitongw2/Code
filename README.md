@@ -192,8 +192,8 @@ A library of some interesting algorithms, data structure implementations or just
     * for each non-external node, its left subtree and right subtree must be both perfect binary tree 
     
     e.g. the following tree is a perfect binary tree where each node either have 0 or 2 children 
-    
-![screen shot 2016-12-10 at 5 20 15 pm](https://cloud.githubusercontent.com/assets/13974845/21077328/fa44c9a8-befc-11e6-9542-bfee9c16d39d.png)
+
+![screen shot 2016-12-10 at 5 23 49 pm](https://cloud.githubusercontent.com/assets/13974845/21077348/7a0d826a-befd-11e6-8238-d109785879b3.png)
     
   - the height for a perfect binary subtree = O(logn)
     * at height = 0, there are 2^0 nodes on this level
