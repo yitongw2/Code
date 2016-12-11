@@ -9,6 +9,8 @@ A library of some interesting algorithms, data structure implementations or just
        * [Insertion sort](https://github.com/yitongw2/Code/blob/master/README.md#insertion-sort)
        * [Selection sort](https://github.com/yitongw2/Code/blob/master/README.md#selection-sort)
        * [Heap sort](https://github.com/yitongw2/Code/blob/master/README.md#heap-sort)
+       * [Quick sort]()
+       * [Merger sort]()
 - [Data Structure](https://github.com/yitongw2/Code/blob/master/README.md#data-structure)
     - [Binary Search Tree](https://github.com/yitongw2/Code/blob/master/README.md#binary-search-tree)
     - [AVL Tree](https://github.com/yitongw2/Code/blob/master/README.md#avl-tree)
@@ -181,20 +183,62 @@ A library of some interesting algorithms, data structure implementations or just
     * every node in n's left subtree must have keys smaller than n's key
     * every node in n's right subtree must have keys larger than n's key
   - the data structure only stores a pointer to the root node.
-  - since the basic binary search tree is not self-balancing, the shape could grow into a linear structure (Professor             Alex Thronton calls it a degenerate tree) 
+  - supported basic functionalties:
+    * insertion: insert a node at one of the lead node of the tree
+    * removal: remove a node specified by a key from this tree
+    * search: look for a particular node with a specfied key 
+  - a **perfect binary tree** is a tree that satifies the following 2 properties:
+    * external nodes must be a perfect binary tree
+    * for each non-external node, its left subtree and right subtree must be both perfect binary tree 
+    
+    e.g. the following tree is a perfect binary tree where each node either have 0 or 2 children 
+    
+![screen shot 2016-12-10 at 5 20 15 pm](https://cloud.githubusercontent.com/assets/13974845/21077328/fa44c9a8-befc-11e6-9542-bfee9c16d39d.png)
+    
+  - the height for a perfect binary subtree = O(logn)
+    * at height = 0, there are 2^0 nodes on this level
+    * at height = 1, there are 2^1 nodes on this level
+    * ...
+    * at height = k, there are 2^k nodes on this level
+    * with height h, there are, in total, (2^0)+(2^1)+(2^2)+...+(2^h) ==> 2^(h+1)-1
+                           
+                                Geometric series: a+ar+ar^2+...+ar^(n-1)
+                                Geometric sum: a*(1-r^n)/(1-r)
+                                    (2^0)+(2^1)+(2^2)+...+(2^h)
+                                ==> a=1, r=2
+                                ==> (1-2^(h+1))/(1-2)
+                                ==> 2^(h+1)-1
+                             
+    * suppose there are n nodes in a tree of height h, n = 2^(h+1)-1
+        
+                                n = 2^(h+1)-1
+                             ==> n+1 = 2^(h+1)
+                             ==> log(n+1) = h+1
+                             ==> h = log(n+1)-1
+                             ==> h = O(logn)
+                             Therefore, height of a perfect binary tree is O(logn)
+              
+  - however, the basic binary search tree is not self-balancing, so the shape could grow into a linear structure (Professor       Alex Thronton calls it a degenerate tree) 
     * e.g. sequentially insert items of a sorted array {1,2,3,4,5} into a bst)
     
     ![screen shot 2016-12-02 at 2 22 08 pm](https://cloud.githubusercontent.com/assets/13974845/20852486/f5f41b64-b89a-11e6-845d-25e75d04361b.png)
     
     * in extreme case like this, searching for a particular key could be as slow as O(n) 
-  - if the tree is perfectly balanced, 
-  - supported functions:
-    * insertion
-    * removal
-    * search
+  - our best hope is that, given n nodes stored in a binary search tree, we can search/insert/delete a node by
+    traversing much less than n nodes, namely O(log) nodes down toward one of the leaf nodes.  
+  - when the binary search tree is perfectly balanced or near perfectly balanced, the cost of these operations is O(logn)
+    * near perfect ==> complete binary tree == a relaxed version of perfect binary tree
+        - a complete binary tree is a tree where, at any level except the root level, the preceding level of the tree must
+          be full. 
+        
   - [Code](https://github.com/yitongw2/Code/blob/master/data_structure/bst.py)
 
 ## AVL Tree
+  - a variant of binary search tree that balances its height so that it won't grow into a degenerate tree.
+  - the idea is that 
+  - rotation
+    * AVL tree balances its height to O(logn) by performing rotation operation during insertion or deletion.
+    * 
   - [Code](https://github.com/yitongw2/Code/blob/master/data_structure/avl_tree.py)
   
 ## Heap (Min Heap)
