@@ -223,8 +223,8 @@ A library of some interesting algorithms, data structure implementations or just
     
     ![screen shot 2016-12-02 at 2 22 08 pm](https://cloud.githubusercontent.com/assets/13974845/20852486/f5f41b64-b89a-11e6-845d-25e75d04361b.png)
     
-    * in extreme case like this, searching for a particular key could be as slow as O(n) since the height of the tree becomes
-      O(n) instead of O(logn).
+    * in the extreme case like this, searching for a particular key as well as other operations could be as slow as O(n) since
+      the height of the tree becomes O(n) instead of O(logn).
   - our best hope is that, given n nodes stored in a binary search tree, we can search/insert/delete a node by
     traversing much less than n nodes, namely O(log) nodes down toward one of the leaf nodes.  
   - when the binary search tree is perfectly balanced or near perfectly balanced, the cost of these operations is O(logn)
@@ -232,21 +232,67 @@ A library of some interesting algorithms, data structure implementations or just
         - a complete binary tree is a tree where, at any level except the root level, the preceding level of the tree must
           be full. 
         - that is to say, instead of forbidding the existence of any nodes with only 1 child (in the following example, 
-          node 8 has only 1 child node 6), we tolerate this imperfection once but limits the orphan (the only child of the
-          node: node 6 in the example) to be the rightmost node on the bottom-most level.
+          node 8 has only 1 child node 6), we tolerate this imperfection once but limits the only child of the particular
+          node (node 6 in the example) to be the rightmost node on the bottom-most level.
         
              e.g. a complete binary tree
              
             ![screen shot 2016-12-10 at 5 45 47 pm](https://cloud.githubusercontent.com/assets/13974845/21077453/8305a368-bf00-11e6-94c8-0f06c90a0d21.png)
-        
+       
+       - since the difference between a complete binary tree and a perfect binary tree is merely the bottom-most level, 
+         the asymtopic notation of the height of the tree is still O(log). 
+  - overhead required: need to maintain the perfect binary tree or complete binary tree.
   - [Code](https://github.com/yitongw2/Code/blob/master/data_structure/bst.py)
 
 ## AVL Tree
   - a variant of binary search tree that balances its height so that it won't grow into a degenerate tree.
-  - the idea is that 
+  - Perfect or Complete?
+    * both perfect and complete binary tree has a promised height of O(logn)
+    * but the cost of maintaing either of them may possibly take Ω(n) times operations in the worst case. 
+    * maintaing a perfect or complete binary tree is way too expensive if we constantly need to modify (insert/delete) the
+      content of tree.
+  - the idea behind AVL tree is that, if we relax the rules about how we arrange nodes in a tree a little looser,
+    we can reduce the cost of rebalancing the binary tree while still maintain the height of the tree to be O(logn).
+  - **AVL property = for each node in AVL tree, the height of its left and right subtrees differ by no more than 1.**
+    * e.g. AVL tree 
+                
+      ![screen shot 2016-12-10 at 6 30 22 pm](https://cloud.githubusercontent.com/assets/13974845/21077632/c6eb1f12-bf06-11e6-85b8-49d98297bb33.png)
+  
+  - height of AVL tree
+    * consider the minimum number of nodes n necessary to qualify as an AVL tree with height of h
+    * given a node in an AVL tree, the height of its subtrees can either be one less than the parent node or 2 less than the         parent node. ==> they can be divided into 2 subsets of nodes
+        
+      ![screen shot 2016-12-10 at 7 18 39 pm](https://cloud.githubusercontent.com/assets/13974845/21077833/87d51ede-bf0d-11e6-9194-55300ea9cc75.png)
+      
+    * therefore, we can describe the relationship between n and h as a recurrence M(h): 
+        - when h = 0, n = 1 ==> M[0]=1 (base case)
+        - when h = 1, n = 2 ==> M[1]=2 (base case)
+        - when h = k (k>=2), n = M[k-1]+M[k-2]+1 ==> M[k]= M[k-1]+M[k-2]+1 (recursive case)
+            
+            
+        Solving the recurrence
+            
+              intuitively, a tree with height h-1 can contain more nodes than a tree with height h-2. 
+              therefore, M[k-1]>M[k-2]  ==> M[k-1]>=M[k-2]+1
+              obtain: M[k] >= 2*M[k-2]+1
+                  ==> by induction, M[k] >= 2*(2*M[k-4])
+                                    M[k] >= 2*(2*(2*M[k-6]))
+                                    ...
+                                    M[k] >= 2^j*M[k-2*j]
+                  let j = k/2,
+                  ==> M[k] >= 2^(k/2) / 2M[k - k]
+                  ==> M[k] >= 2^(k/2)
+                  let n be the number of nodes in AVL tree with height k, 
+                  ==> n >= 2^(k/2)
+                  ==> k/2 >= log(n)
+                  ==> k >= 2*log(n)
+                  ==> k >= log(n)
+                  therefore, the height of AVL tree is O(logn)
+                        
+        
   - rotation
     * AVL tree balances its height to O(logn) by performing rotation operation during insertion or deletion.
-    * 
+    *  
   - [Code](https://github.com/yitongw2/Code/blob/master/data_structure/avl_tree.py)
   
 ## Heap (Min Heap)
