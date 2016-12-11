@@ -191,7 +191,7 @@ A library of some interesting algorithms, data structure implementations or just
     * external nodes must be a perfect binary tree
     * for each non-external node, its left subtree and right subtree must be both perfect binary tree 
     
-    e.g. the following tree is a perfect binary tree where each node either have 0 or 2 children 
+        e.g. the following tree is a perfect binary tree where each node either have 0 or 2 children 
 
 ![screen shot 2016-12-10 at 5 23 49 pm](https://cloud.githubusercontent.com/assets/13974845/21077348/7a0d826a-befd-11e6-8238-d109785879b3.png)
     
@@ -231,6 +231,14 @@ A library of some interesting algorithms, data structure implementations or just
     * near perfect ==> complete binary tree == a relaxed version of perfect binary tree
         - a complete binary tree is a tree where, at any level except the root level, the preceding level of the tree must
           be full. 
+        - that is to say, instead of forbidding the existence of any nodes with only 1 child (in the following example, 
+          node 8 has only 1 child node 6), we tolerate this imperfection once but limits the orphan (the only child of the
+          node: node 6 in the example) to be the rightmost node on the bottom-most level.
+        
+             e.g. a complete binary tree
+             
+            ![screen shot 2016-12-10 at 5 45 47 pm](https://cloud.githubusercontent.com/assets/13974845/21077453/8305a368-bf00-11e6-94c8-0f06c90a0d21.png)
+        
   - [Code](https://github.com/yitongw2/Code/blob/master/data_structure/bst.py)
 
 ## AVL Tree
