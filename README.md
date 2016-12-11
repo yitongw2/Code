@@ -223,7 +223,8 @@ A library of some interesting algorithms, data structure implementations or just
     
     ![screen shot 2016-12-02 at 2 22 08 pm](https://cloud.githubusercontent.com/assets/13974845/20852486/f5f41b64-b89a-11e6-845d-25e75d04361b.png)
     
-    * in extreme case like this, searching for a particular key could be as slow as O(n) 
+    * in extreme case like this, searching for a particular key could be as slow as O(n) since the height of the tree becomes
+      O(n) instead of O(logn).
   - our best hope is that, given n nodes stored in a binary search tree, we can search/insert/delete a node by
     traversing much less than n nodes, namely O(log) nodes down toward one of the leaf nodes.  
   - when the binary search tree is perfectly balanced or near perfectly balanced, the cost of these operations is O(logn)
