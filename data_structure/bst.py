@@ -1,9 +1,4 @@
-class Node:
-	def __init__(self, value, left, right):
-		self.left=left
-		self.right=right
-		self.val=value
-
+from tree_node import Node
 
 class BSTree:
 	def __init__(self):
@@ -80,6 +75,24 @@ class BSTree:
 				self.range_query(node.right, low, high, output)
 
 	
+	def inorder_traverse(self, node, action):
+		if node!=None:
+			self.inorder_traverse(node.left, action)
+			action(node)
+			self.inorder_traverse(node.right, action)	
+		
+	def preorder_traverse(self, node, action):
+		if node!=None:
+			action(node)
+			self.preorder_traverse(node.left, action)
+			self.preorder_traverse(node.right, action)
+	
+	def postorder_traverse(self, node, action):
+		if node!=None:
+			self.postorder_traverse(node.left, action)
+			self.postorder_traverse(node.right, action)
+			action(node)		
+	
 	# private function
 	def _find_leftmost(self, node):
 		if node.left==None:
@@ -87,38 +100,25 @@ class BSTree:
 		else:
 			return self._find_leftmost(node.left)
 	
-	def print(self, node, count):
+	def print(self, node, height=0):
 		if node!=None:
-			self.print(node.left, count+1)
-			print (node.val, "level=", count)
-			self.print(node.right, count+1)
+			self.print(node.left, height+1)
+			print("*"*height, node.val)
+			self.print(node.right, height+1)
 
 
 if __name__=="__main__":
 	t=BSTree()
 	t.insert(3)
 	t.remove(3)
-	t.print(t.root, 0)
+	t.print(t.root)
 	t.insert(6)
 	t.insert(2)
 	t.insert(1)
 	t.insert(5)
 	t.insert(7)
-	t.print(t.root, 0)
+	t.print(t.root)
 	print ()
 	print (t.search(7))
 	l=[]
 	t.range_query(t.root, 5,9, l) 
-	print (l)
-	"""
-	print (t._find_leftmost(t.root.right).val)
-	print ()
-	t.remove(3)
-	t.print(t.root, 0)
-	print()
-	t.remove(5)
-	t.print(t.root, 0) 
-	print ()
-	t.remove(0)
-	t.print(t.root, 0)
-	"""
