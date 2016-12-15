@@ -14,6 +14,7 @@ A library of some interesting algorithms, data structure implementations or just
 - [Data Structure](https://github.com/yitongw2/Code/blob/master/README.md#data-structure)
     - [Binary Search Tree](https://github.com/yitongw2/Code/blob/master/README.md#binary-search-tree)
     - [AVL Tree](https://github.com/yitongw2/Code/blob/master/README.md#avl-tree)
+    - [WAVL Tree](https://github.com/yitongw2/Code/blob/master/README.md#wavl-tree)
     - [Heap](https://github.com/yitongw2/Code/blob/master/README.md#heap-min-heap)
     - [Stack](https://github.com/yitongw2/Code/blob/master/README.md#stack)
 - [Problems](https://github.com/yitongw2/Code/blob/master/README.md#interesting-coding-problems)
@@ -294,7 +295,18 @@ A library of some interesting algorithms, data structure implementations or just
     * AVL tree balances its height to O(logn) by performing rotation operation during insertion or deletion.
     *  
   - [Code](https://github.com/yitongw2/Code/blob/master/data_structure/avl_tree.py)
-  
+
+## WAVL Tree
+  - a self-balancing binary tree that can be perceived as both of AVL tree and Red-Black tree. 
+  - each node of the WAVL tree is assigned to a rank
+  - rank difference of a node n is the difference between the rank of n and the rank of n's parent node p
+  - WAVL tree must satisfy the following WAVL properties  
+  - WAVL Properties
+    * all external nodes have rank of 0
+    * every node with 2 external nodes have rank of 1
+    * every non-root nodes can have either have rank difference of 1 or 2
+   
+
 ## Heap (Min Heap)
   - a 2-ary tree data structure that satisifies the following properties:
     * heap-order proprty: the key of parent node should be less than (grater than if max heap)the key of any child node
