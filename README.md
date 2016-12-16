@@ -293,11 +293,17 @@ A library of some interesting algorithms, data structure implementations or just
         
   - rotation
     * AVL tree balances its height to O(logn) by performing rotation operation during insertion or deletion.
-    *  
+    * O(logn) operations (worst case: downward from root to leaf)
+    * trinode rotation
+        - LL rotation
   - [Code](https://github.com/yitongw2/Code/blob/master/data_structure/avl_tree.py)
 
 ## WAVL Tree
+  - Weak AVL tree, introduced in 2015 by Bernhard Haeupler, Siddhartha Sen and Robert E Tarjan.
   - a self-balancing binary tree that can be perceived as both of AVL tree and Red-Black tree. 
+  - WAVL's advantage over AVL tree and Red-Black tree
+    * better height than Red-Black tree which is 2log(n)
+    * cheaper rotation than AVL tree whose rotation costs O(logn) 
   - each node of the WAVL tree is assigned to a rank
   - rank difference of a node n is the difference between the rank of n and the rank of n's parent node p
   - WAVL tree must satisfy the following WAVL properties  
@@ -305,6 +311,7 @@ A library of some interesting algorithms, data structure implementations or just
     * all external nodes have rank of 0
     * every node with 2 external nodes have rank of 1
     * every non-root nodes can have either have rank difference of 1 or 2
+  - 
    
 
 ## Heap (Min Heap)
