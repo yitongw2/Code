@@ -5,17 +5,18 @@ class BSTree:
 		self.root=None
 	
 	def insert(self, val):
+                """
+                calls private function _insert() for recursive insertion
+                """
 		self.root=self._insert(val, self.root)
 	
 	def _insert(self, val, node):
 		if node==None:
 			return Node(val, None, None)
 		else:
-			if node.val==val:
-				return node 
-			elif node.val>val:
+			if node.val>val:
 				node.left=self._insert(val, node.left)
-			else:
+			elif node.val<val:
 				node.right=self._insert(val, node.right)
 			return node	
 	
@@ -105,8 +106,8 @@ class BSTree:
 			self.print(node.left, height+1)
 			print("*"*height, node.val)
 			self.print(node.right, height+1)
-
-
+	
+	
 if __name__=="__main__":
 	t=BSTree()
 	t.insert(3)

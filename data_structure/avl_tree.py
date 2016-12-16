@@ -10,12 +10,6 @@ class AVLTree(BSTree):
 		"""
 		BSTree.__init__(self)
 
-	def insert(self, val):
-		"""
-		calls private function _insert() for recursive insertion
-		"""
-		self.root=self._insert(val, self.root)
-	
 	def _insert(self, val, node):
 		"""
 		a recursive function for insertion.
@@ -38,10 +32,6 @@ class AVLTree(BSTree):
 				node.depth+=1
 			return self._trinode_rotate(node)		
 
-
-	def remove(self, val):
-		self.root=self._remove(val, self.root)	
-	
 	def _remove(self, val, node):
 		if node==None:
 			return None
