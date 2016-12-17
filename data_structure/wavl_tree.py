@@ -39,12 +39,10 @@ class WAVLTree(AVLTree):
 					return None
 			elif node.val<val:
 				node.right=self._remove(val, node.right)
-				self.set_depth(node)
 				return self._remove_rotate(node, node.right,\
 					node.left)
 			else:
 				node.left=self._remove(val, node.left)
-				self.set_depth(node)
 				return self._remove_rotate(node, node.left,\
 					node.right)
 
@@ -57,9 +55,10 @@ class WAVLTree(AVLTree):
 			if rs==1:
 				parent.depth+=1
 				return parent
-			elif rs>=2:
-				return self._trinode_rotate(parent)		
-		return parent
+			elif rs==2:
+				return self._trinode_rotate(parent)
+		elif rd==1:
+			return parent
 	
 	def _remove_rotate(self, parent, target, sibling):
 		rd=self._rank_diff(parent, target)
@@ -70,8 +69,11 @@ class WAVLTree(AVLTree):
 			if rs==2:
 				parent.depth-=1
 				return parent
-			else:
-				return self._trinode_rotate(parent)
+			elif rs==1:
+				print ("rotate ", parent.val, parent.depth)
+				temp=self._trinode_rotate(parent)
+				print ("after ", temp.val, temp.depth)
+				return temp
 		return parent
 
 	def _rank_diff(self, np, nq):
@@ -83,27 +85,16 @@ class WAVLTree(AVLTree):
 		else:
 			return node.depth			
 	
-	def printR(self, node):
-                if node!=None:
-                        self.print(node.left)
-                        print("*"*node.depth, node.val)
-                        self.print(node.right)
-
 
 if __name__=="__main__":
 	w=WAVLTree()
-	w.insert(1)
-	w.insert(2)
-	w.insert(3)
-	w.insert(4)
-	w.insert(5)
-	w.insert(9)
-	w.insert(8)
-	w.insert(11)
-	w.insert(10)
-	w.remove(11)
-	w.remove(8)
+	for x in range(11):
+		w.insert(x)
 	w.printR(w.root)
 	print()
 	w.print(w.root)
-
+	print()
+	for x in range(11):
+		node=w._search(x, w.root)
+		print ("val=", node.val, " depth=", node.depth)
+	
