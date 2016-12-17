@@ -62,18 +62,13 @@ class WAVLTree(AVLTree):
 	
 	def _remove_rotate(self, parent, target, sibling):
 		rd=self._rank_diff(parent, target)
-		if rd==2:
-			return parent
-		elif rd==3:
+		if rd==3:
 			rs=self._rank_diff(parent, sibling)
 			if rs==2:
 				parent.depth-=1
 				return parent
 			elif rs==1:
-				print ("rotate ", parent.val, parent.depth)
-				temp=self._trinode_rotate(parent)
-				print ("after ", temp.val, temp.depth)
-				return temp
+				return self._trinode_rotate(parent)
 		return parent
 
 	def _rank_diff(self, np, nq):
@@ -90,11 +85,16 @@ if __name__=="__main__":
 	w=WAVLTree()
 	for x in range(11):
 		w.insert(x)
+	print ("Before removal, Rank ")
 	w.printR(w.root)
-	print()
+	print ("\nTree")
+	w.print(w.root)
+	w.remove(9)
+	w.remove(5)
+	w.remove(4)
+	w.remove(8)
+	print("\nAfter Removal, Rank")
+	w.printR(w.root)
+	print("\nTree")
 	w.print(w.root)
 	print()
-	for x in range(11):
-		node=w._search(x, w.root)
-		print ("val=", node.val, " depth=", node.depth)
-	
