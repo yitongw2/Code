@@ -2,15 +2,27 @@ from tree_node import Node
 
 class BSTree:
 	def __init__(self):
+		"""
+		constructor of binary search tree
+		only stores a pointer to root
+		"""
 		self.root=None
 	
 	def insert(self, val):
 		"""
-		calls private function _insert() for recursive insertion
+		calls recursive function _insert() for insertion.
+		_insert() can be implemented by variations of the 
+		binary search tree.
 		"""
 		self.root=self._insert(val, self.root)
 	
 	def _insert(self, val, node):
+		"""
+		a basic recursive function for insertion:
+		* insert a node at a leaf node that found by binary searching 
+		  for the right place for the value.
+		* doesn't maintain the balance of the tree
+		"""
 		if node==None:
 			return Node(val, None, None)
 		else:
@@ -21,9 +33,24 @@ class BSTree:
 			return node	
 	
 	def remove(self, val):
+		"""
+		calls recursive function _remove() for removal.
+                _remove() can be implemented by variations of the 
+                binary search tree.
+		"""
 		self.root=self._remove(val, self.root)
 
 	def _remove(self, val, node):
+		"""
+		a basic recursive function for removal:
+		* recursively (binary search) locate the node with the correct
+		  value.
+		* remove it based on the existence of its non-external children:
+			- if only 1 child, reconnect its child  with its parent
+			- if 2 child, swap to the closest node in subtree and 
+			  continue the process.
+			- if 0 child, simply connect the external node to parent 
+		"""
 		if node==None:
 			return None 
 		else:
@@ -47,9 +74,20 @@ class BSTree:
 				return node
 	
 	def search(self, val):
+		"""
+		calls recursive function _search() for searching in binary tree
+		"""
 		return self._search(val, self.root)!=None		
 
 	def _search(self, val, node):
+		"""
+		recursively locate the right node with the specified value. 
+		recurrence:
+		* if node's value > value to be found, go to the left subtree of		  node
+		* if node's value < value to be found, go to the right subtree 
+		  of node
+		* otherwise, node has been found.
+		"""
 		if node==None:
 			return None
 		else:
@@ -61,6 +99,10 @@ class BSTree:
 				return self._search(val, node.left)
 
 	def range_query(self, node, low, high, output):
+		"""
+		searching for a sequence of values in the range specified by 
+		[low, high]. 
+		"""
 		if low>high or node==None:
 			return 
 		else:
