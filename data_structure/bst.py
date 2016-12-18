@@ -5,9 +5,9 @@ class BSTree:
 		self.root=None
 	
 	def insert(self, val):
-                """
-                calls private function _insert() for recursive insertion
-                """
+		"""
+		calls private function _insert() for recursive insertion
+		"""
 		self.root=self._insert(val, self.root)
 	
 	def _insert(self, val, node):
@@ -30,9 +30,7 @@ class BSTree:
 			if node.val==val:
 				if node.left!=None and node.right!=None:
 					closest=self._find_leftmost(node.right)
-					temp=closest.val
-					closest.val=node.val
-					node.val=temp
+					self._swap_node_val(closest, node)
 					node.right=self._remove(val, node.right)
 					return node
 				elif node.left!=None:
@@ -71,7 +69,7 @@ class BSTree:
 				self.range_query(node.left, low, high, output)
 				self.range_query(node.right, low, high, output)
 			elif node.val>high:
-				self.range_auery(node.left, low, high, output)
+				self.range_query(node.left, low, high, output)
 			else:
 				self.range_query(node.right, low, high, output)
 
@@ -101,6 +99,11 @@ class BSTree:
 		else:
 			return self._find_leftmost(node.left)
 	
+	def _swap_node_val(self, src_node, dst_node):
+		temp=src_node.val
+		src_node.val=dst_node.val
+		dst_node.val=temp
+	
 	def print(self, node, height=0):
 		if node!=None:
 			self.print(node.left, height+1)
@@ -113,11 +116,11 @@ if __name__=="__main__":
 	t.insert(3)
 	t.remove(3)
 	t.print(t.root)
-	t.insert(6)
-	t.insert(2)
 	t.insert(1)
+	t.insert(2)
+	t.insert(3)
+	t.insert(4)
 	t.insert(5)
-	t.insert(7)
 	t.print(t.root)
 	print ()
 	print (t.search(7))

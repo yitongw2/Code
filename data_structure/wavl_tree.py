@@ -25,9 +25,7 @@ class WAVLTree(AVLTree):
 			if node.val==val:
 				if node.left!=None and node.right!=None:
 					closest=self._find_leftmost(node.right)
-					temp=closest.val
-					closest.val=node.val
-					node.val=temp
+					self._swap_node_val(closest, node)
 					node.right=self._remove(val, node.right)
 					return self._remove_rotate(node, \
 						node.right, node.left)
@@ -49,27 +47,56 @@ class WAVLTree(AVLTree):
 		
 
 	def _insert_rotate(self, parent, target, sibling):
+		# calculate the rank difference of target node
 		rd=self._rank_diff(parent, target)
 		if rd==0:
+			# calculate the rank difference of sibling node
 			rs=self._rank_diff(parent, sibling)
 			if rs==1:
+			# if sibling has a rank difference of 1, we can safely
+			# promote parent's rank and preserve the rank-diiference			# property among parent, target and sibling by creating
+			# a 1-2 node
 				parent.depth+=1
 				return parent
 			elif rs==2:
+				# when sibling has a rank difference of 2,
+				# promotion is not safe since it will increase
+				# sibling's rank difference to 3. Therefore,
+				# we need a trinode rotation
 				return self._trinode_rotate(parent)
 		elif rd==1:
+			# when target's rank difference is 1, then everything
+			# is just perfect. just return the parent node.
 			return parent
 	
 	def _remove_rotate(self, parent, target, sibling):
 		rd=self._rank_diff(parent, target)
-		if rd==3:
+		if target==None and sibling==None:
+			# parent has two external nodes
+			parent.depth=1
+			return parent
+		elif rd==3:
+			# when target has rank difference of 3 
 			rs=self._rank_diff(parent, sibling)
 			if rs==2:
+				# when sibling has rank difference of 2
+				# safe to demote parent's rank so that 
+				# rank_diff(parent,target)==2 and 
+				# rank_diff(parent,sibling)==1. 
 				parent.depth-=1
 				return parent
-			elif rs==1:
-				return self._trinode_rotate(parent)
-		return parent
+			else:
+				# otherwise, sibling has rank difference of 1
+				rsl=self._rank_diff(sibling, sibling.left)
+				rsr=self._rank_diff(sibling, sibling.right)
+				if rsl==2 and rsr==2:
+					parent.depth-=1
+					sibling.depth-=1
+					return parent
+				else:
+					return self._trinode_rotate(parent)	
+		else:
+			return parent
 
 	def _rank_diff(self, np, nq):
 		return self._depth(np)-self._depth(nq)
@@ -82,19 +109,23 @@ class WAVLTree(AVLTree):
 	
 
 if __name__=="__main__":
+	import random
 	w=WAVLTree()
-	for x in range(11):
+	for x in range(20):
 		w.insert(x)
 	print ("Before removal, Rank ")
 	w.printR(w.root)
 	print ("\nTree")
 	w.print(w.root)
-	w.remove(9)
-	w.remove(5)
-	w.remove(4)
-	w.remove(8)
+	for x in range(20):
+		r=random.randint(0,1)
+		if r>0.7:
+			w.remove(x)
+		elif 0.3<r<0.6:
+			w.insert(x*0.5)
 	print("\nAfter Removal, Rank")
 	w.printR(w.root)
 	print("\nTree")
 	w.print(w.root)
 	print()
+	w.postorder_traverse(w.root, lambda x: print(x.val))

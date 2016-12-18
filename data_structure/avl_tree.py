@@ -33,15 +33,29 @@ class AVLTree(BSTree):
 			return self._trinode_rotate(node)		
 
 	def _remove(self, val, node):
+		"""
+		a recursive funtion for removing a specified item from the tree
+		recurrence:
+			* when the node is leaf node, no removal is performed
+			  since the specified item is not found.
+			* when node is not leaf node, binary search for the node
+			  to be removed 
+			* when find the correct node to be removed, 
+			  - if the node has 2 non-external children, swap the 
+			    value of the node with the node in its subtree that
+		            has the closest value and continue the process 
+			    downward
+			  - if the node has 1 non-external child, reconnect its 			    child with the grandparent of the child.
+			  - if the nodes has 0 non-external child, simply delete			    it by connecting the external node.
+						
+		"""
 		if node==None:
 			return None
 		else:
 			if node.val==val:
 				if node.left!=None and node.right!=None:
 					closest=self._find_leftmost(node.right)
-					temp=closest.val
-					closest.val=node.val
-					node.val=temp
+					self._swap_node_val(closest, node)
 					node.right=self._remove(val, node.right)
 					return self._trinode_rotate(node)
 				elif node.left!=None:
@@ -52,11 +66,9 @@ class AVLTree(BSTree):
 					return None
 			elif node.val<val:
 				node.right=self._remove(val, node.right)
-				self.set_depth(node)
 				return self._trinode_rotate(node)
 			else:
 				node.left=self._remove(val, node.left)
-				self.set_depth(node)
 				return self._trinode_rotate(node)
 	
 	def _LL_rotate(self, node):
@@ -100,7 +112,12 @@ class AVLTree(BSTree):
 			return -1
 		else:
 			return node.depth
-
+	
+	def printR(self, node):
+		if node!=None:
+			self.printR(node.left)
+			print ("*"*node.depth, node.val)
+			self.printR(node.right)
 
 
 if __name__=="__main__":
@@ -110,12 +127,19 @@ if __name__=="__main__":
 	avl.insert(6)
 	avl.insert(7)
 	avl.insert(8)
+	avl.remove(6)
 	avl.insert(10)
 	avl.insert(9)
 	avl.insert(-1)
 	avl.remove(7)
 	avl.remove(2)
+	avl.insert(3)
+	avl.insert(4)
 	avl.print(avl.root, 0)
-	#avl.print(avl.root)
+	print()
+	avl.printR(avl.root)
 	print (avl.search(8))
 	print (avl.search(7))
+	l=[]
+	avl.range_query(avl.root, 2, 8, l)
+	print (l)
