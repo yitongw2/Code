@@ -10,7 +10,6 @@ def findMaxSubArray(l):
 	for x in range(len(l)):
 		r+=l[x]
 		s.append(r)
-	print (s)
 	i,j=0,len(l)-1
 	for x in range(len(l)):
 		if l[x]>l[j]:
@@ -28,6 +27,9 @@ if __name__=="__main__":
 	l=[-2,-4,3,-1,5,6,-7,-2,4,-3,2]
 	l1=[1,2,3,4,5,6,7]
 	l2=[-2,-4,3,-1,5,6,-7,-2,4,-3,2]
+	print (l)
 	print (findMaxSubArray(l))
+	print (l1)
 	print (findMaxSubArray(l1))
+	print (l2)
 	print (findMaxSubArray(l2))

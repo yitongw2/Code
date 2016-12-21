@@ -1,6 +1,8 @@
 import random
 import sorting
-import utility
+import median
+from partition import partitionK
+
 
 
 def randomQuickSelect(lis, key):
@@ -31,7 +33,7 @@ def randomQuickSelect(lis, key):
 		return lis[0]
 	else:
 		pivotI=random.randint(0,len(lis)-1)
-		i,k=utility.partition(lis,lis[pivotI]) 
+		i,k=partitionK(lis,lis[pivotI]) 
 		if key<=i:
 			return randomQuickSelect(lis[:i],key)
 		elif key<=i+len(lis)-k:
@@ -44,31 +46,23 @@ def deterQuickSelect(lis,key):
 	if len(lis)==1:
 		return lis[0]
 	else:
-		g=len(lis)/5
-		subM=[utility.findMedian(lis[x*5:(x+1)*5]) for x in range(g)]
+		g=len(lis)//5
+		subM=[median.findMedian(lis[x*5:(x+1)*5]) for x in range(g)]
 		if len(lis)%5!=0:
-			subM.append(utility.findMedian(lis[g*5:]))
+			subM.append(median.findMedian(lis[g*5:]))
 		m=deterQuickSelect(subM,g/2 if g%2==0 else g/2+1)
-		i,k=utility.partition(lis,m)
+		i,k=partitionK(lis,m)
 		if key<=i:
 			return deterQuickSelect(lis[:i],key)
 		elif key<=i+len(lis)-k:
 			return lis[k]
 		else:
 			return deterQuickSelect(lis[i:k],key-i-len(lis)+k)	
-		
-			
 
 
-'''
 if __name__=="__main__":
 	SIZE=100
 	RANGE=50
-
-	#ii=utility.partition(test_lis,RANGE-1)
-	#print (test_lis)
-	#print (ii)
-	#print (utility.isPartitioned(test_lis,test_lis[ii[1]],ii[0]))
 
 	for y in range(50):
 		test_lis=[random.randint(0,SIZE) for x in range(RANGE)]
@@ -76,5 +70,6 @@ if __name__=="__main__":
 		for r in range(RANGE):	
 			l.append(deterQuickSelect(test_lis,r+1))
 		sorting.quickSort(test_lis,0,RANGE-1)
-		print ("RESULT",test_lis==l)
-'''
+	print ("RESULT",test_lis==l)
+
+

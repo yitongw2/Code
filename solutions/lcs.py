@@ -62,8 +62,8 @@ def traceBack(X, Y, table):
 		
 
 if __name__=="__main__":
-	X="dynamic"
-	Y="programming"
+	X="cat"
+	Y="act"
 	print ("X=", X, "Y=", Y)
 	#print("LCS(recursive)=", lcs_recur(X, Y, len(X), len(Y)))
 	table=lcs(X,Y)

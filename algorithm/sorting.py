@@ -1,6 +1,9 @@
-#Comparison-based sorting
 import heapq
-import Code.data_structure.heap
+import random
+from partition import partition
+
+
+#Comparison-based sorting
 
 def insertionSort(lis):
 	"""
@@ -51,82 +54,157 @@ def heapSort(lis):
 
 		
 def treeSort(lis):
-	"not in-place"
-	return lis
+	"""
+	result=[]
+	tree=AVLTree()
+	for x in lis:
+		tree.insert(x)
+	tree.inorder_traverse(tree.root, lambda x: result.append(x))	
+	return result
+	"""
+	pass
 
 
-def quickSort(lis,low,high):
+	
+def quickSort(lis, low, high):
+	"""
+	(non randomized) quick sort.
+	if low>high, nothing left to sort.
+	else, choose the pivot at the end of sequence and partition it into
+	2 subsequences. Then, recurse on both of the subsequences.  
+	"""
 	if high-low<1:
 		return
 	else:
-		pivot=lis[high]
-		i=0
-		j=high-1
-		while (i<=j):
-			if lis[i]>pivot:
-				if lis[j]<=pivot:
-					temp=lis[i]
-					lis[i]=lis[j]
-					lis[j]=temp
-					i+=1	
-				j-=1
-			else:
-				i+=1
-		lis[high]=lis[i]
-		lis[i]=pivot
-		quickSort(lis,0,i-1)
-		quickSort(lis,i,high)
-			
-def mergeSort(lis):  # how many recursive calls = 1+2+4+...+n
+		i=partition(lis, low, high)
+		quickSort(lis, low, i-1)
+		quickSort(lis, i, high)
+
+def randomQuickSort(lis, low, high):
+	"""
+	variation of quick sort.
+	difference: choose pivot randomly.
+	better avg performance since more likely to partition the sequence
+	into 2 equal-sized subsequences.
+	"""
+	if high-low<1:
+		return
+	else:
+		pivot_index=random.randint(low, high)
+		temp=lis[pivot_index]
+		lis[pivot_index]=lis[high]
+		lis[high]=temp
+		i=partition(lis, low, high)
+		randomQuickSort(lis, low, i-1)
+		randomQuickSort(lis, i, high)
+	
+def merge(left, right):
+	"""
+	merge 2 sequences left and right into 1 sorted sequence.
+	"""
+	result=[0]*(len(left)+len(right))
+	# marker i for left, marker j for right
+	i,j=0,0
+	for x in range(len(result)):  
+		# all items of right sequence have been pushed into result, 
+		# then push all items of left sequence into result.
+		if j>=len(right):
+			result[x]=left[i]
+			i+=1
+                # all items of left sequence have been pushed into result, 
+                # then push all items of right sequence into result.
+		elif i>=len(left):
+			result[x]=right[j]
+			j+=1
+		elif left[i]<=right[j]:
+			result[x]=left[i]
+			i+=1
+		elif right[j]<left[i]:
+			result[x]=right[j]
+			j+=1
+	return result
+	
+		
+def mergeSort(lis):  
+	# how many recursive calls = 1+2+4+...+n
 	if len(lis)<2:
 		return lis   
 	else:
-		mid=int(len(lis)/2) 
+		mid=int(len(lis)/2)
 		left=mergeSort(lis[:mid])
 		right=mergeSort(lis[mid:])
-		emp=[0]*(len(left)+len(right))
-		#----------------merge-----------------
-		i,j=0,0
-		for x in range(len(emp)):   #    n 
-			if j>=len(right):
-				emp[x]=left[i]
-				i+=1
-			elif i>=len(left):
-				emp[x]=right[j]
-				j+=1
-			elif left[i]<=right[j]:
-				emp[x]=left[i]
-				i+=1
-			elif right[j]<left[i]:
-				emp[x]=right[j]
-				j+=1
-			else:
-				pass
-		#----------------merge-----------------
-		return emp
+		return merge(left, right)
 
 	
-# integer sorting
-def bucketSort(lis):
+
+
+# Integer sorting
+
+def bucketSort(lis, size, hash=lambda x: int(x)):
+	# if there are less then 2 elements in the collection, 
+	# 	sequence of 1 element is already sorted
 	if len(lis)<2:
 		return lis
-	max=lis[0]
-	for x in lis:
-		if x>max:
-			max=x
-	buck=[0]*(max+1)
-	for x in lis:
-		buck[x]+=1
+	
+	# create a list of buckets
+	buckets=[[] for x in range(size)]
+	
+	for item in lis:
+		# obtain index by hash function
+		# locate the correct bucket and append the item to the bucket
+		buckets[hash(item)].append(item)
+	
 	result=[]
-	inde=0
-	for x in buck:
-		for y in range(x):
-			result.append(inde)
-		inde+=1	
-	return result
-		
+	# loop through buckets in the order of the index
+	for bucket in buckets:
+		for item in bucket:
+			# push items in the bucket to the result
+			result.append(item)
+	return result	
 
+
+def baseB(x, b=2, fd=0):
+	"""
+	represents a number x in base b (by default base is 2).
+	if number x is not within the range that the base can be directly 
+	represented (without carry), divide the number x by base b and recurse
+	on the result of the ceilling of x/b first.
+	finally, represents the least significant digit by taking the modulo
+	of b.
+	if specified, the representation can be maintained to have a fixed 
+	digit (by default, fd is 0). 
+	"""
+	repr=""
+	if x>=b:
+		# speed-up trick: bitwise operator since it is faster than 
+		# normal opertor. 
+		# here, could use x<<b. 
+		repr+=baseB(x//b, b)
+	# modulo can also be replaced by 
+	repr+=str(x%b)
+	if len(repr)<fd:
+		repr="0"*(fd-len(repr))+repr
+	return repr
+
+
+def radixSort(lis):
+	# choose base to be n (or near 2 to the number of items to be sorted
+	base=len(lis)
+	# find the range of items in the sequence by finding the max item
+	maxKey=max(lis)
+	# calculates how many digits are required to represent the max item
+	digits=len(baseB(maxKey, base))
+
+	# loop through the digits starting from the least significant digit
+	for digit in reversed(range(digits)):
+		# perform a bucket sort on the sequence based on the current
+		# digit 
+		lis=bucketSort(lis, maxKey, lambda x: \
+			int(baseB(x, base, digits)[digit]))
+	return lis
+	
 
 if __name__=="__main__":
-	l=[3,1,4,5,2,33,23,52,53,21]
-	print (heapSort(l))
+	#l=[3,1,4,5,2,33,23,52,53,21]
+	l=[random.randint(0,1000) for x in range(10)]
+	print (radixSort(l))

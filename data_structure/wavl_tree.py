@@ -54,7 +54,8 @@ class WAVLTree(AVLTree):
 			rs=self._rank_diff(parent, sibling)
 			if rs==1:
 			# if sibling has a rank difference of 1, we can safely
-			# promote parent's rank and preserve the rank-diiference			# property among parent, target and sibling by creating
+			# promote parent's rank and preserve the rank-diiferenc
+			# property among parent, target and sibling by creating
 			# a 1-2 node
 				parent.depth+=1
 				return parent
@@ -90,6 +91,11 @@ class WAVLTree(AVLTree):
 				rsl=self._rank_diff(sibling, sibling.left)
 				rsr=self._rank_diff(sibling, sibling.right)
 				if rsl==2 and rsr==2:
+					# if sibling's children both have rank
+					# difference of 2, safe to demotion
+					# parent and sibling so that rank
+					# difference of target is 1 and
+					# rank difference of sibling is 1. 
 					parent.depth-=1
 					sibling.depth-=1
 					return parent
@@ -128,4 +134,6 @@ if __name__=="__main__":
 	print("\nTree")
 	w.print(w.root)
 	print()
-	w.postorder_traverse(w.root, lambda x: print(x.val))
+	l=[]
+	w.inorder_traverse(w.root, lambda x: l.append(x.val))
+	print (l)
