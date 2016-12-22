@@ -10,7 +10,7 @@ A library of some interesting algorithms, data structure implementations or just
        * [Selection sort](https://github.com/yitongw2/Code/blob/master/README.md#selection-sort)
        * [Heap sort](https://github.com/yitongw2/Code/blob/master/README.md#heap-sort)
        * [Quick sort]()
-       * [Merger sort]()
+       * [Merge sort]()
 - [Data Structure](https://github.com/yitongw2/Code/blob/master/README.md#data-structure)
     - [Binary Search Tree](https://github.com/yitongw2/Code/blob/master/README.md#binary-search-tree)
     - [AVL Tree](https://github.com/yitongw2/Code/blob/master/README.md#avl-tree)
