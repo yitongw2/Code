@@ -87,11 +87,14 @@ class Heap:
 		array[len(array)-1]=temp
 		array.pop()
 		self.rotate(array, 1)		
-
+		return temp
+	
 if __name__=="__main__":
 	l=[3,2,13,23,1,33,4,6]
 	heap=Heap(l)
 	heap.push(l, 0)
 	print (l)
-	heap.removeMin(l)
+	left=heap.removeMin(l)
+	right=heap.removeMin(l)
 	print (l)
+	print (left, right)
