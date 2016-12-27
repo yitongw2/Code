@@ -5,12 +5,17 @@ A library of some interesting algorithms, data structure implementations or just
 - [Algorithm](https://github.com/yitongw2/Code/blob/master/README.md#algorithm)
     - [Graham Scan](https://github.com/yitongw2/Code/blob/master/README.md#graham-scan)
     - [Dynamic Programming](https://github.com/yitongw2/Code/blob/master/README.md#dynamic-programming)
-    - [Comparison-based Sort](https://github.com/yitongw2/Code/blob/master/README.md#comparison-based-sort)
+    - [Comparison-based Sorting](https://github.com/yitongw2/Code/blob/master/README.md#comparison-based-sort)
        * [Insertion sort](https://github.com/yitongw2/Code/blob/master/README.md#insertion-sort)
        * [Selection sort](https://github.com/yitongw2/Code/blob/master/README.md#selection-sort)
        * [Heap sort](https://github.com/yitongw2/Code/blob/master/README.md#heap-sort)
        * [Quick sort]()
        * [Merge sort]()
+    - [Integer Sorting]()
+       * [Bucket sort]()
+       * [Radix sort]() 
+    - [Huffman Coding]()
+    
 - [Data Structure](https://github.com/yitongw2/Code/blob/master/README.md#data-structure)
     - [Binary Search Tree](https://github.com/yitongw2/Code/blob/master/README.md#binary-search-tree)
     - [AVL Tree](https://github.com/yitongw2/Code/blob/master/README.md#avl-tree)
@@ -18,6 +23,7 @@ A library of some interesting algorithms, data structure implementations or just
     - [Heap](https://github.com/yitongw2/Code/blob/master/README.md#heap-min-heap)
     - [Stack](https://github.com/yitongw2/Code/blob/master/README.md#stack)
 - [Problems](https://github.com/yitongw2/Code/blob/master/README.md#interesting-coding-problems)
+    - [Maximum subarray]()
     - [0-1 Knapsack problem](https://github.com/yitongw2/Code/blob/master/README.md#0-1-knapsack-problem)
     - [Fractional Knapsack problem](https://github.com/yitongw2/Code/blob/master/README.md#fractional-knapsack-problem)
     - [Longest common sequence](https://github.com/yitongw2/Code/blob/master/README.md#longest-common-sequence)
@@ -168,9 +174,49 @@ A library of some interesting algorithms, data structure implementations or just
     but the o notation remains the same since the high order is nlogn)
   - [Python code](https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py)
     
+### Quick Sort
+  - divide-and-conquer algorithm
+    * divide the problem into several subproblems with smaller size
+    * recursively solve these subproblems
+    * when the size of the subproblem shrinks to the point that we can solve it fast enough, actually solve the subproblem
+  - idea of quick sort (simple in-place version):
+    * choose a pivot (an element in the sequence) randomly or not
+    * partition the sequence into two subsequences: (simple partition)
+      - the left subsequence contains elements that are smaller or equal to the pivot
+      - the right subsequence contains elements that are greater than the pivot
       
-    
-   
+      ![screen shot 2016-12-27 at 6 47 26 am](https://cloud.githubusercontent.com/assets/13974845/21501857/65055216-cc00-11e6-9302-9ca57ee2fbc8.png)
+      
+    * recurse on the two subsequences until the subsequences contains only 1 element (it is already sorted)
+          
+      ![screen shot 2016-12-27 at 6 34 33 am](https://cloud.githubusercontent.com/assets/13974845/21501661/af62c0f2-cbfe-11e6-84fc-104d62cb0ba1.png)
+
+  - analysis
+    * quick sort has two major components: partition and recursive calls 
+        - there must be one partition in each recursive call
+        - each partition takes O(n) time ([for details]())
+    * so the performance of quick sort depends heavily on the number of recursive calls 
+        - the number of recursive calls depends on how we choose the pivot
+        - if we always choose the pivot to be the max/min element in the sequence, then, each time when we partition the
+          sequence, we will always have a subsequence of size n-1 and another subsequence of size 1.
+                            
+                    recurrence formula: T(n) = T(n-1)+T(1)+O(n) 
+                    ...
+                    by induction, T(n) = O(n^2)
+            
+          time complexity of O(n^2) is not even better than selection sort.
+        - if we wisely choose the pivot to be or close to the median, then we have
+                
+                    recurrence formula: T(n) = 2*T(n/2)+O(n)
+                    ...
+                    by master theorem, T(n) = O(nlogn)
+                    
+        - however, to find the exact median of a sequence of size n requires at least the knowledge about n/2 elements, the 
+          process takes O(n) and adds more constant factor to its O-notation
+        - choose pivot randomly can guarantee, on average case, that we can divide the sequence into 2 near-equal portions 
+                    
+                    
+
 
 # Data structure
 
@@ -296,6 +342,7 @@ A library of some interesting algorithms, data structure implementations or just
     * O(logn) operations (worst case: downward from root to leaf)
     * trinode rotation
         - LL rotation
+        - RR rotation
   - [Code](https://github.com/yitongw2/Code/blob/master/data_structure/avl_tree.py)
 
 ## WAVL Tree
