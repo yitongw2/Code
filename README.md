@@ -294,13 +294,29 @@ A library of some interesting algorithms, data structure implementations or just
 ### Bucket Sort
   - given a sequence of n elements where elements are in the range [0, N-1]
     * first, create an array of N buckets and use elements as indices of bucket array
-    * push each element in the sequence into the bucket array according to the element
+    * push each element in the sequence into the bucket array according to the key of the element (usually the key is the           element itself)
     * enumerate elements in each bucket in the order from bucket 0 to N-1
+    ![screen shot 2017-01-06 at 2 11 19 am](https://cloud.githubusercontent.com/assets/13974845/21714761/87f34b7c-d3b5-11e6-953b-24ccc1bece53.png)
   - bucket
     * each bucket is itself an array 
+    * each bucket is indexed by an integer (usually an element in the sequence)
+  - pesudocode
+    
+                        given a sequence S of n elements with range [1, N]
+                        initialize a bucket array B of size N
+                        initialize an empty list O
+                        for i <-- 0 to n do
+                            push S[i] into the bucket at index i of B
+                        for j <-- 0 to N-1 do
+                            find the bucket at index j of B
+                            push everything in the bucket into O
+                        return O
+                          
   - [Code](https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py)
 
 ### Radix Sort 
+ - 
+ - [Code](https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py)
                     
 
 
