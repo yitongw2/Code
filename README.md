@@ -218,7 +218,9 @@ A library of some interesting algorithms, data structure implementations or just
             process takes O(n) and adds more constant factor to its O-notation
         - instead, choose pivot randomly can guarantee, on average case, that we can at least split the sequence into 1-to-3
           portions every recursive call
+          
           ![screen shot 2017-01-06 at 12 37 16 am](https://cloud.githubusercontent.com/assets/13974845/21712237/5a9c9398-d3a8-11e6-94cc-4e31c379770e.png)
+          
           * a good pivot: a good pivot should split the array, in the worst case, into a subsequence of size n/4 and another subsequence of size 3n/4.
             - the middle half of the sequence are good pivots
             ![screen shot 2017-01-06 at 12 46 29 am](https://cloud.githubusercontent.com/assets/13974845/21712431/a8b65f04-d3a9-11e6-911b-b743c793c89e.png)
