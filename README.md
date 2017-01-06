@@ -9,12 +9,12 @@ A library of some interesting algorithms, data structure implementations or just
        * [Insertion sort](https://github.com/yitongw2/Code/blob/master/README.md#insertion-sort)
        * [Selection sort](https://github.com/yitongw2/Code/blob/master/README.md#selection-sort)
        * [Heap sort](https://github.com/yitongw2/Code/blob/master/README.md#heap-sort)
-       * [Quick sort]()
-       * [Merge sort]()
-    - [Integer Sorting]()
-       * [Bucket sort]()
-       * [Radix sort]() 
-    - [Huffman Coding]()
+       * [Quick sort](https://github.com/yitongw2/Code/blob/master/README.md#quick-sort)
+       * [Merge sort](https://github.com/yitongw2/Code/blob/master/README.md#merge-sort)
+    - [Integer Sorting](https://github.com/yitongw2/Code/blob/master/README.md#integer-sort)
+       * [Bucket sort](https://github.com/yitongw2/Code/blob/master/README.md#bucket-sort)
+       * [Radix sort](https://github.com/yitongw2/Code/blob/master/README.md#radix-sort) 
+    - [Huffman Coding](https://github.com/yitongw2/Code/blob/master/README.md#huffman-coding)
     
 - [Data Structure](https://github.com/yitongw2/Code/blob/master/README.md#data-structure)
     - [Binary Search Tree](https://github.com/yitongw2/Code/blob/master/README.md#binary-search-tree)
@@ -213,8 +213,8 @@ A library of some interesting algorithms, data structure implementations or just
                     
           * however, to find the exact median of a sequence of size n requires at least the knowledge about n/2 elements, the 
             process takes O(n) and adds more constant factor to its O-notation
-        - instead, choose pivot randomly can guarantee, on average case, that we can split the sequence into, in the worst case, 1-to-3 portions every 
-          recursive call
+        - instead, choose pivot randomly can guarantee, on average case, that we can at least split the sequence into 1-to-3
+          portions every recursive call
           * a good pivot: a good pivot should split the array, in the worst case, into a subsequence of size n/4 and another subsequence of size 3n/4.
             - the middle half of the sequence are good pivots
             - if the probability of picking a pivot is 1/n, then the probability of picking a good pivot is 1/2
@@ -229,8 +229,8 @@ A library of some interesting algorithms, data structure implementations or just
               pick a good pivot since the odd of picking a good pivot is 50%.
             - therefore, the total number of recursive calls, in the worst case, is at most twice as many as the number of recursive calls where we can
               at least split the sequence into 1-to-3 portions.
-            - multiply the running time by a constant factor of 2 won't change its O-notation
-  -[Code]()
+            - multiply the running time by a constant factor of 2 will not change its O-notation
+- [Code](https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py)
 
 ### Merge Sort
   - divide-and-conquer algorithm
@@ -272,7 +272,7 @@ A library of some interesting algorithms, data structure implementations or just
                         T(n) = O(nlogn)
 
     * time complexity: O(nlogn)
-  - [Code]()
+  - [Code](https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py)
 
 
 ## Integer sort
@@ -287,7 +287,7 @@ A library of some interesting algorithms, data structure implementations or just
     * enumerate elements in each bucket in the order from bucket 0 to N-1
   - bucket
     * each bucket is itself an array 
-  - [Code]()
+  - [Code](https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py)
 
 ### Radix Sort 
                     
