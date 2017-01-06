@@ -204,17 +204,92 @@ A library of some interesting algorithms, data structure implementations or just
                     ...
                     by induction, T(n) = O(n^2)
             
-          time complexity of O(n^2) is not even better than selection sort.
+          time complexity of O(n^2) is not ideal.
         - if we wisely choose the pivot to be or close to the median, then we have
                 
                     recurrence formula: T(n) = 2*T(n/2)+O(n)
                     ...
                     by master theorem, T(n) = O(nlogn)
                     
-        - however, to find the exact median of a sequence of size n requires at least the knowledge about n/2 elements, the 
-          process takes O(n) and adds more constant factor to its O-notation
-        - choose pivot randomly can guarantee, on average case, that we can divide the sequence into 2 near-equal portions 
-                    
+          * however, to find the exact median of a sequence of size n requires at least the knowledge about n/2 elements, the 
+            process takes O(n) and adds more constant factor to its O-notation
+        - instead, choose pivot randomly can guarantee, on average case, that we can split the sequence into, in the worst case, 1-to-3 portions every 
+          recursive call
+          * a good pivot: a good pivot should split the array, in the worst case, into a subsequence of size n/4 and another subsequence of size 3n/4.
+            - the middle half of the sequence are good pivots
+            - if the probability of picking a pivot is 1/n, then the probability of picking a good pivot is 1/2
+            - this implies that, on average, if we pick pivot randomly, it takes at most two tries before picking up a good pivot (just like flipping a
+              coin).
+          * assume we always split the sequence into 1-to-3 portions, we can write the recurrence as T(n) = T(3n/4)+T(n/4)+O(n)
+            - by induction, we can prove that T(n) = O(logn)
+            - or by drawing a quick-sort tree, we can see that T(n) = O(nlog(4/3)n) = O(nlogn)
+            - therefore, we can say, if we always pick a good pivot, the lower bound of the running time is O(nlogn)
+          * even if we can't always pick a good pivot (most likely in reality), it only adds a constant factor to its O-notation.
+            - we know that, for any recursive call that didn't pick up a good pivot, the next recursive call on its subproblems is statistically gonna 
+              pick a good pivot since the odd of picking a good pivot is 50%.
+            - therefore, the total number of recursive calls, in the worst case, is at most twice as many as the number of recursive calls where we can
+              at least split the sequence into 1-to-3 portions.
+            - multiply the running time by a constant factor of 2 won't change its O-notation
+  -[Code]()
+
+### Merge Sort
+  - divide-and-conquer algorithm
+  - 2 components
+    * recursive calls: divide the sequence into several subsequences and recurse on them 
+    * merge: merge the result of these recursive calls into one sorted sequence 
+  - idea of merge sort
+    * first divide the sequence into 2 equally-sized subsequences and recurse on them until they are naturally sorted
+    * then merge the 2 sorted subsequences into 1 sorted sequence
+  - merge
+    * given 2 sorted sequence A and B, merge them into 1 sorted sequence
+
+                        i <-- 0
+                        j <-- 0
+                        outpur <-- empty list 
+                        while (A is not empty or B is not empty) do
+                            if A[i]<B[j] then 
+                                push A[i] into output
+                                ++i
+                            else
+                                push B[j] into output
+                                ++j
+                        push whaterver is left in A or B into output
+                        return output
+    * analysis
+      - time complexity: O(size of A + size of B)
+        * the number of elements pushed into output = size of A + size of B
+        * other operations can viewed as constant-time operations
+        * therefore, we have: O(size of A + size of B)+O(1) 
+  - recurrence  
+    * base case: when size of sequence is less than 2, the sequence is already sorted  
+    * unlike quick sort, merge sort always divide the sequence into 2 equally-sized subsequences by splitting the sequence from the middle position
+    * we can write the recurrence as T(n) = 2T(n/2)+O(n)
+  - analysis
+    * solving the recurrence
+
+                        T(n) = 2T(n/2)+O(n)
+                        ... by master theorem, 
+                        T(n) = O(nlogn)
+
+    * time complexity: O(nlogn)
+  - [Code]()
+
+
+## Integer sort
+  * sorting that are specialized for sorting integers
+  * is able to break through the lower bound of comparison-based sorting O(logn)
+  * without relying on comparisons, collect other information about elements in the sequence and sort it based on these information
+
+### Bucket Sort
+  - given a sequence of n elements where elements are in the range [0, N-1]
+    * first, create an array of N buckets and use elements as indices of bucket array
+    * push each element in the sequence into the bucket array according to the element
+    * enumerate elements in each bucket in the order from bucket 0 to N-1
+  - bucket
+    * each bucket is itself an array 
+  - [Code]()
+
+### Radix Sort 
                     
 
 
@@ -349,17 +424,30 @@ A library of some interesting algorithms, data structure implementations or just
   - Weak AVL tree, introduced in 2015 by Bernhard Haeupler, Siddhartha Sen and Robert E Tarjan.
   - a self-balancing binary tree that can be perceived as both of AVL tree and Red-Black tree. 
   - WAVL's advantage over AVL tree and Red-Black tree
-    * better height than Red-Black tree which is 2log(n)
-    * cheaper rotation than AVL tree whose rotation costs O(logn) 
+    * height of WAVL tree is between 1.433logn to 2logn (Red-Black tree has a height of 2log(n))
+    * rotation in WAVL tree costs an amortized O(1) (AVL tree costs O(logn))
   - each node of the WAVL tree is assigned to a rank
-  - rank difference of a node n is the difference between the rank of n and the rank of n's parent node p
+  - rank difference of a node n is the difference between the rank of n and the rank of n's parent node 
+    * a 1-1 node has 2 children with rank difference of 1
+    * a 1-2 node has 1 child with rank difference of 1 and 1 child with rank difference of 2
+    * a 2-2 node has 2 children with rank difference of 2
   - WAVL tree must satisfy the following WAVL properties  
-  - WAVL Properties
     * all external nodes have rank of 0
     * every node with 2 external nodes have rank of 1
     * every non-root nodes can have either have rank difference of 1 or 2
-  - 
-   
+  - when only insert elements into WAVL tree (without deletion), it performs exactly like AVL tree with a heigh of 1.433logn.
+    * insertion-path: the path from root to the external node where the element is to be inserted
+    * for each node along the path, we either 
+      - create a 1-1 node by trinode rotation
+      - create a 1-2 node by promoting its parent or trinode rotation
+    * therefore, the WAVL tree without deletion has only 1-1 node and 1-2 node and it matches the definition of AVL tree
+    * essentially, AVL tree is Weak AVL tree wihtout 2-2 nodes
+  - when deletion is involved, there might be 2-2 nodes in the WAVL tree 
+    * since defintion of WAVL tree is loose (allows the existence of 2-2 node), we only perform trinode rotation when 1-1 node, 1-2 node and 
+      2-2 node is not viable through simple demotion.
+    * the cost of rotation is amortized to be constant
+  - [Code]()
+
 
 ## Heap (Min Heap)
   - a 2-ary tree data structure that satisifies the following properties:
