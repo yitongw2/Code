@@ -9,12 +9,12 @@ A library of some interesting algorithms, data structure implementations or just
        * [Insertion sort](https://github.com/yitongw2/Code/blob/master/README.md#insertion-sort)
        * [Selection sort](https://github.com/yitongw2/Code/blob/master/README.md#selection-sort)
        * [Heap sort](https://github.com/yitongw2/Code/blob/master/README.md#heap-sort)
-       * [Quick sort]()
-       * [Merge sort]()
-    - [Integer Sorting]()
-       * [Bucket sort]()
-       * [Radix sort]() 
-    - [Huffman Coding]()
+       * [Quick sort](https://github.com/yitongw2/Code/blob/master/README.md#quick-sort)
+       * [Merge sort](https://github.com/yitongw2/Code/blob/master/README.md#merge-sort)
+    - [Integer Sorting](https://github.com/yitongw2/Code/blob/master/README.md#integer-sort)
+       * [Bucket sort](https://github.com/yitongw2/Code/blob/master/README.md#bucket-sort)
+       * [Radix sort](https://github.com/yitongw2/Code/blob/master/README.md#radix-sort) 
+    - [Huffman Coding](https://github.com/yitongw2/Code/blob/master/README.md#huffman-coding)
     
 - [Data Structure](https://github.com/yitongw2/Code/blob/master/README.md#data-structure)
     - [Binary Search Tree](https://github.com/yitongw2/Code/blob/master/README.md#binary-search-tree)
@@ -205,32 +205,43 @@ A library of some interesting algorithms, data structure implementations or just
                     by induction, T(n) = O(n^2)
             
           time complexity of O(n^2) is not ideal.
-        - if we wisely choose the pivot to be or close to the median, then we have
+        - if we wisely choose the pivot to be or close to the median, then we have 2 equally-sized portions
                 
-                    recurrence formula: T(n) = 2*T(n/2)+O(n)
+           ![screen shot 2017-01-05 at 11 45 58 pm](https://cloud.githubusercontent.com/assets/13974845/21711977/cba3ccca-d3a6-11e6-8fb0-fcd1be64e292.png)
+                    
+                    we can write recurrence as follow:
+                    T(n) = 2*T(n/2)+O(n)
                     ...
                     by master theorem, T(n) = O(nlogn)
                     
           * however, to find the exact median of a sequence of size n requires at least the knowledge about n/2 elements, the 
             process takes O(n) and adds more constant factor to its O-notation
-        - instead, choose pivot randomly can guarantee, on average case, that we can split the sequence into, in the worst case, 1-to-3 portions every 
-          recursive call
+        - instead, choose pivot randomly can guarantee, on average case, that we can at least split the sequence into 1-to-3
+          portions every recursive call
+          
+          ![screen shot 2017-01-06 at 12 37 16 am](https://cloud.githubusercontent.com/assets/13974845/21712237/5a9c9398-d3a8-11e6-94cc-4e31c379770e.png)
+          
           * a good pivot: a good pivot should split the array, in the worst case, into a subsequence of size n/4 and another subsequence of size 3n/4.
             - the middle half of the sequence are good pivots
+            ![screen shot 2017-01-06 at 12 46 29 am](https://cloud.githubusercontent.com/assets/13974845/21712431/a8b65f04-d3a9-11e6-911b-b743c793c89e.png)
             - if the probability of picking a pivot is 1/n, then the probability of picking a good pivot is 1/2
             - this implies that, on average, if we pick pivot randomly, it takes at most two tries before picking up a good pivot (just like flipping a
               coin).
           * assume we always split the sequence into 1-to-3 portions, we can write the recurrence as T(n) = T(3n/4)+T(n/4)+O(n)
-            - by induction, we can prove that T(n) = O(logn)
-            - or by drawing a quick-sort tree, we can see that T(n) = O(nlog(4/3)n) = O(nlogn)
+            - by induction (hard to prove), we can prove that T(n) = O(logn)
+            - or by drawing a quick-sort tree, we can see that 
+              * the longest path of the quick sort tree is the rightmost path
+              * on each level, we perform partition and it costs O(n)
+              * T(n) = O(nlog(4/3)n) = O(nlogn)
+            ![screen shot 2017-01-06 at 1 11 29 am](https://cloud.githubusercontent.com/assets/13974845/21713115/28baa98c-d3ad-11e6-864d-c88786e46271.png)
             - therefore, we can say, if we always pick a good pivot, the lower bound of the running time is O(nlogn)
-          * even if we can't always pick a good pivot (most likely in reality), it only adds a constant factor to its O-notation.
-            - we know that, for any recursive call that didn't pick up a good pivot, the next recursive call on its subproblems is statistically gonna 
+          * even if we can not always pick a good pivot (most likely in reality), it only adds a constant factor to its O-notation.
+            - we know that, for any recursive call that did not pick up a good pivot, the next recursive call on its subproblems is statistically gonna 
               pick a good pivot since the odd of picking a good pivot is 50%.
             - therefore, the total number of recursive calls, in the worst case, is at most twice as many as the number of recursive calls where we can
               at least split the sequence into 1-to-3 portions.
-            - multiply the running time by a constant factor of 2 won't change its O-notation
-  -[Code]()
+            - multiply the running time by a constant factor of 2 will not change its O-notation
+- [Code](https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py)
 
 ### Merge Sort
   - divide-and-conquer algorithm
@@ -272,7 +283,7 @@ A library of some interesting algorithms, data structure implementations or just
                         T(n) = O(nlogn)
 
     * time complexity: O(nlogn)
-  - [Code]()
+  - [Code](https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py)
 
 
 ## Integer sort
@@ -287,7 +298,7 @@ A library of some interesting algorithms, data structure implementations or just
     * enumerate elements in each bucket in the order from bucket 0 to N-1
   - bucket
     * each bucket is itself an array 
-  - [Code]()
+  - [Code](https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py)
 
 ### Radix Sort 
                     
@@ -446,7 +457,7 @@ A library of some interesting algorithms, data structure implementations or just
     * since defintion of WAVL tree is loose (allows the existence of 2-2 node), we only perform trinode rotation when 1-1 node, 1-2 node and 
       2-2 node is not viable through simple demotion.
     * the cost of rotation is amortized to be constant
-  - [Code]()
+  - [Code](https://github.com/yitongw2/Code/blob/master/data_structure/wavl_tree.py)
 
 
 ## Heap (Min Heap)
