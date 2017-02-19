@@ -15,6 +15,7 @@ A library of some interesting algorithms, data structure implementations or just
        * [Bucket sort](https://github.com/yitongw2/Code/blob/master/README.md#bucket-sort)
        * [Radix sort](https://github.com/yitongw2/Code/blob/master/README.md#radix-sort) 
     - [Huffman Coding](https://github.com/yitongw2/Code/blob/master/README.md#huffman-coding)
+    - [CYK algorithm]()
     
 - [Data Structure](https://github.com/yitongw2/Code/blob/master/README.md#data-structure)
     - [Binary Search Tree](https://github.com/yitongw2/Code/blob/master/README.md#binary-search-tree)
@@ -318,8 +319,9 @@ A library of some interesting algorithms, data structure implementations or just
  - 
  - [Code](https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py)
                     
-
-
+## CYK algorithm
+  - [Code](https://github.com/yitongw2/Code/blob/master/algorithm/cyk.py) 
+  
 # Data structure
 
 ## Binary Search Tree
