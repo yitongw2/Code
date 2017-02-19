@@ -44,7 +44,10 @@ def find(table, prod, tar, t=False):
 
 def stringInLanguage(prod, startSymbol, string):
 	"""
-	this function calls cyk() algorithm to compute the dynamic programing table. To determine whether the given string is in the language, which must be in Chomsky Normal Form, simply check whether the start symbol is in the the top-right cell of the table. 
+	this function calls cyk() algorithm to compute the dynamic programing
+	table. To determine whether the given string is in the language, 
+	which must be in Chomsky Normal Form, simply check whether 
+	the start symbol is in the the top-right cell of the table. 
 	"""
 	return startSymbol in cyk(prod, string)[0][-1] 
 
