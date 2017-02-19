@@ -324,7 +324,6 @@ A library of some interesting algorithms, data structure implementations or just
   - [Code](https://github.com/yitongw2/Code/blob/master/algorithm/cyk.py) 
   
 # Data structure
-
 ## Binary Search Tree
   - a N-ary tree structure where N <= 2. 
   - a search data structure where searching for a key in the collection should be
@@ -514,6 +513,7 @@ A library of some interesting algorithms, data structure implementations or just
 # Interesting coding problems
 ## Hamming Distance (Leetcode 461)
   - [Code](https://github.com/yitongw2/Code/blob/master/solutions/hamming_distance.py)
+ 
 ## Reverse Vowels of a String (Leetcode 345)
   - [Code](https://github.com/yitongw2/Code/blob/master/solutions/Reverse_Vowels_String.java)
   
