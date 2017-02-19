@@ -123,8 +123,8 @@ A library of some interesting algorithms, data structure implementations or just
   - Example of dynamic programming:
     * longest common sequence problem (more details [here](https://github.com/yitongw2/Code/blob/master/README.md#longest-common-sequence))
     * 0-1 knapsack problem (more details [here](https://github.com/yitongw2/Code/blob/master/README.md#0-1-knapsack-problem))
-                  
-
+    * CYK algorithm (more details [here](https://github.com/yitongw2/Code/blob/master/README.md#cyk-algorithm))              
+    
     
 ## Comparison-based sort 
   * Priority-queue sort (concept)
