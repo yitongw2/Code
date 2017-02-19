@@ -15,6 +15,7 @@ A library of some interesting algorithms, data structure implementations or just
        * [Bucket sort](https://github.com/yitongw2/Code/blob/master/README.md#bucket-sort)
        * [Radix sort](https://github.com/yitongw2/Code/blob/master/README.md#radix-sort) 
     - [Huffman Coding](https://github.com/yitongw2/Code/blob/master/README.md#huffman-coding)
+    - [CYK algorithm](https://github.com/yitongw2/Code/blob/master/README.md#cyk-algorithm)
     
 - [Data Structure](https://github.com/yitongw2/Code/blob/master/README.md#data-structure)
     - [Binary Search Tree](https://github.com/yitongw2/Code/blob/master/README.md#binary-search-tree)
@@ -23,6 +24,7 @@ A library of some interesting algorithms, data structure implementations or just
     - [Heap](https://github.com/yitongw2/Code/blob/master/README.md#heap-min-heap)
     - [Stack](https://github.com/yitongw2/Code/blob/master/README.md#stack)
 - [Problems](https://github.com/yitongw2/Code/blob/master/README.md#interesting-coding-problems)
+    - [345. Reverse Vowels of a String](https://github.com/yitongw2/Code/blob/master/README.md#reverse-vowels-of-a-string-leetcode-345)
     - [Maximum subarray]()
     - [0-1 Knapsack problem](https://github.com/yitongw2/Code/blob/master/README.md#0-1-knapsack-problem)
     - [Fractional Knapsack problem](https://github.com/yitongw2/Code/blob/master/README.md#fractional-knapsack-problem)
@@ -122,8 +124,8 @@ A library of some interesting algorithms, data structure implementations or just
   - Example of dynamic programming:
     * longest common sequence problem (more details [here](https://github.com/yitongw2/Code/blob/master/README.md#longest-common-sequence))
     * 0-1 knapsack problem (more details [here](https://github.com/yitongw2/Code/blob/master/README.md#0-1-knapsack-problem))
-                  
-
+    * CYK algorithm (more details [here](https://github.com/yitongw2/Code/blob/master/README.md#cyk-algorithm))              
+    
     
 ## Comparison-based sort 
   * Priority-queue sort (concept)
@@ -314,12 +316,12 @@ A library of some interesting algorithms, data structure implementations or just
                           
   - [Code](https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py)
 
-### Radix Sort 
- - 
+### Radix Sort
  - [Code](https://github.com/yitongw2/Code/blob/master/algorithm/sorting.py)
                     
-
-
+## CYK algorithm
+  - [Code](https://github.com/yitongw2/Code/blob/master/algorithm/cyk.py) 
+  
 # Data structure
 
 ## Binary Search Tree
@@ -509,7 +511,10 @@ A library of some interesting algorithms, data structure implementations or just
   - [Code](https://github.com/yitongw2/Code/blob/master/data_structure/stack.py)
 
 # Interesting coding problems
-
+## Reverse Vowels of a String (Leetcode 345)
+  - [Code]()
+  
+  
 ## 0-1 Knapsack problem
   - Given a collection C of items each has a numeric size and a numberic value, a number L as the limit of total size, find a     combination of items that maximizes the total value and yet keep the total size under the limit L. 
   - can each take all of the item or none of it into the combination
