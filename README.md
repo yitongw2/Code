@@ -512,7 +512,7 @@ A library of some interesting algorithms, data structure implementations or just
 
 # Interesting coding problems
 ## Reverse Vowels of a String (Leetcode 345)
-  - [Code]()
+  - [Code](https://github.com/yitongw2/Code/blob/master/solutions/Reverse_Vowels_String.java)
   
   
 ## 0-1 Knapsack problem
