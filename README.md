@@ -24,6 +24,7 @@ A library of some interesting algorithms, data structure implementations or just
     - [Heap](https://github.com/yitongw2/Code/blob/master/README.md#heap-min-heap)
     - [Stack](https://github.com/yitongw2/Code/blob/master/README.md#stack)
 - [Problems](https://github.com/yitongw2/Code/blob/master/README.md#interesting-coding-problems)
+    - [461. Hamming Distance](https://github.com/yitongw2/Code/blob/master/README.md#hamming-distance-leetcode-461)
     - [345. Reverse Vowels of a String](https://github.com/yitongw2/Code/blob/master/README.md#reverse-vowels-of-a-string-leetcode-345)
     - [Maximum subarray]()
     - [0-1 Knapsack problem](https://github.com/yitongw2/Code/blob/master/README.md#0-1-knapsack-problem)
@@ -323,7 +324,6 @@ A library of some interesting algorithms, data structure implementations or just
   - [Code](https://github.com/yitongw2/Code/blob/master/algorithm/cyk.py) 
   
 # Data structure
-
 ## Binary Search Tree
   - a N-ary tree structure where N <= 2. 
   - a search data structure where searching for a key in the collection should be
@@ -511,6 +511,9 @@ A library of some interesting algorithms, data structure implementations or just
   - [Code](https://github.com/yitongw2/Code/blob/master/data_structure/stack.py)
 
 # Interesting coding problems
+## Hamming Distance (Leetcode 461)
+  - [Code](https://github.com/yitongw2/Code/blob/master/solutions/hamming_distance.py)
+ 
 ## Reverse Vowels of a String (Leetcode 345)
   - [Code](https://github.com/yitongw2/Code/blob/master/solutions/Reverse_Vowels_String.java)
   
