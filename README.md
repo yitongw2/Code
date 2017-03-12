@@ -54,7 +54,7 @@ A library of some interesting algorithms, data structure implementations or just
     * locate the largest item in suffix by looking for the largest index l such that Arr[l]\>Arr[k].
     * swap Arr[l] and Arr[k]
     * reverse the suffix in order to restore the permutation ranking of the suffix to the lowest possible. 
-  - [Code]()        
+  - [Code](https://github.com/yitongw2/Code/blob/master/algorithm/nextperm.py)        
   
 ##  Graham Scan
   - Convex Hull
