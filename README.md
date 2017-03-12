@@ -3,6 +3,7 @@ A library of some interesting algorithms, data structure implementations or just
 
 ## Index
 - [Algorithm](https://github.com/yitongw2/Code/blob/master/README.md#algorithm)
+    - [Next Permutation in lexicographic ordering](https://github.com/yitongw2/Code/blob/master/README.md#next-permutation-in-lexicographic-ordering)
     - [Graham Scan](https://github.com/yitongw2/Code/blob/master/README.md#graham-scan)
     - [Dynamic Programming](https://github.com/yitongw2/Code/blob/master/README.md#dynamic-programming)
     - [Comparison-based Sorting](https://github.com/yitongw2/Code/blob/master/README.md#comparison-based-sort)
@@ -35,7 +36,26 @@ A library of some interesting algorithms, data structure implementations or just
       
 
 # Algorithm 
+##  Next Permutation in lexicographic ordering
+  - permutation in lexicographic ordering
+    * ABC is in non-decreasing lexicographical ordering
+    * CBA is in non-increasing lexicographical ordering
+    * the full ordering of set {A,B,C} of 3 elements : ABC --> CBA
+  - problem to be solved
+    * given a permutation, compute the lexicographically next greater permutation. 
+    * the key idea is to imagine that, for every permutation, there is a suffix of non-increasing elements.
 
+        | index  | 0 | 1 | 2 | 3 | 4 | 5 |
+        |---|---|---|---|---|---|---|
+        | perm  | 1 | 3 | 5 | 4 | 2 | 0 |
+  - suffix in the above example is perm[2:], for permutation of {5,4,2,0}, this permutation already has the highest lexicographical ordering.
+  - to configure the next lexicographical ordered permutation, we take the next element 3 into the set and reconfigure an initial permutation for set {5,4,2,0,3}.
+    * locate the longest non-increasing sequence by looking for the largest index k that Arr[k]\<Arr[k+1]. If the array Arr is already longest non-increasing sequence, the permutation itself is the highest permutation. 
+    * locate the largest item in suffix by looking for the largest index l such that Arr[l]\>Arr[k].
+    * swap Arr[l] and Arr[k]
+    * reverse the suffix in order to restore the permutation ranking of the suffix to the lowest possible. 
+  - [Code]()        
+  
 ##  Graham Scan
   - Convex Hull
     - given a collection of (x, y) coordinate pairs (points), find the set of points that surround all points within the shape
