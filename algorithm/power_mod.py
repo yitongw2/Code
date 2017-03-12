@@ -6,7 +6,11 @@ def power_mod(x, y, z):
 	short cut: x^y ==> (x^(y/2))^2
 	"""
 	if y==0:
+<<<<<<< HEAD
 		return 1%z
+=======
+		return 1
+>>>>>>> 400dbcbe327c270e11e8aa5293daa5a90f95ef8a
 	if y==1:
 		return x%z
 	a=power_mod(x, y//2, z)
