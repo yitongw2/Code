@@ -25,6 +25,7 @@ A library of some interesting algorithms, data structure implementations or just
     - [Heap](https://github.com/yitongw2/Code/blob/master/README.md#heap-min-heap)
     - [Stack](https://github.com/yitongw2/Code/blob/master/README.md#stack)
 - [Problems](https://github.com/yitongw2/Code/blob/master/README.md#interesting-coding-problems)
+    - [354. Russian Envelopes](https://github.com/yitongw2/Code/blob/master/README.md#russian-doll-envelopes-leetcode-354)
     - [461. Hamming Distance](https://github.com/yitongw2/Code/blob/master/README.md#hamming-distance-leetcode-461)
     - [345. Reverse Vowels of a String](https://github.com/yitongw2/Code/blob/master/README.md#reverse-vowels-of-a-string-leetcode-345)
     - [Maximum subarray]()
@@ -536,7 +537,43 @@ A library of some interesting algorithms, data structure implementations or just
  
 ## Reverse Vowels of a String (Leetcode 345)
   - [Code](https://github.com/yitongw2/Code/blob/master/solutions/Reverse_Vowels_String.java)
-  
+
+## Russian Doll Envelopes (Leetcode 354)
+  - Given a number of envelopes with widths and heights given as a pair of integers (w, h). One envelope can fit into another if and only if both the width and height of one envelope is greater than the width and height of the other envelope.
+  - the goal is to find the maximum number of envelopes can you Russian doll? (put one inside other).
+  - each envelopes can fit itself, so maxEnvelopes([(1,2)]) has an answer of 1.
+  - basic solution (time: O(n^2)):
+    * first sort the envelopes first by their width and, if width is the same, sort by their height. 
+    * make a table of length n (n is the number of )
+    * the base case for all envelopes = 1 
+    * for each envelope, we look back to the envelopes we saw before:
+        - find an envelope in the table that it can fit into the current envelope and it can fit the most envelopes before. 
+    * example:  envelopes = [[5,4],[6,4],[6,7],[2,3]]
+    
+        after sorting: [[2,3],[5,4],[6,4],[6,7]]
+        
+        table
+        
+        | envelopes  | [2,3] | [5,4] | [6,4] | [6,7]| 
+        |---|---|---|---|---|
+        | table  | 1 | 2 | 1 | 1 |
+        
+        Suppose we are currently at [6,4], 
+            we look back at [2,3] and [5,4]:
+            
+            - [2,3] \< [6,4] and 1+1 \> 1. Therefore, for now, [6,4] can fit at most 2 envelopes including itself.
+            
+            - [5,4] can not be included by [6,4] since they have the same height. 
+            
+            - therefore, we put 2 to the cell for [6,4] in the table.
+        
+        table
+        
+        | envelopes  | [2,3] | [5,4] | [6,4] | [6,7]| 
+        |---|---|---|---|---|
+        | table  | 1 | 2 | 2 | 1 |
+    
+    * [Code](https://github.com/yitongw2/Code/blob/master/solutions/RussianEnvelopes.java) 
   
 ## 0-1 Knapsack problem
   - Given a collection C of items each has a numeric size and a numberic value, a number L as the limit of total size, find a     combination of items that maximizes the total value and yet keep the total size under the limit L. 
