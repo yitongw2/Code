@@ -12,7 +12,7 @@ public class RussianEnvelopes
             		public int compare(int[] t1, int[] t2)
             		{
                 		if (t1[0]==t2[0])
-                    			return t2[1]-t1[1];
+                    			return t1[1]-t2[1];
                 		else
                     			return t1[0]-t2[0];
             		}
@@ -38,4 +38,5 @@ public class RussianEnvelopes
         	}
         	return max;
     	}
+
 }
