@@ -25,6 +25,7 @@ A library of some interesting algorithms, data structure implementations or just
     - [Heap](https://github.com/yitongw2/Code/blob/master/README.md#heap-min-heap)
     - [Stack](https://github.com/yitongw2/Code/blob/master/README.md#stack)
 - [Problems](https://github.com/yitongw2/Code/blob/master/README.md#interesting-coding-problems)
+    - [448. Find All Numbers Disappeared in an Array](https://github.com/yitongw2/Code/blob/master/README.md#find-all-numbers-disappeared-in-an-array-leetcode-448)
     - [354. Russian Envelopes](https://github.com/yitongw2/Code/blob/master/README.md#russian-doll-envelopes-leetcode-354)
     - [461. Hamming Distance](https://github.com/yitongw2/Code/blob/master/README.md#hamming-distance-leetcode-461)
     - [345. Reverse Vowels of a String](https://github.com/yitongw2/Code/blob/master/README.md#reverse-vowels-of-a-string-leetcode-345)
@@ -537,6 +538,9 @@ A library of some interesting algorithms, data structure implementations or just
  
 ## Reverse Vowels of a String (Leetcode 345)
   - [Code](https://github.com/yitongw2/Code/blob/master/solutions/Reverse_Vowels_String.java)
+  
+## Find All Numbers Disappeared in an Array (Leetcode 448)
+  - [Code](https://github.com/yitongw2/Code/blob/master/solutions/disappeared_nums_array.py)
 
 ## Russian Doll Envelopes (Leetcode 354)
   - Given a number of envelopes with widths and heights given as a pair of integers (w, h). One envelope can fit into another if and only if both the width and height of one envelope is greater than the width and height of the other envelope.
