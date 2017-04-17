@@ -64,4 +64,4 @@ def cyk(prod, string):
 
 if __name__=="__main__":
 	prod=(["S", "AB"], ["S", "BC"], ["A", "BA"], ["A", "a"], ["B", "CC"], ["B","b"], ["C","AB"], ["C", "a"])
-	print(stringInLanguage(prod, "S", "baaab"))	
+	print(stringInLanguage(prod, "S", "abab"))	

@@ -1,4 +1,5 @@
 import random
+#import sorting
 import median
 from partition import partitionK
 
@@ -68,7 +69,7 @@ if __name__=="__main__":
 		l=[]
 		for r in range(RANGE):	
 			l.append(deterQuickSelect(test_lis,r+1))
-	#	sorting.quickSort(test_lis,0,RANGE-1)
+		sorting.quickSort(test_lis,0,RANGE-1)
 	print ("RESULT",test_lis==l)
 
 

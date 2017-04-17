@@ -2,7 +2,7 @@ import java.util.Hashtable;
 
 public class Reverse_Vowels_String 
 {
-    public void setUpTable(Hashtable<Character, Integer> htable, char[] vowels, int size)
+    public static void setUpTable(Hashtable<Character, Integer> htable, char[] vowels, int size)
     {
         
         for (int i=0;i<size;++i)
@@ -11,7 +11,7 @@ public class Reverse_Vowels_String
         }
     }
     
-    public String reverseVowels(String s) {
+    public static String reverseVowels(String s) {
     	char[] vowels={'a','e','i','o','u'};
         Hashtable<Character, Integer> htable=new Hashtable<Character, Integer>();
         setUpTable(htable, vowels, 5);

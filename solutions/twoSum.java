@@ -1,13 +1,8 @@
 import java.util.Hashtable;
 
-public Class HelloWorld
-{
-	public static void main(String[] args)
-	{
-		
-	}
-	
-	public Hashtable<Integer, Integer> buildHashtable(int[] nums)
+public class twoSum
+{	
+	public static Hashtable<Integer, Integer> buildHashtable(int[] nums)
 	{
 		Hashtable<Integer, Integer> dict=new Hashtable<Integer, Integer>();
 		for (int i=0;i<nums.length;++i)
@@ -17,7 +12,7 @@ public Class HelloWorld
    		return dict;
 	}
   
- 	 public int[] twoSum(int[] nums)
+ 	 public static int[] twoSum(int[] nums)
        	 {
     		int result=new int[2];
     		Hashtable<Integer, Integer> dict=buildHashtable(nums);

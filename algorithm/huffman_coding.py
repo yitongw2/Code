@@ -1,3 +1,4 @@
+import __init__
 from heap import Heap
 from tree_node import dNode
 from bst import BSTree

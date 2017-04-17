@@ -141,7 +141,7 @@ class BSTree:
 	def _find_leftmost(self, node):
 		"""
 		find the leftmost node in the subtree rooted at node.
-		while-loop alternative (faster):
+		while-loop alternative (a):
 			while (node.left!=None):
 				node=node.left
 			return node

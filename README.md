@@ -19,6 +19,7 @@ A library of some interesting algorithms, data structure implementations or just
     - [CYK algorithm](https://github.com/yitongw2/Code/blob/master/README.md#cyk-algorithm)
     
 - [Data Structure](https://github.com/yitongw2/Code/blob/master/README.md#data-structure)
+    - [Graph]()
     - [Binary Search Tree](https://github.com/yitongw2/Code/blob/master/README.md#binary-search-tree)
     - [AVL Tree](https://github.com/yitongw2/Code/blob/master/README.md#avl-tree)
     - [WAVL Tree](https://github.com/yitongw2/Code/blob/master/README.md#wavl-tree)
@@ -346,6 +347,48 @@ A library of some interesting algorithms, data structure implementations or just
   - [Code](https://github.com/yitongw2/Code/blob/master/algorithm/cyk.py) 
   
 # Data structure
+## Graph
+  - consists of a finite set of vertices and a finite set of edges
+  - example, road map can thought as a directed graph
+    * each intersection is a vertex
+    * each road is an ordered edge from a vertex to another vertex
+  - types
+    * undirected graph
+      - egdes are unordered (bidrectional)
+      - (u,w) is the same edge as (w,u) 
+    * directed graph 
+      - edges are ordered 
+      - (u,w) and (w,u) are two different edges
+      - DAG == Directed Acyclical Graph
+        * one form of directed graph
+        * without cycle
+  - representations
+    * adjacency list
+      - basic idea: 
+        * use a collection of unordered lists to represent a graph
+        * each list stores the neighbors of a vertex
+      - implementation
+        * Guido van Rossum approach: use a hash table to hash a vertex to a list of edges
+        * Corman et.al approach: use a single list of lists and represent each vertex by its index in the list
+        * Goodrich (Chancellor’s Professors at UCI) and Tamassia: have classes of vertex objects and edge objects. 
+    * adjacency matrix
+      - basic idea:
+        * assume there are n vertices, use a n x n matrix to represent graph
+        * if (u,w) exists, go to u row and w column and mark the cell as 1 (by default, each cell is marked as 0)
+    * incidence matrix
+  - operations
+    * adjacent(G, u, v): determine if vertices u and v are neighbors
+    * neighbors(G, u): get all neighbors of vertex u
+    * add_vertex(G, u): add vertex u to graph G
+    * remove_vertex(G, u): remove vertex u from graph G (along with all edges involving vertex u)
+    * add_edge(G, u, v): add edge (u,v) to graph G 
+    * remove_edge(G, u, v): remove edge (u,v) from graph G
+    * get_vertex_value(G, u): get the value assoicated with vertex u
+    * set_vertex_value(G, u, val): set the value assocaited with vertex u
+  - [Code]()  
+
+
+
 ## Binary Search Tree
   - a N-ary tree structure where N <= 2. 
   - a search data structure where searching for a key in the collection should be
