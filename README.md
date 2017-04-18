@@ -6,6 +6,9 @@ A library of some interesting algorithms, data structure implementations or just
     - [Next Permutation in lexicographic ordering](https://github.com/yitongw2/Code/blob/master/README.md#next-permutation-in-lexicographic-ordering)
     - [Graham Scan](https://github.com/yitongw2/Code/blob/master/README.md#graham-scan)
     - [Dynamic Programming](https://github.com/yitongw2/Code/blob/master/README.md#dynamic-programming)
+    - [Graph Algorithm](https://github.com/yitongw2/Code/blob/master/README.md#graph-algorithm)
+      * [DFS vs BFS](https://github.com/yitongw2/Code/blob/master/README.md#depth-first-search)
+      * [Kosaraju algorithm and Tarjan algorithm](https://github.com/yitongw2/Code/blob/master/README.md#strongly-connected-components-kosaraju-and-tarjan-algorithm)
     - [Comparison-based Sorting](https://github.com/yitongw2/Code/blob/master/README.md#comparison-based-sort)
        * [Insertion sort](https://github.com/yitongw2/Code/blob/master/README.md#insertion-sort)
        * [Selection sort](https://github.com/yitongw2/Code/blob/master/README.md#selection-sort)
@@ -19,7 +22,7 @@ A library of some interesting algorithms, data structure implementations or just
     - [CYK algorithm](https://github.com/yitongw2/Code/blob/master/README.md#cyk-algorithm)
     
 - [Data Structure](https://github.com/yitongw2/Code/blob/master/README.md#data-structure)
-    - [Graph]()
+    - [Graph](https://github.com/yitongw2/Code/blob/master/README.md#graph)
     - [Binary Search Tree](https://github.com/yitongw2/Code/blob/master/README.md#binary-search-tree)
     - [AVL Tree](https://github.com/yitongw2/Code/blob/master/README.md#avl-tree)
     - [WAVL Tree](https://github.com/yitongw2/Code/blob/master/README.md#wavl-tree)
@@ -150,7 +153,20 @@ A library of some interesting algorithms, data structure implementations or just
     * 0-1 knapsack problem (more details [here](https://github.com/yitongw2/Code/blob/master/README.md#0-1-knapsack-problem))
     * CYK algorithm (more details [here](https://github.com/yitongw2/Code/blob/master/README.md#cyk-algorithm))              
     
-    
+## Graph Algorithm    
+  ### Depth-first Search
+    - [code](https://github.com/yitongw2/Code/blob/master/algorithm/dfs.py)
+  ### Breadth-first Search 
+    - [code](https://github.com/yitongw2/Code/blob/master/algorithm/bfs.py)
+  ### Strongly Connected Components (Kosaraju and Tarjan algorithm)
+    - definiition
+      * a subgraph where where any two vertices can be reached from each other
+    - to find all strongly connected components
+      * Kosaraju's Algorithm
+      * Tarjan's Algorithm
+      * both run in O(|V|+|E|), but Tarjan's approach works better in practice possibly because Tarjan's approach doesn't need to reverse the graph
+      * [code](https://github.com/yitongw2/Code/blob/master/algorithm/scc.py)
+
 ## Comparison-based sort 
   * Priority-queue sort (concept)
     * idea: to push all elements into a priority queue ranked by their keys and pop from the priority queue.
@@ -385,7 +401,7 @@ A library of some interesting algorithms, data structure implementations or just
     * remove_edge(G, u, v): remove edge (u,v) from graph G
     * get_vertex_value(G, u): get the value assoicated with vertex u
     * set_vertex_value(G, u, val): set the value assocaited with vertex u
-  - [Code]()  
+  - [Code](https://github.com/yitongw2/Code/blob/master/data_structure/graph.py)  
 
 
 

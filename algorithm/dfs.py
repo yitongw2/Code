@@ -22,5 +22,5 @@ def r_dfs(G, v, htable):
 			
 if __name__ == "__main__":
 	G = graph.Graph()
-	labels = G.read_graph_from_file("../others/flights.txt")
-	dfs(G, labels['BOS'])
+	labels = G.read_graph_from_file("../others/num.txt")
+	dfs(G, labels['1'])

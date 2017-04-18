@@ -1,8 +1,8 @@
 
 class Vertex:
-	def __init__(self, info=None):
+	def __init__(self, info=None, v_num=-1):
 		self.info = info
-		self.v_num = -1
+		self.v_num = v_num
 		
 class Edge:
 	def __init__(self, src, dst, weight=0):
@@ -63,6 +63,17 @@ class Graph:
 		return vert and 0<=vert.v_num<len(self._vertices) and \
 		       self._vertices[vert.v_num]
 	
+	def reverse_graph(self):
+		new_g = Graph()
+		new_g._vertices = self._vertices
+		for vert in self._vertices:
+			new_g._edges.append([])
+		for edge in self._edges:
+			for e in edge:
+				new_g.add_edge(e.dst,e.src,e.weight)	
+		return new_g
+		
+
 	def read_graph_from_file(self, fname):
 		dic = dict()
 		with open(fname, "r") as f:
@@ -91,6 +102,8 @@ if __name__ == "__main__":
 	label = G.read_graph_from_file("../others/seattle_map.txt")
 	G.remove_edge(label['50'], label['40th&148th'])
 	print (label)
-	G.print_vertices()
+	#G.print_vertices()
 	G.print_edges()
 	print (G.adjacent(label['27'], label['24th&148th']))
+	ng = G.reverse_graph()
+	ng.print_edges()
