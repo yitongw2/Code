@@ -155,17 +155,17 @@ A library of some interesting algorithms, data structure implementations or just
     
 ## Graph Algorithm    
   ### Depth-first Search
-    - [code](https://github.com/yitongw2/Code/blob/master/algorithm/dfs.py)
+  - [code](https://github.com/yitongw2/Code/blob/master/algorithm/dfs.py)
   ### Breadth-first Search 
-    - [code](https://github.com/yitongw2/Code/blob/master/algorithm/bfs.py)
+  - [code](https://github.com/yitongw2/Code/blob/master/algorithm/bfs.py)
   ### Strongly Connected Components (Kosaraju and Tarjan algorithm)
-    - definiition
-      * a subgraph where where any two vertices can be reached from each other
-    - to find all strongly connected components
-      * Kosaraju's Algorithm
-      * Tarjan's Algorithm
-      * both run in O(|V|+|E|), but Tarjan's approach works better in practice possibly because Tarjan's approach doesn't need to reverse the graph
-      * [code](https://github.com/yitongw2/Code/blob/master/algorithm/scc.py)
+  - definiition
+    * a subgraph where where any two vertices can be reached from each other
+  - to find all strongly connected components
+    * Kosaraju's Algorithm
+    * Tarjan's Algorithm
+    * both run in O(|V|+|E|), but Tarjan's approach works better in practice possibly because Tarjan's approach doesn't need to reverse the graph
+    * [code](https://github.com/yitongw2/Code/blob/master/algorithm/scc.py)
 
 ## Comparison-based sort 
   * Priority-queue sort (concept)
