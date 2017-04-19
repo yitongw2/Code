@@ -1,4 +1,3 @@
-
 class Vertex:
 	def __init__(self, info=None, v_num=-1):
 		self.info = info
@@ -96,7 +95,24 @@ class Graph:
 		for edges in self._edges:
 			for edge in edges:
 				print (edge.src.info, edge.dst.info, edge.weight)
+
+
+
+class UndGraph(Graph):
+	def __init__(self):
+		super().__init__()
 	
+	def add_edge(self, src, dst, weight=0, info=None):
+		# O(1) time
+		if self.vertex_in_graph(src) and self.vertex_in_graph(dst):
+			self._edges[src.v_num].append(Edge(src, dst, weight))
+			self._edges[dst.v_num].append(Edge(dst, src, weight))
+	
+	def remove_edge(self, src, dst):
+		super().remove_edge(src, dst)
+		super().remove_edge(dst, src)		
+	
+
 if __name__ == "__main__":
 	G = Graph()
 	label = G.read_graph_from_file("../others/seattle_map.txt")
