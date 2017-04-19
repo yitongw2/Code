@@ -1,7 +1,8 @@
 class Heap:
-	def __init__(self, array, key=lambda x: x):
-		self.key=key
-		self.heapify(array, 1)
+	def __init__(self, array, key=lambda x:x):
+		self.arr = list(array)
+		self.pri = dict([(x,key(x)) for x in self.arr])
+		self.heapify(self.arr, 1)
 			
 	def heapify(self, arr, index):
 		"""
@@ -41,9 +42,9 @@ class Heap:
 		parent=index
 		left=2*index
 		right=left+1
-		if left<=len(arr) and self.key(arr[left-1])<self.key(arr[parent-1]):		
+		if left<=len(arr) and self.pri[arr[left-1]]<self.pri[arr[parent-1]]:		
 			parent=left
-		if right<=len(arr) and self.key(arr[right-1])<self.key(arr[parent-1]):
+		if right<=len(arr) and self.pri[arr[right-1]]<self.pri[arr[parent-1]]:
 			parent=right
 		if parent!=index:
 			temp=arr[index-1]
@@ -62,39 +63,47 @@ class Heap:
 			done
 		"""
 		parent=int(index/2)
-		if parent>0 and self.key(arr[parent-1])>self.key(arr[index-1]):
+		if parent>0 and self.pri[arr[parent-1]]>self.pri[arr[index-1]]:
 			temp=arr[parent-1]
 			arr[parent-1]=arr[index-1]
 			arr[index-1]=temp
 			self.upward_rotate(arr, parent)	
 
-	def push(self, array, key):
+	def push(self, item, rank):
 		"""	
 		insert an element to the heap.
 		perform an upward rotation if necessary
 		"""
-		array.append(key)
-		self.upward_rotate(array, len(array))
+		self.arr.append(item)
+		self.update(item, rank)	
+		self.upward_rotate(self.arr, len(self.arr))
 	
-	def removeMin(self, array):
+	def removeMin(self):
 		"""
 		remove the smallest  element from the heap.
 		in the meantime, maintain the heap-order property after
 		the removal. 
 		"""
-		temp=array[0]
-		array[0]=array[len(array)-1]
-		array[len(array)-1]=temp
-		array.pop()
-		self.rotate(array, 1)		
+		temp=self.arr[0]
+		self.arr[0]=self.arr[len(self.arr)-1]
+		self.arr[len(self.arr)-1]=temp
+		self.arr.pop()
+		self.rotate(self.arr, 1)		
 		return temp
 	
+	def update(self, item, rank):
+		self.pri[item] = rank
+		self.heapify(self.arr, 1)
+		
+	def size(self):
+		return len(self.arr) 
+	
 if __name__=="__main__":
-	l=[3,2,13,23,1,33,4,6]
+	l=[-1,3,2,13,23,1,33,4,6]
 	heap=Heap(l)
-	heap.push(l, 0)
+	heap.push(0,0)
 	print (l)
-	left=heap.removeMin(l)
-	right=heap.removeMin(l)
+	left=heap.removeMin()
+	right=heap.removeMin()
 	print (l)
 	print (left, right)

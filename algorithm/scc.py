@@ -15,10 +15,9 @@ def kosaraju_scc(G):
 	result = []
 	htable = dict()
 	st = Stack()
-	for v in G._vertices:
+	for v in G.vertices():
 		if not htable.get(v, False):
 			r_dfs(G, v, htable, lambda x:st.push(x))
-	
 	# try on reversed graph
 	htable.clear()
 	rG = G.reverse_graph()
@@ -33,19 +32,25 @@ def kosaraju_scc(G):
 def tar_dfs(G, v, htable, index, st, result):
 	# visit v first, so push v onto stack
 	st.push(v)
+	
 	# mark it as [index, index, True]
 	# now, v has depth of index, can be reached from at least itself and
 	# is already visited
 	htable[v] = [index, index, True]
+	
 	# go to v's neighbors
 	for w, wei in G.neighbors(v):
+
 		# if w is not visited
 		if not htable.get(w, False):
+			
 			# recurse on w
 			tar_dfs(G, w, htable, index+1, st, result)
+			
 			# by transitivity, if w has a smaller lowlink,
 			# update the lowlink
 			htable[v][1] = min(htable[v][1], htable[w][1])
+		
 		elif htable[w][2]:
 			# if w is already visited and w is still on stack
 			# it means we have found a cycle that not yet being
@@ -53,19 +58,19 @@ def tar_dfs(G, v, htable, index, st, result):
 			# from w and w is positioned earlier in dfs-tree that 
 			# the current v's lowlink 
 			htable[v][1] = min(htable[v][1], htable[w][0])
+
 	if htable[v][0] == htable[v][1]:
 		# if index == lowlink, the root of a scc because it can be
 		# reached from the lowest link of itself
-		comp = [v]
+		comp = []
 		while (st.size()>0):
 			root = st.pop()
-			if root == v:
-				break
 			htable[root][2] = False
 			comp.append(root)
+			if root == v:
+				break
 		result.append(comp)
-		
-			
+
 
 def tarjan_scc(G):
 	# keep track of a vertex's depth in the dfs-tree 
@@ -78,7 +83,7 @@ def tarjan_scc(G):
 	st = Stack()
 	# store scc in result
 	result = []
-	for v in G._vertices:
+	for v in G.vertices():
 		if not htable.get(v, False):
 			tar_dfs(G, v, htable, index, st, result)
 	return result
@@ -86,7 +91,9 @@ def tarjan_scc(G):
 if __name__ == "__main__":
 	G = Graph()
 	labels = G.read_graph_from_file("../others/num.txt")
+	print ("Tarjan")
 	for sets in tarjan_scc(G):
 		print ([x.info for x in sets])
+	print ("Kosaraju")
 	for sets in kosaraju_scc(G):
 		print ([x.info for x in sets])
