@@ -1,7 +1,7 @@
 import __init__
 from graph import UndGraph, Vertex, Edge
 from heap import Heap
-
+from union_find import UnionFind
 
 def prim_jarnik_mst(G, s):
 	# cost of each vertex
@@ -24,6 +24,7 @@ def prim_jarnik_mst(G, s):
 		mst.add_vertex(v)
 		if E.get(v, False):
 			mst.add_edge(E[v][0],v,E[v][1])
+			print (E[v][0].info, v.info, E[v][1])
 		for w,wei in G.neighbors(v):
 			if w in pq.arr and C[w]>wei:
 				C[w] = wei
@@ -33,9 +34,31 @@ def prim_jarnik_mst(G, s):
 	return mst
 
 
+def kruskal_mst(G):
+	# initialize union-data structure
+	uf = UnionFind()
+	# undirected graph for minimum spanning tree		
+	mst = UndGraph()
+	# make every vertex as a single cluster
+	for v in G.vertices():
+		uf.makeSet(v)
+		mst.add_vertex(v)
+	
+	# sort all edges by their weight from lowest to highest
+	for e in sorted(G.edges(), key=lambda e:e.weight):
+		# if the two end points of the current edge is not in the 
+		# same cluster, join them together and add this edge into mst
+		if uf.find(e.src) != uf.find(e.dst):
+			uf.union(e.src, e.dst)
+			mst.add_edge(e.src, e.dst, e.weight)
+			print (e.src.info, e.dst.info, e.weight)
+	return mst	
+
 if __name__ == "__main__":
 	G = UndGraph()
 	label = G.read_graph_from_file("../others/num.txt")
 	mst = prim_jarnik_mst(G, label['1'])
 	mst.print_edges()
-		
+	print ()
+	mst = kruskal_mst(G)
+	mst.print_edges()

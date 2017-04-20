@@ -81,6 +81,12 @@ class Graph:
 	def vertices(self):
 		return [x for x in self._adj_list]
 	
+	def edges(self):
+		result = []
+		for edges in self._adj_list.values():
+			result.extend([edge for edge in edges])
+		return result
+
 	def print_vertices(self):
 		print ("Vertices:")
 		for v in self._adj_list:

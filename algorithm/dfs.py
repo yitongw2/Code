@@ -5,10 +5,11 @@ def dfs(G, v=None):
 	if v:
 		vl = [v]
 	else:
-		vl = G._vertices
+		vl = G.vertices()
 	htable = dict()
 	for x in vl:
 		r_dfs(G, x, htable)
+
 
 def r_dfs(G, v, htable):
 	htable[v] = True
@@ -17,8 +18,6 @@ def r_dfs(G, v, htable):
 			htable[w] = True
 			print (v.info, "->", w.info)
 			r_dfs(G, w, htable)
-			
-	
 			
 if __name__ == "__main__":
 	G = graph.Graph()
