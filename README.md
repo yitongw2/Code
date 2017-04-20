@@ -9,6 +9,9 @@ A library of some interesting algorithms, data structure implementations or just
     - [Graph Algorithm](https://github.com/yitongw2/Code/blob/master/README.md#graph-algorithm)
       * [DFS vs BFS](https://github.com/yitongw2/Code/blob/master/README.md#depth-first-search)
       * [Kosaraju algorithm and Tarjan algorithm](https://github.com/yitongw2/Code/blob/master/README.md#strongly-connected-components-kosaraju-and-tarjan-algorithm)
+      * [Minimum Spanning Tree](https://github.com/yitongw2/Code/blob/master/README.md#minimum-spanning-tree)
+        - [Prim-Jarnik Algorithm](https://github.com/yitongw2/Code/blob/master/README.md#prim-jarnik-algorithm)
+        - [Kruskal Algorithm](https://github.com/yitongw2/Code/blob/master/README.md#kruskal-algorithm)
     - [Comparison-based Sorting](https://github.com/yitongw2/Code/blob/master/README.md#comparison-based-sort)
        * [Insertion sort](https://github.com/yitongw2/Code/blob/master/README.md#insertion-sort)
        * [Selection sort](https://github.com/yitongw2/Code/blob/master/README.md#selection-sort)
@@ -22,6 +25,7 @@ A library of some interesting algorithms, data structure implementations or just
     - [CYK algorithm](https://github.com/yitongw2/Code/blob/master/README.md#cyk-algorithm)
     
 - [Data Structure](https://github.com/yitongw2/Code/blob/master/README.md#data-structure)
+    - [Union-Find](https://github.com/yitongw2/Code/blob/master/README.md#union-find)
     - [Graph](https://github.com/yitongw2/Code/blob/master/README.md#graph)
     - [Binary Search Tree](https://github.com/yitongw2/Code/blob/master/README.md#binary-search-tree)
     - [AVL Tree](https://github.com/yitongw2/Code/blob/master/README.md#avl-tree)
@@ -166,7 +170,12 @@ A library of some interesting algorithms, data structure implementations or just
     * Tarjan's Algorithm
     * both run in O(|V|+|E|), but Tarjan's approach works better in practice possibly because Tarjan's approach doesn't need to reverse the graph
     * [code](https://github.com/yitongw2/Code/blob/master/algorithm/scc.py)
-
+### Minimum Spanning Tree
+  ##  Prim-Jarnik Algorithm
+   - (prim_mst)[https://github.com/yitongw2/Code/blob/master/algorithm/mst.py]
+  ## Kruskal Algorithm
+   - (kruskal_mst)[https://github.com/yitongw2/Code/blob/master/algorithm/mst.py]
+    
 ## Comparison-based sort 
   * Priority-queue sort (concept)
     * idea: to push all elements into a priority queue ranked by their keys and pop from the priority queue.
@@ -363,6 +372,10 @@ A library of some interesting algorithms, data structure implementations or just
   - [Code](https://github.com/yitongw2/Code/blob/master/algorithm/cyk.py) 
   
 # Data structure
+## Union-Find
+  - tree-based union-find disjoint set 
+  - any sequence of M union and find operations on N objects takes O(N + MlogN) time
+  - [code](https://github.com/yitongw2/Code/blob/master/data_structure/union_find.py)
 ## Graph
   - consists of a finite set of vertices and a finite set of edges
   - example, road map can thought as a directed graph
