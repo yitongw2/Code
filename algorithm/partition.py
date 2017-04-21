@@ -44,7 +44,7 @@ def partition(lis, low, high):
 	lis[i]=pivot
 	return i
 
-def partitionK(lis,pivot):
+def partitionK(lis,pivot,cmp=lambda x:x):
 	"""
 	complicated version of partition where elements are partitioned into 3 sequences L, G and E in that particular order.
 	it involves 3 different markers i, j and k. the additional marker k is used to mark the area of sequence E.
@@ -59,23 +59,23 @@ def partitionK(lis,pivot):
 			j=k-1
 			continue
 		# item of the left end is smaller than pivot
-		if lis[i]<pivot:	
+		if cmp(lis[i])<cmp(pivot):	
 			# continue move the marker i to the right until a violation is found
 			i+=1
 			continue
 		# item of the right end is greater than pivot
-		if lis[j]>pivot:
+		if cmp(lis[j])>cmp(pivot):
 			# continue move the marker j to the left until a violation is found
 			j-=1
 			continue
 		# item of the left end equals to the pivot
-		if lis[i]==pivot:
+		if cmp(lis[i])==cmp(pivot):
 			# move marker k to the left
 			k-=1
 			# swap the item marked by i with the item marked by k
 			swap(lis,i,k)
 			continue
-		if lis[j]==pivot:
+		if cmp(lis[j])==cmp(pivot):
 			# move marker k to the left
 			k-=1
 			# swap the item marked by j with the item marked by k

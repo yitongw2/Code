@@ -1,16 +1,20 @@
 
 class UnionFind:
-	def __init__(self, set=[]):
+	def __init__(self, clusters=[]):
+		# labels 
+		self.clusters = set(clusters)
+		
 		# uni_set = a dictionary where key is element 
 		# and value is a pair of (label, size)
-		self.uni_set = dict([(x,[x,1]) for x in set])
-	
+		self.uni_set = dict([(x,[x,1]) for x in self.clusters])
+
 	def makeSet(self, e):
 		"""
 		Create a singleton set containing the element e 
 		and return the position storing e in this set
 		"""
 		self.uni_set[e] = [e,1]
+		self.clusters.add(e)
 	
 	def root(self, v):
 		"""
@@ -35,43 +39,59 @@ class UnionFind:
 		if sizeA < sizeB:
 			self.uni_set[rootA][0] = rootB
 			self.uni_set[rootB][1] = sizeA+sizeB  	
+			self.clusters.remove(rootA)
 		else:
 			self.uni_set[rootB][0] = rootA
 			self.uni_set[rootA][1] = sizeA+sizeB
-
+			self.clusters.remove(rootB)
+	
 	def find(self, A):
 		"""
 		Return the set containing the element e
 		"""	
 		return self.root(A)[0]
 	
+	def clusters_size(self):
+		return len(self.clusters)
+	
+	def __iter__(self):
+		for cluster in self.clusters:
+			yield cluster
+	
 	def print(self):
 		for x in self.uni_set:
-			print ("element:", x, " => label:", self.uni_set[x][0],\
-				" size:", self.uni_set[x][1])
-		print ()
+			rootX,sizeX = self.root(x)
+			print ("element:",x," cluster:",rootX," size:",sizeX)
+
 
 if __name__ == "__main__":
 	uf = UnionFind([0,1,2,3,4,5,6,7,8,9])
 	uf.union(3,4)
+	print (3,4)
 	uf.print()
-	print (uf.find(4))
-	print (uf.find(3))
 	uf.union(4,9)
-	print (uf.find(9))
+	print (4,9)
 	uf.print()
 	uf.union(8,0)
+	print (8,0)
 	uf.print()
 	uf.union(2,3)
+	print (2,3)
 	uf.print()
 	uf.union(5,6)
+	print (5,6)
 	uf.print()
+	print (5,9)
 	uf.union(5,9)
 	uf.print()
+	print (7,3)
 	uf.union(7,3)
 	uf.print()
+	print (4,8)
 	uf.union(4,8)
 	uf.print()
+	print (6,1)
 	uf.union(6,1)
+	uf.print()
 	print (uf.find(0))
 	uf.print()

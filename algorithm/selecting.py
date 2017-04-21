@@ -60,6 +60,7 @@ def deterQuickSelect(lis,key):
 
 
 if __name__=="__main__":
+	import sorting
 	SIZE=100
 	RANGE=50
 
@@ -67,8 +68,8 @@ if __name__=="__main__":
 		test_lis=[random.randint(0,SIZE) for x in range(RANGE)]
 		l=[]
 		for r in range(RANGE):	
-			l.append(deterQuickSelect(test_lis,r+1))
-	#	sorting.quickSort(test_lis,0,RANGE-1)
+			l.append(randomQuickSelect(test_lis,r+1))
+	sorting.quickSort(test_lis,0,RANGE-1)
 	print ("RESULT",test_lis==l)
 
 
