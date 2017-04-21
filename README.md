@@ -174,24 +174,27 @@ A library of some interesting algorithms, data structure implementations or just
     * Tarjan's Algorithm
     * both run in O(|V|+|E|), but Tarjan's approach works better in practice possibly because Tarjan's approach doesn't need to reverse the graph
     * [code](https://github.com/yitongw2/Code/blob/master/algorithm/scc.py)
-### Minimum Spanning Tree
-  ##  Prim-Jarnik Algorithm
+    
+## Minimum Spanning Tree
+  ###  Prim-Jarnik Algorithm
   - time complexity : O((m+n)logn)
   - [prim_mst](https://github.com/yitongw2/Code/blob/master/algorithm/mst.py)
-  ## Kruskal Algorithm
+  ### Kruskal Algorithm
   - time complexity : O(mlogn)
   - [kruskal_mst](https://github.com/yitongw2/Code/blob/master/algorithm/mst.py)
-  ## Boruvka Algorithm  
+  ### Boruvka Algorithm  
   - time complexity : O(mlogn)
   - [boruvka_mst](https://github.com/yitongw2/Code/blob/master/algorithm/mst.py)  
-### Shortest Path
-  ## Dijkstra Algorithm
+  
+## Shortest Path
+  ### Dijkstra Algorithm
   - no negative weights
   - [dijkstra_shortest_path](https://github.com/yitongw2/Code/blob/master/algorithm/shortest_path.py)
-  ## Bellman-Ford Algorithm
+  ### Bellman-Ford Algorithm
   - no negative-weight cycle 
   - but can have negative weights
   - [bellman_ford_shortest_path](https://github.com/yitongw2/Code/blob/master/algorithm/shortest_path.py)
+  
 ## Comparison-based sort 
   * Priority-queue sort (concept)
     * idea: to push all elements into a priority queue ranked by their keys and pop from the priority queue.
