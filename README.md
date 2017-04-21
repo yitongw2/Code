@@ -13,6 +13,8 @@ A library of some interesting algorithms, data structure implementations or just
         - [Prim-Jarnik Algorithm](https://github.com/yitongw2/Code/blob/master/README.md#prim-jarnik-algorithm)
         - [Kruskal Algorithm](https://github.com/yitongw2/Code/blob/master/README.md#kruskal-algorithm)
         - [Boruvka Algorithm](https://github.com/yitongw2/Code/blob/master/README.md#boruvka-algorithm)
+      * [Shortest Path](https://github.com/yitongw2/Code/blob/master/README.md#shortest-path)
+        - [Dijkstra Algorithm](https://github.com/yitongw2/Code/blob/master/README.md#dijkstra-algorithm)
     - [Comparison-based Sorting](https://github.com/yitongw2/Code/blob/master/README.md#comparison-based-sort)
        * [Insertion sort](https://github.com/yitongw2/Code/blob/master/README.md#insertion-sort)
        * [Selection sort](https://github.com/yitongw2/Code/blob/master/README.md#selection-sort)
@@ -181,6 +183,14 @@ A library of some interesting algorithms, data structure implementations or just
   ## Boruvka Algorithm  
   - time complexity : O(mlogn)
   - [boruvka_mst](https://github.com/yitongw2/Code/blob/master/algorithm/mst.py)  
+### Shortest Path
+  ## Dijkstra Algorithm
+  - no negative weights
+  - [dijkstra_shortest_path](https://github.com/yitongw2/Code/blob/master/algorithm/shortest_path.py)
+  ## Bellman-Ford Algorithm
+  - no negative-weight cycle 
+  - but can have negative weights
+  - [bellman_ford_shortest_path](https://github.com/yitongw2/Code/blob/master/algorithm/shortest_path.py)
 ## Comparison-based sort 
   * Priority-queue sort (concept)
     * idea: to push all elements into a priority queue ranked by their keys and pop from the priority queue.
