@@ -12,6 +12,7 @@ A library of some interesting algorithms, data structure implementations or just
       * [Minimum Spanning Tree](https://github.com/yitongw2/Code/blob/master/README.md#minimum-spanning-tree)
         - [Prim-Jarnik Algorithm](https://github.com/yitongw2/Code/blob/master/README.md#prim-jarnik-algorithm)
         - [Kruskal Algorithm](https://github.com/yitongw2/Code/blob/master/README.md#kruskal-algorithm)
+        - [Boruvka Algorithm](https://github.com/yitongw2/Code/blob/master/README.md#boruvka-algorithm)
     - [Comparison-based Sorting](https://github.com/yitongw2/Code/blob/master/README.md#comparison-based-sort)
        * [Insertion sort](https://github.com/yitongw2/Code/blob/master/README.md#insertion-sort)
        * [Selection sort](https://github.com/yitongw2/Code/blob/master/README.md#selection-sort)
@@ -172,10 +173,14 @@ A library of some interesting algorithms, data structure implementations or just
     * [code](https://github.com/yitongw2/Code/blob/master/algorithm/scc.py)
 ### Minimum Spanning Tree
   ##  Prim-Jarnik Algorithm
-   - (prim_mst)[https://github.com/yitongw2/Code/blob/master/algorithm/mst.py]
+  - time complexity : O((m+n)logn)
+  - [prim_mst](https://github.com/yitongw2/Code/blob/master/algorithm/dfs.py)
   ## Kruskal Algorithm
-   - (kruskal_mst)[https://github.com/yitongw2/Code/blob/master/algorithm/mst.py]
-    
+  - time complexity : O(mlogn)
+  - [kruskal_mst](https://github.com/yitongw2/Code/blob/master/algorithm/mst.py)
+  ## Boruvka Algorithm  
+  - time complexity : O(mlogn)
+  - [boruvka_mst](https://github.com/yitongw2/Code/blob/master/algorithm/mst.py)  
 ## Comparison-based sort 
   * Priority-queue sort (concept)
     * idea: to push all elements into a priority queue ranked by their keys and pop from the priority queue.
