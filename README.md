@@ -15,6 +15,7 @@ A library of some interesting algorithms, data structure implementations or just
         - [Boruvka Algorithm](https://github.com/yitongw2/Code/blob/master/README.md#boruvka-algorithm)
       * [Shortest Path](https://github.com/yitongw2/Code/blob/master/README.md#shortest-path)
         - [Dijkstra Algorithm](https://github.com/yitongw2/Code/blob/master/README.md#dijkstra-algorithm)
+        - [Bellman-Ford Algorithm](https://github.com/yitongw2/Code/blob/master/README.md#bellman-ford-algorithm)
     - [Comparison-based Sorting](https://github.com/yitongw2/Code/blob/master/README.md#comparison-based-sort)
        * [Insertion sort](https://github.com/yitongw2/Code/blob/master/README.md#insertion-sort)
        * [Selection sort](https://github.com/yitongw2/Code/blob/master/README.md#selection-sort)
