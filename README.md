@@ -174,7 +174,7 @@ A library of some interesting algorithms, data structure implementations or just
 ### Minimum Spanning Tree
   ##  Prim-Jarnik Algorithm
   - time complexity : O((m+n)logn)
-  - [prim_mst](https://github.com/yitongw2/Code/blob/master/algorithm/dfs.py)
+  - [prim_mst](https://github.com/yitongw2/Code/blob/master/algorithm/mst.py)
   ## Kruskal Algorithm
   - time complexity : O(mlogn)
   - [kruskal_mst](https://github.com/yitongw2/Code/blob/master/algorithm/mst.py)
