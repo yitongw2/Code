@@ -1,4 +1,4 @@
-import __init__
+from __init__ import *
 from graph import UndGraph, Vertex, Edge
 from heap import Heap
 from union_find import UnionFind
@@ -13,7 +13,7 @@ def prim_jarnik_mst(G, s):
 		if v == s:
 			C[v] = 0
 		else:
-			C[v] = 99999
+			C[v] = MAX
 	# priority queue 
 	pq = Heap(G.vertices(), lambda x:C[x])
 	# MST graph
