@@ -8,7 +8,7 @@ A library of some interesting algorithms, data structure implementations or just
     - [Dynamic Programming](https://github.com/yitongw2/Code/blob/master/README.md#dynamic-programming)
     - [Graph Algorithm](https://github.com/yitongw2/Code/blob/master/README.md#graph-algorithm)
       * [DFS vs BFS](https://github.com/yitongw2/Code/blob/master/README.md#depth-first-search)
-      * [Kosaraju algorithm and Tarjan algorithm](https://github.com/yitongw2/Code/blob/master/README.md#strongly-connected-components-kosaraju-and-tarjan-algorithm)
+      * [Connectivity](https://github.com/yitongw2/Code/blob/master/README.md#connectivity)
       * [Minimum Spanning Tree](https://github.com/yitongw2/Code/blob/master/README.md#minimum-spanning-tree)
         - [Prim-Jarnik Algorithm](https://github.com/yitongw2/Code/blob/master/README.md#prim-jarnik-algorithm)
         - [Kruskal Algorithm](https://github.com/yitongw2/Code/blob/master/README.md#kruskal-algorithm)
@@ -166,12 +166,50 @@ A library of some interesting algorithms, data structure implementations or just
   - [code](https://github.com/yitongw2/Code/blob/master/algorithm/dfs.py)
   ### Breadth-first Search 
   - [code](https://github.com/yitongw2/Code/blob/master/algorithm/bfs.py)
-  ### Strongly Connected Components (Kosaraju and Tarjan algorithm)
-  - definiition
+  ### Connectivity
+  - Connected
+    * a graph is connected when any node can be reached from any other nodes
+    * graph with 1 node is connected or even empty is connected
+  - Biconnected
+    * a graph is biconnected if the graph is connected and removing any single node won't disconnect the graph
+    * stronger than connected
+    * essentially, for any two nodes, there exists at least 2 disjoint path between them (so that removing any single node
+    on either path won't disconnect them)
+    * <node1 -- node2> is biconnected because removing one will make a single node, which is connected to itself.
+  - Strongly Connected Components
     * a subgraph where where any two vertices can be reached from each other
+    * articulation point : if an articulation point is removed, a connected componnent will be disconnected
   - to find all strongly connected components
     * Kosaraju's Algorithm
     * Tarjan's Algorithm
+        - each node v keeps (index, lowlink, onstack)
+            * index : the depth of v in dfs tree
+            * lowlink : the node that could reach v with the lowest index
+            * onstack : is the node pushed onto stack
+        - pesudocode
+                
+                           s = empty stack
+                           index = 0
+                           visited = empty dict
+                           def recur_tarjan(G, v, index):
+                                v.index = index
+                                v.lowlink = index
+                                s.push(v)
+                                ++index
+                                v.onstack = true
+                                for w that v->w:
+                                    if w is not visited:
+                                        recur_tarjan(G, w, index)
+                                        v.lowlink = min(v.lowlink, w.lowlink)
+                                    else if w is on stack s:
+                                        v.lowlink = min(v.lowlink, w.index)
+                                if v.index != v.lowlink:
+                                    reqeat until v is on top of stack:
+                                        top = s.top()
+                                        remove top from s
+                                        add to a collection of connected components                    
+                                
+                           
     * both run in O(|V|+|E|), but Tarjan's approach works better in practice possibly because Tarjan's approach doesn't need to reverse the graph
     * [code](https://github.com/yitongw2/Code/blob/master/algorithm/scc.py)
     
