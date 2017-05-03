@@ -16,6 +16,7 @@ A library of some interesting algorithms, data structure implementations or just
       * [Shortest Path](https://github.com/yitongw2/Code/blob/master/README.md#shortest-path)
         - [Dijkstra Algorithm](https://github.com/yitongw2/Code/blob/master/README.md#dijkstra-algorithm)
         - [Bellman-Ford Algorithm](https://github.com/yitongw2/Code/blob/master/README.md#bellman-ford-algorithm)
+      * [All-Pairs Shortest Paths](https://github.com/yitongw2/Code/blob/master/README.mdall-pairs-shortest-paths)
     - [Comparison-based Sorting](https://github.com/yitongw2/Code/blob/master/README.md#comparison-based-sort)
        * [Insertion sort](https://github.com/yitongw2/Code/blob/master/README.md#insertion-sort)
        * [Selection sort](https://github.com/yitongw2/Code/blob/master/README.md#selection-sort)
@@ -270,8 +271,19 @@ A library of some interesting algorithms, data structure implementations or just
   - O(m) : find the mim weighted edge
   - time complexity : O(mlogn)
   - [boruvka_mst](https://github.com/yitongw2/Code/blob/master/algorithm/mst.py)  
+ 
+## Shortest Path
+  ### Dijkstra Algorithm
+  - no negative weights
+  - [dijkstra_shortest_path](https://github.com/yitongw2/Code/blob/master/algorithm/shortest_path.py)
+  ### Bellman-Ford Algorithm
+  - no negative-weight cycle 
+  - but can have negative weights
+  - [bellman_ford_shortest_path](https://github.com/yitongw2/Code/blob/master/algorithm/shortest_path.py)
+  
   ### All-Pairs Shortest Paths
   - Floyd–Warshall algorithm
+    * negative weights allowed, but no negative-weighted cycle
     * pesudocode
                             
                             T = 2D-matrix table (n x n matrix)
@@ -285,18 +297,58 @@ A library of some interesting algorithms, data structure implementations or just
                                         if T[i][j] > T[i][k]+T[k][j]:
                                             T[i][j] = T[i][k]+T[k][j]
          
-    * time complexity : O(n^3)            
+    * time complexity : O(n^3)     
+  - Johnson algorithm
+    * negative weights allowed, but no negative-weighted cycle
+    * idea:
+        - all pair shortest path using n Dijkstra is still cheaper than Floyd-Warshall = O(n(m+n)logn) < O(n^3)
+        - but Dijkstra can't handle negative edges
+        - first, add a new vertex q and connect it to every vertices in G with edges of weight 0
+        - so we use Bellman-Ford to transform the graph to reweight edges by the shortest distance assigned by Bellman-Ford
+            * after BF, each vertex is assigned a value representing the shortest distance from q to this vertex
+            * reweight an edge(u,v) by weight(u,v)+D[u]-D[v]
+        - after eliminating negative edges, perform all-pairs Dijkstra algorithm.
+    * pesudocode
                             
-
-  
-## Shortest Path
-  ### Dijkstra Algorithm
-  - no negative weights
-  - [dijkstra_shortest_path](https://github.com/yitongw2/Code/blob/master/algorithm/shortest_path.py)
-  ### Bellman-Ford Algorithm
-  - no negative-weight cycle 
-  - but can have negative weights
-  - [bellman_ford_shortest_path](https://github.com/yitongw2/Code/blob/master/algorithm/shortest_path.py)
+                          add a new vertex q into G
+                          D = empty dict
+                          for every vertex v in G:
+                            add an edge (q,v) with a weight of 0 to G
+                            D[v] = infinity 
+                          // Bellman-Ford   
+                          for each vertex v in G:
+                            for each edge (v,w) in G:
+                                if D[w] > D[v]+weight(v,w):
+                                    D[w] = D[v]+weight(v,w)
+                          // reweight          
+                          for every edge (u,w) in G:
+                            weight(u,w) = weight(u,w)+D[u]-D[w]
+                          remove q from G (and all its incident edges)
+                          
+                          // n x Dijkstra
+                          T = 2D matrix (nxn)
+                          for every vertex v in G:
+                            D = empty dict
+                            P = empty dict
+                            Q = prioity queue with all vertices and D[v] as key
+                            D[v] = 0
+                            P[v] = v
+                            for every vertex w in G:
+                                D[w] = infinity
+                                P[w] = None
+                            while (Q is not empty):
+                                w = Q.removeMin()
+                                for w->x:
+                                    if D[x] > D[w]+weight(w,x):
+                                        D[x] = D[w]+weight(w,x)
+                                        P[x] = w
+                            for every vertex w in D:
+                                T[P[w]][w] = D[w]
+                                
+                            output T
+         
+    * time complexity : O(nm+n(n+m)logn) usinf adj list and binary heap
+                   
   
 ## Comparison-based sort 
   * Priority-queue sort (concept)
