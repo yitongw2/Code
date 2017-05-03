@@ -270,6 +270,24 @@ A library of some interesting algorithms, data structure implementations or just
   - O(m) : find the mim weighted edge
   - time complexity : O(mlogn)
   - [boruvka_mst](https://github.com/yitongw2/Code/blob/master/algorithm/mst.py)  
+  ### All-Pairs Shortest Paths
+  - Floyd–Warshall algorithm
+    * pesudocode
+                            
+                            T = 2D-matrix table (n x n matrix)
+                            for each vertex v in G:
+                                T[v][v] = 0
+                            for each edge (u,w) in G:
+                                T[u][w] = weight(u,w)
+                            for k=0->n:
+                                for i=0->n:
+                                    for j=0->n:
+                                        if T[i][j] > T[i][k]+T[k][j]:
+                                            T[i][j] = T[i][k]+T[k][j]
+         
+    * time complexity : O(n^3)            
+                            
+
   
 ## Shortest Path
   ### Dijkstra Algorithm
