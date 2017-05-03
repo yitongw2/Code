@@ -215,6 +215,31 @@ A library of some interesting algorithms, data structure implementations or just
     
 ## Minimum Spanning Tree
   ###  Prim-Jarnik Algorithm
+  - pesudocode
+    
+                            def prim(G,v):
+                                    D = empty dictionary for distqances
+                                    P = empty dictionary for parents
+                                    D[v] = 0
+                                    P[v] = v
+                                    for vertex w != v:
+                                        D[w] = infinity
+                                        P[w] = None
+                                    PQ = priority queue with all vertices in G order by their distances
+                                    while (PQ is not empty):
+                                       w = PQ.removeMin()
+                                       for u that w->u:
+                                            if D[u] > D[w]+weight(w,u):
+                                                D[u] = weight(w,u)
+                                                P[u] = w
+                                                update D[u] in PQ
+                                    output D, P 
+                                   
+  - constructing a binary heap : O(n)
+  - n iterations
+    * removeMin() : O(logn)
+  - m edges
+    * update distance in priority queue : O(logn)
   - time complexity : O((m+n)logn)
   - [prim_mst](https://github.com/yitongw2/Code/blob/master/algorithm/mst.py)
   ### Kruskal Algorithm
