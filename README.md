@@ -203,7 +203,7 @@ A library of some interesting algorithms, data structure implementations or just
                                         v.lowlink = min(v.lowlink, w.lowlink)
                                     else if w is on stack s:
                                         v.lowlink = min(v.lowlink, w.index)
-                                if v.index != v.lowlink:
+                                if v.index = v.lowlink:
                                     reqeat until v is on top of stack:
                                         top = s.top()
                                         remove top from s
@@ -243,9 +243,31 @@ A library of some interesting algorithms, data structure implementations or just
   - time complexity : O((m+n)logn)
   - [prim_mst](https://github.com/yitongw2/Code/blob/master/algorithm/mst.py)
   ### Kruskal Algorithm
+  - pesudocode
+  
+                    U = a collection of clusters where each vertex is a cluster
+                    while (U has more than 1 cluster):
+                        sort edges by weights
+                        for each edge (u,w) in edges:
+                            if u and w not in the same cluster:
+                                join u and w as 1 cluster
+                                output (u,w)
+                                
+  
   - time complexity : O(mlogn)
   - [kruskal_mst](https://github.com/yitongw2/Code/blob/master/algorithm/mst.py)
   ### Boruvka Algorithm  
+  - pesudocode
+  
+                        U = a collection of clusters where each vertex is a cluster
+                        while (there is more than 1 cluster in U):
+                            for each cluster c in U:
+                                find the cheapest edge e going from c to another cluster d
+                                join cluster c and d as 1 cluster
+                                output this edge e 
+  
+  - O(logn) iterations : since every iteration join 2 clusters
+  - O(m) : find the mim weighted edge
   - time complexity : O(mlogn)
   - [boruvka_mst](https://github.com/yitongw2/Code/blob/master/algorithm/mst.py)  
   
