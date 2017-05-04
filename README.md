@@ -247,12 +247,11 @@ A library of some interesting algorithms, data structure implementations or just
   - pesudocode
   
                     U = a collection of clusters where each vertex is a cluster
-                    while (U has more than 1 cluster):
-                        sort edges by weights
-                        for each edge (u,w) in edges:
-                            if u and w not in the same cluster:
-                                join u and w as 1 cluster
-                                output (u,w)
+                    sort edges by weights
+                    for each edge (u,w) in edges:
+                        if u and w not in the same cluster:
+                            join u and w as 1 cluster
+                            output (u,w)
                                 
   
   - time complexity : O(mlogn)
