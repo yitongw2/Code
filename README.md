@@ -3,6 +3,7 @@ A library of some interesting algorithms, data structure implementations or just
 
 ## Index
 - [Algorithm](https://github.com/yitongw2/Code/blob/master/README.md#algorithm)
+    - [Knuth–Morris–Pratt string searching algorithm](https://github.com/yitongw2/Code/blob/master/README.md#kmp)
     - [Next Permutation in lexicographic ordering](https://github.com/yitongw2/Code/blob/master/README.md#next-permutation-in-lexicographic-ordering)
     - [Graham Scan](https://github.com/yitongw2/Code/blob/master/README.md#graham-scan)
     - [Dynamic Programming](https://github.com/yitongw2/Code/blob/master/README.md#dynamic-programming)
@@ -50,7 +51,17 @@ A library of some interesting algorithms, data structure implementations or just
     - [Matrix Determinant](https://github.com/yitongw2/Code/blob/master/README.md#matrix-determinant)
       
 
-# Algorithm 
+# Algorithm
+##  KMP
+  - used to find the index of a substring of a string. 
+  - idea is to keep a failure table that keeps track of the prefix searched so far so that we don't have to go back and forth in text to search the string.
+  - for example,  text = "ADEDADEADFADEADCD", string = "ADEADC"
+    * when we search for A (text[0]) -> D (text[1]) -> E (text[2]) matches in text and string, but D (text[3]) - A (string[3]) mismatches. we don't want to go back to D (text[1]) but continue from current position D (text[3]). 
+    * since we have already matached first 3 chars of string, we can strart rematching from text[3] and string[0].
+    * however, if the prefix is also a suffix, when we are matching the suffix of the string, it is possible that this the new start of the string in text, so we don't reset string[j] to the begining but after the prefix. 
+    * e.g. A (text[0]) -> D (text[1]) -> E (text[2]) -> A (text[3]) -> D(text[4]) -> F(text[5]), mismatch : F (text[5]) - C (string[5]).
+    * in this case, prefix = AD = suffix for substring 'ADEAD', to continue, can't set back to 0 but set to one after prefix
+  - [code](https://github.com/yitongw2/Code/blob/master/algorithm/kmp.cpp)
 ##  Next Permutation in lexicographic ordering
   - permutation in lexicographic ordering
     * ABC is in non-decreasing lexicographical ordering
