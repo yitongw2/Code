@@ -49,6 +49,7 @@ A library of some interesting algorithms, data structure implementations or just
     - [Longest common sequence](https://github.com/yitongw2/Code/blob/master/README.md#longest-common-sequence)
     - [2 Sum problem](https://github.com/yitongw2/Code/blob/master/README.md#2-sum)
     - [Matrix Determinant](https://github.com/yitongw2/Code/blob/master/README.md#matrix-determinant)
+    - [25. Reverse Nodes in k-Group](https://github.com/yitongw2/Code/blob/master/README.md#reverse-nodes-in-k-group-25)
       
 
 # Algorithm
@@ -966,6 +967,80 @@ A library of some interesting algorithms, data structure implementations or just
                          {recurrence : cofactor1*det(submatrix1)+...cofactork*det(submatrixk)}
     - [Code](https://github.com/yitongw2/Code/blob/master/algorithm/matrix_determinant.py)
   
+
+## 25. Reverse Nodes in k-Group
+- Given a linked list, reverse the nodes of a linked list k at a time and return its modified list.
+- k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is.
+* Idea:
+    *  this is essentially reversing linked list by segments
+    *  the core action is reverse a linked list
+    *  the problem is how to manage segments between reversion
+* Reverse a linked list
+        
+            func reverseLL(head):
+                tail = getTail(head) // get the tail of the linked list (usually a null value representing the end)
+                while (head is not null):
+                    tmp = head.next // remember the next node in the list
+                    head.next = tail // reversing the first node (by connecting it to the tail node)
+                    tail = head // now the new tail of the LL should be the old head
+                    head = tmp // move the head to next node by the original order
+                return tail // by the time when head is null, the tail is now the new head
+
+*   Segments are also easy to handle because after reversing a segment, we will have the access to the head, which is also the new start of the next segment. We can simply start reversing again on the next segment.
+*   How to connect these reversed segments
+    a.   **Recursive**
+
+                func reverseKGroup(head, k):
+                    tail = head
+                    count = 0
+                    while (tail is not null and count < k):
+                        tail = tail.next
+                        count++
+                    
+                    if count < k:
+                        return head
+                    else:
+                        tail = reverseKGroup(tail, k)
+                        while (count > 0):
+                            tmp = head.next
+                            head.next = tail
+                            tail = head
+                            head = tmp
+                            count--
+                        return tail
+                        
+  
+    b.   **Iterative**
+    
+            func reverseKGroup(head, k):
+                dmy = ListNode()
+                dmy.next = head
+                tmp_pre = dmy
+                while (head is not null):
+                    pre = tmp_pre
+                    tail = head
+                    count = 0
+                    while (tail is not null and count < k):
+                        tail = tail.next
+                        count++
+                        
+                    if count < k:
+                        tmp_pre.next = head
+                        head = tail
+                    else:
+                        pre = head
+                        while (count > 0):
+                            tmp = head.next
+                            head.next = tail
+                            tail = head
+                            pre = head // different
+                            head = tmp
+                            count--
+                            
+                        tmp_pre.next = tail
+                        tmp_pre = pre
+                        
+                return dmy.next        
   
   
   
